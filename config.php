@@ -6,6 +6,7 @@ class BancodeDados{
     private $banco = "escola_tcc";
     public $con;
     
+    
     function conecta(){
     $this->con = @mysqli_connect($this->host,$this->user,$this->senha, $this->banco);
         if(!$this->con){
