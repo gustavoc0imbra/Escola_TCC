@@ -35,6 +35,8 @@ class BancodeDados{
         } 
         $this->fechar();
         return $dados;
+
+        
     }
     function sqlstring($string,$texto){
         $resultado = @mysqli_query($this->con, $string);
