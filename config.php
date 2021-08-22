@@ -6,7 +6,6 @@ class BancodeDados{
     private $banco = "escola_tcc";
     public $con;
     
-    
     function conecta(){
     $this->con = @mysqli_connect($this->host,$this->user,$this->senha, $this->banco);
         if(!$this->con){
@@ -35,8 +34,6 @@ class BancodeDados{
         } 
         $this->fechar();
         return $dados;
-
-        
     }
     function sqlstring($string,$texto){
         $resultado = @mysqli_query($this->con, $string);
