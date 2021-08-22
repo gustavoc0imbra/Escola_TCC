@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <DOCYTIPE html>
     <html lang="pt-br">
         <head>
