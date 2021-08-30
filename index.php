@@ -22,7 +22,8 @@
      </style>
     </head>
     <?php
-         include ("config.php");
+         include ("conecta.php");
+         
      ?>
      <body>
         <form align="center" id="formslogin" action="login.php" method="POST">
@@ -32,9 +33,9 @@
                   <option value="responsavel">Responsável</option>
                   <option value="adm">Administrador</option>
              </select> -->
-             <input type="text" class="userLogin" placeholder="Usuário (Seu código)" name="codAluno">
+             <input type="text" placeholder="Usuário (Seu código)" name="codAluno">
              <br>
-             <input type="password" class="password" placeholder="Senha de usuário" name="senhaAluno">
+             <input type="password" placeholder="Senha de usuário" name="senhaAluno">
              <br>
              <input href="login.php" type="submit" value="Entrar" placeholder="Entrar">
              <input type="reset" value="Cancelar">
