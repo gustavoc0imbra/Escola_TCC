@@ -6,6 +6,7 @@
      <link rel="stylesheet" href="main.css">
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
      <style>
           form{
                position: absolute;
@@ -21,10 +22,6 @@
           }
      </style>
     </head>
-    <?php
-         include ("conecta.php");
-         
-     ?>
      <body>
         <form align="center" id="formslogin" action="login.php" method="POST">
              <!--<select>
@@ -37,7 +34,7 @@
              <br>
              <input type="password" placeholder="Senha de usuário" name="senhaAluno">
              <br>
-             <input href="login.php" type="submit" value="Entrar" placeholder="Entrar">
+             <input type="submit" value="Entrar" placeholder="Entrar">
              <input type="reset" value="Cancelar">
        </form>
        <footer align="center">

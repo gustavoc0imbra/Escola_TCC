@@ -1,0 +1,26 @@
+#navbarAluno{
+list-style-type: none;
+margin: 0;
+padding: 0;
+width: 5%;
+position: absolute;
+}
+li{
+    display: block;
+    background-color: rgb(90, 162, 245);
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+#navbarProf{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 5%;
+    position: absolute;
+    top: 50%;
+}
+#navbarProf.li{
+    display: block;
+    background-color: lightskyblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
