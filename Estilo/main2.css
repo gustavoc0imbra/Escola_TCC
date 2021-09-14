@@ -1,0 +1,130 @@
+/* Início customização navbar do Aluno */
+#navbarAluno{
+list-style-type: none;
+margin: 0; padding: 0;
+width: 15%;
+position: absolute;
+height: 100%;
+float: left;
+}
+ul{
+    display: block;
+    background-color: white;
+    font-family: 'Roboto Mono', monospace;
+    left: 0%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    position: relative;
+}
+#searchbar{
+    position: relative;
+    height: 2%;
+    width: 100%;
+}
+/* Navbar Aluno */
+img{
+    position: absolute;
+    top: 87.5%;
+}
+body{
+    background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(0,212,255,1) 35%, rgba(0,153,255,1) 100%);
+}
+#centroInfo{
+    position: relative;
+    top: 50%;
+}
+#content-boxes-1{
+        width: 320px;
+        padding: 4px;
+        border: 5px solid rgb(0, 4, 255);
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+        left: 30%;
+        list-style-type: none;
+}
+#content-boxes-1:hover{
+    background-color: rgb(255, 255, 255);
+}
+#verNotas{
+    background: none;
+}
+
+#content-boxes-2{
+    width: 320px;
+        padding: 4px;
+        border: 5px solid rgb(0, 4, 255);
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+        left: 60%;
+        list-style-type: none;
+}
+#content-boxes-2:hover{
+    background-color: rgb(255, 255, 255);
+}
+#verFrequencia{
+    background: none;
+}
+#avisos{
+        width: 320px;
+        padding: 4px;
+        border: 5px solid rgb(0, 4, 255);
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+        left: 30%;
+        top: 55%;
+        background-color: white;
+        list-style-type: none;
+}
+#content-boxes-4{
+        width: 320px;
+        padding: 4px;
+        border: 5px solid rgb(0, 4, 255);
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+        left: 60%;
+        top: 50%;
+        list-style-type: none;
+        transition-duration: 0.4s;
+}
+#content-boxes-4:hover{
+        background-color: white;
+}
+#acervo{
+    background: none;
+}
+#logoutBtn{
+    top: 89.5%;
+    position: absolute;
+}
+#iconOut{
+    top: 90%;
+    position: absolute;
+    left: 40%;
+}
+#rodape{
+    top: 97%;
+    position: absolute;
+    left: 50%;
+}
+/* Navbar Prof */
+#navbarProf{
+    list-style-type: none;
+    margin: 0; padding: 0;
+    width: 15%;
+    position: absolute;
+    height: 100%;
+    float: left;
+}
+#navbarProfessor{
+    display: block;
+    background-color: white;
+    font-family: 'Roboto Mono', monospace;
+    left: 0%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    position: relative;
+}

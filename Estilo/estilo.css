@@ -1,1 +1,13 @@
 /* style */
+body{
+    background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(0,212,255,1) 35%, rgba(0,153,255,1) 100%);
+}
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+#formsCadastro{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}

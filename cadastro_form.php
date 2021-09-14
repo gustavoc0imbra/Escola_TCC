@@ -1,5 +1,8 @@
+<head>
+
+</head>
 <h1>Novo Cadastro</h1>
-<form action="Cadastro.php" method="post">
+<form id="formsCadastro" action="Cadastro.php" method="post">
     <table>
         Tipo de Cadastro:<br><select class="caixa_texto" name="tipo" id="tipo" onchange="functionCadastro()">
                     <option value="" selected disabled="disabled">Selecione seu tipo de cadastro</option>

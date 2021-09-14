@@ -41,7 +41,7 @@
                                 
                                 if(testarhash($s,$reg->senhaAluno)){
                                     
-                                    ?> <script> window.location.href = 'index.php' </script>
+                                    ?> <script> window.location.href = 'index2.php' </script>
                                     <?php
                                     $_SESSION['user'] = $reg->codAluno;
                                     $_SESSION['nome'] = $reg->nomeAluno;

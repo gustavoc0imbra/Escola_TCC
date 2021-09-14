@@ -6,4 +6,16 @@ body{
 btn1{
     border: 2px #0040f1  ridge;
 }
-
+#formslogin{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+#rodape{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    text-align: center;
+}
