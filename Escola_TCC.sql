@@ -1,4 +1,4 @@
-
+ 
 create database Escola_TCC;
 use escola_tcc;
 
