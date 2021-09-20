@@ -1,4 +1,3 @@
- 
 create database Escola_TCC;
 use escola_tcc;
 
@@ -25,9 +24,21 @@ VALUES (4, 4,0.52,2);
 /* alteração nas tabelas seguintes */
 alter table armazinfo change `(FK)codDisciplina` FKcodDisciplina varchar(45) NOT NULL;
 alter table responsaveis change `(FK)senhaAluno` FKsenhaAluno varchar(20) NOT NULL;
-alter table estudante add imagemEstudante varbinary()
+alter table estudante add imagemEstudante BLOB;
 
-DELETE FROM armazinfo
-WHERE notaAluno = 4.2;
+alter table estudante drop column imagemEstudante;
+alter table estudante add imagemEstudante varchar(50);
+alter  table professor drop column codDisciplina;
+
+/* alterações feitas no banco dia 20/09 */
+alter table professor add codDisciplina int(11);
+alter table professor  add foreign key (codDisciplina) references disciplina(codDisciplina);
+/* alterações feitas no banco dia 20/09 */
+
+update estudante set imagemEstudante = 'Imagens/kevin.png' where codAluno = '4';
+
+insert into disciplina (codDisciplina, nomeDisciplina) values ('1', 'Matemática');
+
+insert into estudante (imagemEstudante) values ("c:/xampp/htdocs/Escola_TCC/Imagens/kevin.png");
 
 select * from armazinfo;

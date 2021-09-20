@@ -18,7 +18,7 @@
                 
                     if(!empty($_POST['logout'])){
                         logout();
-                        echo "deslogado com sucesso!";
+                        echo "<script>alert.deslogado com sucesso!</script>";
                     }
                 
                     $tipo = $_POST['tipo'] ?? null;
@@ -70,7 +70,7 @@
                                     
                                     if(testarhash($s,$reg->senhaProf)){
                                         
-                                        ?> <script>window.location.href = "index.php" </script>
+                                        ?> <script>window.location.href = "index2.php" </script>
                                         <?php 
                                         $_SESSION['user'] = $reg->codProf;
                                         $_SESSION['nome'] = $reg->nomeProf;
@@ -100,7 +100,7 @@
                                     
                                     if(testarhash($s,$reg->senhaResponsavel)){
                                         
-                                        ?> <script>window.location.href = "index.php" </script>
+                                        ?> <script>window.location.href = "index2.php" </script>
                                         <?php 
                                         $_SESSION['user'] = $reg->codResponsavel;
                                         $_SESSION['nome'] = $reg->nomeResponsavel;
@@ -130,7 +130,7 @@
                                     
                                     if(testarhash($s,$reg->senhaAdm)){
                                         
-                                        ?> <script>window.location.href = "index.php" </script>
+                                        ?> <script>window.location.href = "index2.php" </script>
                                         <?php 
                                         $_SESSION['user'] = $reg->codAdm;
                                         $_SESSION['nome'] = $reg->nomeAdm;
