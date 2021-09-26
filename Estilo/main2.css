@@ -154,3 +154,7 @@ h1{
     top: 0%;
     left: 30%;
 }
+#centroInfoProfessor{
+    position: relative;
+    top: 50%;
+}

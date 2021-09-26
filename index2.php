@@ -15,7 +15,7 @@
                 <div id="conteudo-menu-1">
                  <li><input id="searchbar" type="text" placeholder="Procurar..."></li>
                  <li><a href="notas.php">Ver notas</a></li>
-                 <li><a href="">Frequências</a></li>
+                 <li><a href="freqselecprof.php">Frequências</a></li>
                  <li><a href="">Acervo</a></li>
                  <li><a href="" >Avisos da escola</a></li>
                  <li id='userNav'><?php echo $nome.("<br> Bem vindo!");?></li>
@@ -34,7 +34,7 @@
             <li id="verNotas"><a href="notas.php">Veja suas notas</a></li>
             </div>
             <div id="content-boxes-2">
-            <li id="verFrequencia"><a href="">Veja sua frequência aqui</a></li>
+            <li id="verFrequencia"><a href="freqselecprof.php">Veja sua frequência aqui</a></li>
             </div>
             <div id="content-boxes-3">
                 <li id="avisos">
@@ -50,20 +50,40 @@
         </div> <?php
         }elseif ($tipousuario == 'professor'){
             ?>
-            <!--<div id="navbarProf">
+            <div id="navbarProf">
                 <ul id="navbarProfessor">
                     <div id="conteudo-menu-2">
                      <li><input id="searchbar" type="text" placeholder="Procurar..."></li>
                      <li><a href="">Enviar Notas</a></li>
-                     <li><a href="">Enivar Frequências</a></li>
+                     <li><a href="freqselecprof.php">Enivar Frequências</a></li>
                      <li><a href="">Acervo</a></li>
-                     <span><img id="userImage" src="$busca"></span>
+                     <li><?php echo $nome.("<br>Bem vindo(a) novamente!"); ?></li>
+                     <li><img id="userImage" src="$busca"></li>
                      <li><i id="iconOut" class='bx bx-log-out'></i><form action='login.php' method='post'>
-                    <input type='submit' id='logoutBtn' value='Log out' name='logout'> 
-                </form></li>
+                      <input type='submit' id='logoutBtn' class="btn btn-outline-primary" value='Log out' name='logout'> 
+                     </form>
+                  </li>
                     </div>
                 </ul>
-            </div> -->
+            </div>
+            <div id="centroInfoProfessor">
+            <div id="content-boxes-1">
+            <li id="verNotas"><a href="">Veja suas notas</a></li>
+            </div>
+            <div id="content-boxes-2">
+            <li id="verFrequencia"><a href="freqselecprof.php">Veja sua frequência aqui</a></li>
+            </div>
+            <div id="content-boxes-3">
+                <li id="avisos">
+                    Avisos da escola
+                     <p>Não Haverá aula nesta sexta-feira!!!!</p>
+                     <p>Alterado o horário das aulas!!!!</p>
+                     <p>Atualizações no sistema!!!!</p>
+            </li>
+            </div>
+            <div id="content-boxes-4">
+                  <li id="acervo"><a href="">Acesso ao acervo</a></li>
+            </div>
             <?php
         }elseif($tipousuario == 'responsavel'){
             ?>
@@ -127,8 +147,10 @@
                </div> -->
         
         </div>
-        <h1 align="center"><?php echo $nome.(' Bem vindo Novamente!'); ?></h1>
+        <h1 align="center"><//?php echo $nome.(' Bem vindo Novamente!'); ?></h1>
         
         <p id="rodape">Desenvolvido por...</p>
     </body>
 </html>
+
+<style></style>
