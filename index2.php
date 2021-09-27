@@ -16,8 +16,10 @@
                  <li><input id="searchbar" type="text" placeholder="Procurar..."></li>
                  <li><a href="notas.php">Ver notas</a></li>
 <<<<<<< HEAD
+
                 
-=======
+
+
                  <li><a href="freqselecprof.php">Frequências</a></li>
 >>>>>>> c54cf6388fe78d336e024901225c52df05daa710
                  <li><a href="">Acervo</a></li>
@@ -38,9 +40,10 @@
             <li id="verNotas"><a href="notas.php">Veja suas notas</a></li>
             </div>
             <div id="content-boxes-2">
+
 <<<<<<< HEAD
-            <li id="verFrequencia"><a href="verfreq.php">Veja sua frequência aqui</a></li>
-=======
+
+   
             <li id="verFrequencia"><a href="freqselecprof.php">Veja sua frequência aqui</a></li>
 >>>>>>> c54cf6388fe78d336e024901225c52df05daa710
             </div>
