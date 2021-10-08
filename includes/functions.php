@@ -20,6 +20,17 @@ function logout(){
     
 }
 
+// FUNCTION PARA SABER SE O USUARIO ESTÁ LOGADO
+function is_logado(){
+    if(empty($_SESSION['user'])){
+        return false;
+        
+    }else{
+        return true;
+    }
+}
+
+
 // GERAR HASH PARA SENHA
 function gerarhash($senha){
     $txt=cripto($senha);
