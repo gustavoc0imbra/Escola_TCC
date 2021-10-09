@@ -29,7 +29,20 @@
         <?php
             }
         ?>
+        <div>
+         <?php
+             $data = date('d/m/Y ');
+             echo ("<p id='data'>Hoje é ").$data.("</p>");
+         ?>
+         </div>
                <p id="rodape">Desenvolvido por ...</p>
 
         </body>
 </html>
+<style>
+    #data{
+        position: relative;
+        left: 45.5%;
+    }
+
+</style>

@@ -49,9 +49,16 @@ update professor set codTurma = '1' where codProf = '3';
 update professor set nomeTurma = '6-ANO-A' where codProf = '3';
 /* alterações feitas no banco dia 22/09 */
 
-/* alterações feitas no banco dia 26/09 */
+/* alterações feitas no banco dia 02/10 */
+alter table professor auto_increment = 1;
+alter table responsaveis change `(FK)codAluno` FKscodAluno int(11) NOT NULL;
+alter table responsaveis change `FKscodAluno` FKcodAluno int(11) NOT NULL;
+alter table responsaveis change `FKcodAluno` codAluno int(11) NOT NULL;
+alter table responsaveis change `FKsenhaAluno` senhaAluno varchar(60) DEFAULT NULL;
+alter table responsaveis add foreign key (codAluno) references estudante(codAluno);
+alter table responsaveis add foreign key (senhaAluno) references estudante(senhaAluno);
+/* alterações feitas no banco dia 02/10 */
 
-/* alterações feitas no banco dia 26/09 */
 
 insert into disciplina (codDisciplina, nomeDisciplina) values ('1', 'Matemática');
 
