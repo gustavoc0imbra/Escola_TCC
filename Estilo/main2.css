@@ -143,14 +143,82 @@
     
     #navbarResponsavel{
         list-style-type: none;
-        margin: 0; padding: 0;
-        width: 15%;
-        position: absolute;
-        height: 100%;
-        float: left;
-    }
-    h1{
-        position: absolute;
-        top: 0%;
-        left: 30%;
-    }
+        transition-duration: 0.4s;
+}
+#content-boxes-4:hover{
+        background-color: white;
+}
+/*#content-boxes-5{
+    width: 320px;
+    padding: 4px;
+    border: 5px solid rgb(0, 4, 255);
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    top: 60%;
+    list-style-type: none;
+    transition-duration: 0.4s;
+}
+#content-boxes-5:hover{
+    background-color: white;
+}*/
+#acervo{
+    background: none;
+}
+/*#logoutBtn{
+    position: relative;
+    top: 87.5%;
+    left: 35%;
+} */
+form{
+    position: absolute;
+    top: 87.5%;
+    left: 50%;
+}
+#iconOut{
+    top: 90%;
+    position: absolute;
+    left: 40%;
+}
+#rodape{
+    top: 97%;
+    position: absolute;
+    left: 50%;
+}
+
+#navbarProf{
+    list-style-type: none;
+    margin: 0; padding: 0;
+    width: 15%;
+    position: absolute;
+    height: 100%;
+    float: left;
+}
+#navbarProfessor{
+    display: block;
+    background-color: white;
+    font-family: 'Roboto Mono', monospace;
+    left: 0%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    position: relative;
+}
+
+#navbarResponsavel{
+    list-style-type: none;
+    margin: 0; padding: 0;
+    width: 15%;
+    position: absolute;
+    height: 100%;
+    float: left;
+}
+h1{
+    position: absolute;
+    top: 0%;
+    left: 30%;
+}
+#centroInfoProfessor{
+    position: relative;
+    top: 50%;
+}

@@ -15,7 +15,21 @@
             if(empty($_SESSION['user'])){
                 require_once "login.php";
             }else{
-                
+                ?>
+                <form action='login.php' method='post'>
+                    <input type='submit' id='logout' value='deseja sair?' name='logout'> 
+                </form>
+        <?php
+            }
+        ?>
+        <div>
+         <?php
+             $data = date('d/m/Y ');
+             echo ("<p id='data'>Hoje é ").$data.("</p>");
+         ?>
+         </div>
+               <p id="rodape">Desenvolvido por ...</p>
+
                 require_once("navbar.php");
                 
                 if($_SESSION['tipo'] == "admin"){
@@ -33,3 +47,10 @@
             <?php }    ?>
         </body>
 </html>
+<style>
+    #data{
+        position: relative;
+        left: 45.5%;
+    }
+
+</style>

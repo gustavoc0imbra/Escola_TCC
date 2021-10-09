@@ -16,12 +16,13 @@
                  <li><input id="searchbar" type="text" placeholder="Procurar..."></li>
                  <li><a href="notas.php">Ver notas</a></li>
 
-                 <li><a href="freqselecprof.php">Frequências</a></li>
+                 <li><a href="verfreq.php">Frequências</a></li>
 
                  <li><a href="">Acervo</a></li>
                  <li><a href="" >Avisos da escola</a></li>
                  <li id='userNav'><?php echo $nome.("<br> Bem vindo!");?></li>
                  <li><?php echo "<img id='userImage' src='$busca'>"; ?></li>
+                 <li><a href="horarioAluno.php">Veja seu horário</a></li>
                  <li>
                      <i id="iconOut" class='bx bx-log-out'></i>
                      <form action='login.php' method='post'>
@@ -37,7 +38,7 @@
             </div>
             <div id="content-boxes-2">
    
-            <li id="verFrequencia"><a href="freqselecprof.php">Veja sua frequência aqui</a></li>
+            <li id="verFrequencia"><a href="verfreq.php">Veja sua frequência aqui</a></li>
 
             </div>
             <div id="content-boxes-3">
@@ -51,6 +52,9 @@
             <div id="content-boxes-4">
                   <li id="acervo"><a href="">Acesso ao acervo</a></li>
             </div>
+            <!--<div id="content-boxes-5">
+                  <li id="acervo"><a href="horarioAluno.php">Veja seus horários de aulas aqui</a></li>
+            </div> -->
         </div> <?php
         }elseif ($tipousuario == 'professor'){
             ?>
@@ -72,10 +76,10 @@
             </div>
             <div id="centroInfoProfessor">
             <div id="content-boxes-1">
-            <li id="verNotas"><a href="">Veja suas notas</a></li>
+            <li id="verNotas"><a href="">Envie as notas</a></li>
             </div>
             <div id="content-boxes-2">
-            <li id="verFrequencia"><a href="freqselecprof.php">Veja sua frequência aqui</a></li>
+            <li id="verFrequencia"><a href="freqselecprof.php">Envie as frequências aqui</a></li>
             </div>
             <div id="content-boxes-3">
                 <li id="avisos">
@@ -118,12 +122,12 @@
 <!DOCKTYPE HTML>
 <html>
     <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="Estilo/main2.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <style>
      @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');

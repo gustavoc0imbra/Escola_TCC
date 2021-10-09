@@ -32,12 +32,8 @@ $res = @mysqli_query($mysql->con, $sql) or die ("erro ao listar");
     </div>
   </div>
 </nav>  
-
     </head> 
-
-
     <body>
-
     <br>
     <div class="jumbotron text-center">
       <h1>Frequência</h1>
@@ -46,9 +42,7 @@ $res = @mysqli_query($mysql->con, $sql) or die ("erro ao listar");
         <br>
         <div class="container">
   <!-- Content here -->
-
         <table class = "table table-bordered border border-info border border-3">
-    
             <tr> 
                 <td> <center> Frequência </center> </td>
                 <td> <center> Disciplina </center> </td>
@@ -56,7 +50,6 @@ $res = @mysqli_query($mysql->con, $sql) or die ("erro ao listar");
 
             <?php while($dado = $res->fetch_array()){ ?>
             <tr> 
-            
                 <td><?php echo $dado["frequenciaAluno"]; ?> </td>
                 <td><?php echo $dado["FKcodDisciplina"]; ?> </td>
             </tr>
@@ -64,11 +57,6 @@ $res = @mysqli_query($mysql->con, $sql) or die ("erro ao listar");
         </table>
 
         </div>
-
-
-
-
-             
      </body>
 
 
