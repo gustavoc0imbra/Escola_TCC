@@ -33,7 +33,6 @@ alter  table professor drop column codDisciplina;
 /* alterações feitas no banco dia 20/09 */
 alter table professor add codDisciplina int(11);
 alter table professor  add foreign key (codDisciplina) references disciplina(codDisciplina);
-update estudante set imagemEstudante = 'Imagens/kevin.png' where codAluno = '4';
 /* alterações feitas no banco dia 20/09 */
 
 /* alterações feitas no banco dia 22/09 */
@@ -59,6 +58,7 @@ alter table responsaveis add foreign key (codAluno) references estudante(codAlun
 alter table responsaveis add foreign key (senhaAluno) references estudante(senhaAluno);
 /* alterações feitas no banco dia 02/10 */
 
+update estudante set imagemEstudante = 'Imagens/kevin.png' where codAluno = '4';
 
 insert into disciplina (codDisciplina, nomeDisciplina) values ('1', 'Matemática');
 

@@ -41,7 +41,7 @@
                                 
                                 if(testarhash($s,$reg->senhaAluno)){
                                     
-                                    ?> <script> window.location.href = 'index2.php' </script>
+                                    ?> <script> window.location.href = 'index.php' </script>
                                     <?php
                                     $_SESSION['user'] = $reg->codAluno;
                                     $_SESSION['nome'] = $reg->nomeAluno;
@@ -70,7 +70,7 @@
                                     
                                     if(testarhash($s,$reg->senhaProf)){
                                         
-                                        ?> <script>window.location.href = "index2.php" </script>
+                                        ?> <script>window.location.href = "index.php" </script>
                                         <?php 
                                         $_SESSION['user'] = $reg->codProf;
                                         $_SESSION['nome'] = $reg->nomeProf;
@@ -100,7 +100,7 @@
                                     
                                     if(testarhash($s,$reg->senhaResponsavel)){
                                         
-                                        ?> <script>window.location.href = "index2.php" </script>
+                                        ?> <script>window.location.href = "index.php" </script>
                                         <?php 
                                         $_SESSION['user'] = $reg->codResponsavel;
                                         $_SESSION['nome'] = $reg->nomeResponsavel;
@@ -130,7 +130,7 @@
                                     
                                     if(testarhash($s,$reg->senhaAdm)){
                                         
-                                        ?> <script>window.location.href = "index2.php" </script>
+                                        ?> <script>window.location.href = "index.php" </script>
                                         <?php 
                                         $_SESSION['user'] = $reg->codAdm;
                                         $_SESSION['nome'] = $reg->nomeAdm;
@@ -153,5 +153,3 @@
             </div>
         </body>
     </html>
-
-
