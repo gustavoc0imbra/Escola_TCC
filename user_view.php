@@ -62,10 +62,10 @@
                                     <th>Foto</th>
                                     <th>Data de nasc</th>
                                     <th>CPF</th>
-                                    <th>RG</th>
-                                    <th>telefone</th>
-                                    <th>Endereço</th>
-                                    <th></th>
+                                    <th>Turma</th>
+                                    <th>Frequência</th>
+                                    <th>Notas</th>
+                                    <th>Dados pessoais</th>
                                 </tr>
                         <?php
                          
@@ -90,9 +90,9 @@
                                         <td>$reg->imagemEstudante</td>
                                         <td>$reg->datanascAluno</td>
                                         <td>$reg->CPF</td>
-                                        <td>$reg->RG</td>
-                                        <td>$reg->telefoneAluno</td>
-                                        <td>$reg->cidadeAluno,$reg->bairroAluno,<br>$reg->ruaAluno</td>
+                                        <td><a href='turma.php'>Ver turma</a></td>
+                                        <td><a href='user_frequencia.php'>Alterar frequencia</a></td>
+                                        <td><a href='user_nota.php?cod=$reg->codAluno&nome=$reg->nomeAluno'>Alterar Notas</a></td>
                                         <td><a href='user_edit.php?tipoUsuario=aluno&nome=$reg->nomeAluno&cod=$reg->codAluno'>alterar dados</a></td>
                                     </tr>";
                                 $c ++;

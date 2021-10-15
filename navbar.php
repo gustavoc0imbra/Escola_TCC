@@ -25,6 +25,13 @@
                              <a href="#">Criar turma</a>
                          </div>
                      </div>
+                     <div class="dropdown">
+                          <button class="dropbtn">Matérias  &#8744;</button>
+                          <div class="dropdown-content">
+                              <a href="disciplina.php">Ver Disciplinas</a>
+                              <a href="disciplina.php?add=true">Criar disciplina</a>
+                          </div>
+                      </div>
                     <div class="pesquisa">
                       <form class="barraPesquisa" action="index.php">
                                 <input type="text" class="buscar" placeholder="buscar" name="buscar" size="10" maxlength="40">

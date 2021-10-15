@@ -68,7 +68,7 @@
                     letras + "Rg do responsável:</a>" + rg +
                     letras + "Cpf do responsável:</a>" + cpf +
                     letras + "Data de nascimento do responsável:</a>" + datanasc +
-                    letras + "Código do aluno: </a><br><input required class='caixa_texto' type='text' name='codAluno' id='codAluno' size='20' maxlength='30'>" + 
+                    letras + "Rm do aluno: </a><br><input required class='caixa_texto' type='text' name='codAluno' id='codAluno' size='20' maxlength='30'>" + 
                     letras + "Senha do aluno: </a><br><input class='caixa_texto' type='password' name='senhaAluno' id='senha1' size='10' maxlength='10'>" ;
                     
                 }if(x == "admin"){

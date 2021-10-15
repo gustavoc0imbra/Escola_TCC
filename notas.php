@@ -75,5 +75,4 @@ $res = @mysqli_query($mysql->con, $sql) or die ("erro ao listar");
      </body>
 
 
-
    

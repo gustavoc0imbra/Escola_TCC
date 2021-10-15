@@ -3,7 +3,7 @@
         <head>
             <titlle></titlle>
             <meta charset="utf-8">
-            <link rel="stylesheet" href="Estilo/estilo.css">
+            <link rel="stylesheet" href="Estilo/main.css">
         </head>
         <body>
             <?php 
