@@ -16,8 +16,27 @@
            <?php
        }else{
            ?>
+           <!-- NAVBAR DA Pág -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-info">   
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Escola_TCC</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="home.php">Home</a>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+<h1 align="center"><?php echo ("1º Ano E.M"); ?></h1>
+<!-- Tabela de horários -->
+          <center>
             <div id="tabelahorario" class="table-responsive">
-               <table class="table">
+               <table class="table table-bordered" width="5">
+                  <thead class="table-dark table-hover">
                   <tr>
                       <th></th>
                       <th>Segunda-Feira</th>
@@ -26,16 +45,65 @@
                       <th>Quinta-Feira</th>
                       <th>Sexta-Feira</th>
                   </tr>
+                </thead>
+                <!-- Execução do retorno das informações de horário -->
+                <!-- calma que jajá termino família -->
+                <?//php while($dado = $res->fetch_array()){ ?>
+                  
                   <tr>
-                      <td>Português</td>
+                      <td>1ª Aula</td>
+                      <td>Português<?//php echo ?></td>
                       <td>Matemática</td>
                       <td>História</td>
                       <td>Inglês</td>
                       <td>Biologia</td>
-                      <td>Física</td>
                   </tr>
+                  <tr>
+                    
+                     <td>2ª Aula</td>
+                     <td>Física</td>
+                     <td>Matemática</td>
+                     <td>Inglês</td>
+                     <td>Química</td>
+                     <td>História</td>
+                  </tr>
+                  
+                  <tr>
+                    <td>3ª Aula</td>
+                    <td>Biologia</td>
+                    <td>Português</td>
+                    <td>Sociologia</td>
+                    <td>Filosofia</td>
+                    <td>Matemática</td>
+                  </tr>
+                  <tr>
+                    <td>4ª Aula</td>
+                    <td>Filosofia</td>
+                    <td>Inglês</td>
+                    <td>Química</td>
+                    <td>Física</td>
+                    <td>Geografia</td>
+                  </tr>
+                  <tr>
+                    <td>5ª Aula</td>
+                    <td>Geografia</td>
+                    <td>Filosofia</td>
+                    <td>Sociologia</td>
+                    <td>Matemática</td>
+                    <td>Matemática</td>
+                  </tr>
+                  <tr>
+                    <td>6ª Aula</td>
+                    <td>Matemática</td>
+                    <td>Português</td>
+                    <td>Português</td>
+                    <td>Ed. Física</td>
+                    <td>Ed. Física</td>
+                  </tr>
+                  <?//php } ?>
                </table>
             </div>
+          </center>
            <?php
        }
 ?>
@@ -47,8 +115,20 @@
        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     </head>
     <body>
+        <center>
         <a href="index2.php">
       <button type="button" class="btn btn-outline-primary">Voltar</button>
          </a>
+        </center>
     </body>
 </html>
+<style>
+  .table{
+    width: 70%;
+    position: relative;
+    
+  }
+  tr{
+    text-align: center;
+  }
+</style>
