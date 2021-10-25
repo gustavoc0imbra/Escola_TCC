@@ -58,6 +58,20 @@ alter table responsaveis add foreign key (codAluno) references estudante(codAlun
 alter table responsaveis add foreign key (senhaAluno) references estudante(senhaAluno);
 /* alterações feitas no banco dia 02/10 */
 
+/* alterações feitas no banco dia 25/10 */
+CREATE TABLE responsaveis (
+  codResponsavel int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  cpfMae bigint(12) NOT NULL,
+  rgMae bigint(12) NOT NULL,
+  codAluno int(11)NOT NULL,
+  senhaAluno int(11) NOT NULL,
+  nomeResponsavel varchar(60) DEFAULT NULL,
+  senhaResponsavel varchar(60) DEFAULT NULL,
+  FOREIGN KEY (codAluno) REFERENCES estudante(codAluno),
+  FOREIGN KEY (senhaAluno) REFERENCES estudante(codAluno)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/* alterações feitas no banco dia 25/10 */
+
 update estudante set imagemEstudante = 'Imagens/kevin.png' where codAluno = '4';
 
 insert into disciplina (codDisciplina, nomeDisciplina) values ('1', 'Matemática');

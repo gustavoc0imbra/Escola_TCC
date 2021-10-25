@@ -2,6 +2,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <style>
             table {
               font-family: arial, sans-serif;
@@ -27,10 +28,25 @@
         $tipo = $_SESSION['tipo']?? null;
     ?>
     <body>
+        <!--Nav horizontal -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-info">   
+             <div class="container-fluid">
+               <a class="navbar-brand" href="#">Escola_TCC</a>
+                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                 <a class="nav-link active" aria-current="page" href="index2.php">Voltar</a>
+              </div>
+            </div>
+          </div>
+           </nav>
+           <!--Nav horizontal -->
         <h1>Usuários <?php echo "$n" ?></h1>
         <?php
             if($tipo == "admin"){
-                echo "<a href='cadastro.php'>Novo usuário</a> ||";
+                echo "<center><a href='cadastro.php'><button type='button' class='btn btn-outline-primary'>Novo usuário</button></a></center>";
                 
 //                    Obtendo menor e maior valor das tabelas de usuarios
                 if($n == "aluno"){           
@@ -53,9 +69,12 @@
                         
                         if($n == "aluno"){
                             ?>
-                            <a href='user_view.php?tipoSelect=responsavel'>Usuários responsavel  ||</a>
-                            <a href='user_view.php?tipoSelect=professor'>Usuários professores </a><br><Br>
-                            <table>
+                            <div align="Center">
+                                <a href='user_view.php?tipoSelect=responsavel'><button type="button" class="btn btn-outline-primary">Usuários responsável</button></a>
+                                <a href='user_view.php?tipoSelect=professor'><button type="button" class="btn btn-outline-primary">Usuários professores</button></a><br><Br>
+                            </div>
+                            
+                            <table class="table table-dark table-hover table-sm align-middle">
                                 <tr>
                                     <th>Rm</th>
                                     <th>Nome</th>
@@ -63,7 +82,7 @@
                                     <th>Data de nasc</th>
                                     <th>CPF</th>
                                     <th>RG</th>
-                                    <th>telefone</th>
+                                    <th>Telefone</th>
                                     <th>Endereço</th>
                                     <th></th>
                                 </tr>
@@ -106,9 +125,9 @@
 //                      tabela dos professores
                         }else if($n == "professor"){
                             ?> 
-                            <a href="user_view.php?tipoSelect=aluno">Usuários alunos ||</a>
-                            <a href='user_view.php?tipoSelect=responsavel'>Usuários responsavel  ||</a><br><Br>
-                            <table>
+                            <center><a href="user_view.php?tipoSelect=aluno"><button type="button" class="btn btn-outline-primary">Usuários alunos</button></a></center>
+                            <center><a href='user_view.php?tipoSelect=responsavel'><button type="button" class="btn btn-outline-primary">Usuários responsavel</button></a></center><br><Br>
+                            <table class="table table-dark table-hover table-sm">
                                 <tr>
                                     <th>Rm</th>
                                     <th>Nome</th>
@@ -158,7 +177,7 @@
                             ?>
                              <a href="user_view.php?tipoSelect=aluno">Usuários alunos ||</a>
                              <a href='user_view.php?tipoSelect=professor'>Usuários professores </a><br><Br>
-                             <table>
+                             <table class="table table-dark table-hover table-sm">
                                  <tr>
                                      <th>Rm</th> 
                                      <th>Nome</th>
@@ -216,6 +235,13 @@
             }
 
         ?>
-        <br><Br><a href="index.php">Voltar</a>
+        <br><Br><center><a href="index.php">
+        <button type="button" class="btn btn-outline-primary">Voltar</button>
+        </a></center>
     </body>
 </docytipe>
+<style>
+    h1{
+        text-align: center;
+    }
+</style>

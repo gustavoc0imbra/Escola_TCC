@@ -22,14 +22,47 @@
                     
                      $nome = $_SESSION['nome'];
                      $cod = $_SESSION['user'];
-                     
-                }  
-            ?>
-                <div id="main">
-                    <h1> Logado com sucesso! (index.php) </h1>
+                     ?> 
+                     <div id="main">
+                    <h1> Logado com sucesso admin!</h1>
                     <p id="rodape">Desenvolvido por ...</p>
                 </div>
-            
+                <?php
+                }elseif($_SESSION['tipo'] == "aluno"){
+                    ?>
+                    <div id="main">
+                    <h1> Logado com sucesso aluno!</h1>
+                    <div id="card1Aluno">
+                        <img src="Imagens/livro.jpg" alt="img01" style="width:35%">
+                       <div id="corpoCard1Aluno">
+                             <h4><p>Horário</p></h4>
+                             <a href="horarioAluno.php">
+                                 <button>Horário</button>
+                                </a>
+                             <p>Veja seus horários de aulas!</p>
+                             
+                       </div>
+                    <p id="rodape">Desenvolvido por ...</p> 
+                    
+                     </div>
+                </div>
+                    <?php
+                }elseif($_SESSION['tipo'] == "professor"){
+                    ?>
+                    <div id="main">
+                    <h1> Logado com sucesso Professor<br><?php echo $nome; ?>!</h1>
+                    <p id="rodape">Desenvolvido por ...</p>
+                </div>
+                    <?php
+                }elseif($_SESSION['tipo'] == "responsavel"){
+                    ?>
+                    <div id="main">
+                    <h1> Logado com sucesso Responsável<br><?php echo $nome; ?>!</h1>
+                    <p id="rodape">Desenvolvido por ...</p>
+                </div>
+                    <?php
+                }  
+            ?>
             <?php }    ?>
         </body>
 </html>

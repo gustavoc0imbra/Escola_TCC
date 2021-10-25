@@ -26,18 +26,13 @@ $res = @mysqli_query($mysql->con, $sql) or die ("erro ao listar");
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="home.php">Home</a>
-        
+        <a class="nav-link active" aria-current="page" href="index2.php">Home</a>
       </div>
     </div>
   </div>
 </nav>  
-
     </head> 
-
-
     <body>
-
     <br>
     <div class="jumbotron text-center">
       <h1>NOTAS</h1>
@@ -46,13 +41,11 @@ $res = @mysqli_query($mysql->con, $sql) or die ("erro ao listar");
         <br>
         <div class="container">
   <!-- Content here -->
-
         <table class = "table table-bordered border border-info border border-3">
     
             <tr> 
                 <td> <center> Nota do Aluno(a) </center> </td>
                 <td> <center> Média do bimestre </center> </td>
-                <td> <center> Frequência </center> </td>
                 <td> <center> Disciplina </center> </td>
             </tr>
 
@@ -60,18 +53,11 @@ $res = @mysqli_query($mysql->con, $sql) or die ("erro ao listar");
             <tr> 
                 <td><?php echo $dado["notaAluno"]; ?> </td>
                 <td><?php echo $dado["mediaBimestre"]; ?>  </td>
-                <td><?php echo $dado["frequenciaAluno"]; ?> </td>
                 <td><?php echo $dado["FKcodDisciplina"]; ?> </td>
             </tr>
             <?php } ?>
         </table>
-
         </div>
-
-
-
-
-             
      </body>
 
 

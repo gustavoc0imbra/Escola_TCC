@@ -57,7 +57,7 @@
             Nome:<br><input type="text" name="nome" value="<?php echo $reg->nomeProf ?>"><br><br>
             Codigo:<br><input type="number" readonly name="usuario" value="<?php echo $reg->codProf ?>" ><Br><Br>
             Senha:<br><input type="password" name="senha1" id="senha1" size="20" placeholder="Senha antiga" maxlength="10"><br>
-            confirme á senha:<br><input type="password" name="senha2" id="senha2" size="20" maxlength="10"><br><br>
+            Confirme a senha:<br><input type="password" name="senha2" id="senha2" size="20" maxlength="10" placeholder="Confirme a senha"><br><br>
             Data de nascimento:<br><input type="text" name="datanasc" id="datanasc" value="<?php echo $reg->datanascProf ?>"><br><br>
             Celular:<br><input type="number" name="cel" id="cel" value="<?php echo $reg->celProf ?>"><br><br>
             Telefone:<br><input type="number" name="tel" id="tel" value="<?php echo $reg->telProf ?>"><br><br>
@@ -92,7 +92,7 @@
         </form>
         
         <a href="user_edit.php?delete=true&tipoUsuario=admin&cod=<?php echo $reg->codAdm?>">Deletar administrador</a><br><br>
-        <a href='index.php'>voltar</a>
+        <a href='index2.php'>voltar</a>
             
             
         <?php
@@ -120,4 +120,6 @@
             }
             
     }
-?>
+?><head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>

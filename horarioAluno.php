@@ -25,13 +25,13 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="home.php">Home</a>
+        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
         
       </div>
     </div>
   </div>
 </nav>
-<h1 align="center"><?php echo ("1º Ano E.M"); ?></h1>
+<h1 align="center"><?php echo ("3º Ano E.M"); ?></h1>
 <!-- Tabela de horários -->
           <center>
             <div id="tabelahorario" class="table-responsive">
@@ -48,7 +48,6 @@
                 </thead>
                 <!-- Execução do retorno das informações de horário -->
                 <!-- calma que jajá termino família -->
-                <?//php while($dado = $res->fetch_array()){ ?>
                   
                   <tr>
                       <td>1ª Aula</td>
@@ -116,7 +115,7 @@
     </head>
     <body>
         <center>
-        <a href="index2.php">
+        <a href="index.php">
       <button type="button" class="btn btn-outline-primary">Voltar</button>
          </a>
         </center>

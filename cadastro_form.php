@@ -1,11 +1,12 @@
 <head>
-
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<h1>Novo Cadastro</h1>
+<h1>Novo cadastro de usuário</h1>
 <form id="formsCadastro" action="Cadastro.php" method="post">
     <table>
         Tipo de Cadastro:<br><select class="caixa_texto" name="tipo" id="tipo" onchange="functionCadastro()">
-                    <option value="" selected disabled="disabled">Selecione seu tipo de cadastro</option>
+                    <option value="" selected disabled="disabled">Selecione seu tipo de cadastro que deseja</option>
                     <option value="aluno">Aluno</option>
                     <option value="professor">Professor</option>
                     <option value="responsavel">Responsável</option>
@@ -16,17 +17,17 @@
         <script>
             // variaveis 
             var letras = "<br><br><a class = 'letras'>",
-            nome = "<br><input required class='caixa_texto' type='text' name='nome' id='nome' size='20' maxlength='30'>",
-            senha1 = "<br><input required class='caixa_texto' type='password' name='senha1' id='senha1' size='10' maxlength='10'>",
-            senha2 = "<br><input required class='caixa_texto' type='password' name='senha2' id='senha2' size='10' maxlength='10'>",
-            rg = "<br><input required type='text' name='rg' id='rg' size='20' maxlength='30'>",
-            cpf = "<br><input required type='text' name='cpf' id='cpf' size='20' maxlength='30'>",
-            datanasc = "<br><input required type='text' name='datanasc' id='datanasc' size='20' maxlength='30'>",
-            tel = "<br><input required type='text' name='tel' id='tel' size='20' maxlength='30'>",
-            cel = "<br><input required type='text' name='cel' id='cel' size='20' maxlength='30'>",
-            cidade = "<br><input required type='text' name='cidade' id='cidade' size='20' maxlength='30'>",
-            bairro = "<br><input required type='text' name='bairro' id='bairro' size='20' maxlength='30'>",
-            rua = "<br><input required type='text' name='rua' id='rua' size='20' maxlength='30'>",
+            nome = "<br><center><input required class='input-group-text' class='input-group-text' class='caixa_texto' type='text' name='nome' id='nome' size='20' maxlength='30'></center>",
+            senha1 = "<br><center><input required class='input-group-text'  class='caixa_texto' type='password' name='senha1' id='senha1' size='10' maxlength='10'></center>",
+            senha2 = "<br><center><input required class='input-group-text' class='caixa_texto' type='password' name='senha2' id='senha2' size='10' maxlength='10'></center>",
+            rg = "<br><center><input required class='input-group-text' type='text' name='rg' id='rg' size='20' maxlength='30'></center>",
+            cpf = "<br><center><input required class='input-group-text' type='text' name='cpf' id='cpf' size='20' maxlength='30'></center>",
+            datanasc = "<br><center><input required class='input-group-text' type='text' name='datanasc' id='datanasc' size='20' maxlength='30'></center>",
+            tel = "<br><center><input required class='input-group-text' type='text' name='tel' id='tel' size='20' maxlength='30'></center>",
+            cel = "<br><center><input required class='input-group-text' type='text' name='cel' id='cel' size='20' maxlength='30'></center>",
+            cidade = "<br><center><input required class='input-group-text' type='text' name='cidade' id='cidade' size='20' maxlength='30'></center>",
+            bairro = "<br><center><input required class='input-group-text' type='text' name='bairro' id='bairro' size='20' maxlength='30'></center>",
+            rua = "<br><center><input required class='input-group-text' type='text' name='rua' id='rua' size='20' maxlength='30'></center>",
             disciplina = "<br><select class='caixa_texto' name='disciplina' id='disciplina'><option value='' selected disabled='disabled'>Selecione sua disciplina</option><option value='1'>Português</option><option value='2'>Matemática</option><option value='3'>Geografia</option><option value='4'>História</option></select><br>";
    
             function functionCadastro(){

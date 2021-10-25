@@ -115,9 +115,11 @@
                   </ul>
                </div> -->
                <?php
-        }//elseif($tipousuario == 'admin'){
-
-        //}
+        }elseif($tipousuario == 'admin'){
+             ?>
+             <?php include_once('navbar.php'); ?>
+             <?php
+        }
         ?>
 <!DOCKTYPE HTML>
 <html>
@@ -129,10 +131,8 @@
     rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="Estilo/main2.css">
     </head>
-    <style>
-     @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
-    </style>
     <body>
+           <!--Nav horizontal -->
              <!--<div id="navbarLateral">
               <div id="navbarAl">
                 <ul id="navbarAluno">

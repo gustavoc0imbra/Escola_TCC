@@ -5,7 +5,10 @@
     $cod = $_SESSION['user'];
 ?>
 <!-- navBar horizontal -->
-                <div class="navbar">
+                <?php
+                   if ($tipo =="admin"){
+                     ?>
+                     <div class="navbar">
                       <div class="openbtn" id="openNav" onclick="openNav(this)"><p id="icon">&#9776; Menu</p></div>
                       <a class="config" href="user_edit.php">&#9881;</a>
                       <a class="aNavbar" href="#">Acervo Digital</a> 
@@ -32,17 +35,58 @@
                      </form>
                     </div>
                </div>
-                
-            
                 <!-- sidebar lateral -->
                 <div id="mySidebar" class="sidebar">
-                    <img class="imgPerfil">
-                  <a class="aSidebar">Bem vindo! <?php echo"$nome" ?></a>
+                    <img class="imgPerfil" src="Imagens/paula.jpg">
+                  <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
                      <a class="mudarSenha" href="you_edit.php">Mudar senha</a>
                      <form class="formLogout" action='login.php' method='post'>
                     <input class="logout" type='submit' id='logout' value='Deseja Sair?' name='logout'> 
                   </form>
                 </div>
+                     <?php
+                   }elseif($tipo == "aluno"){
+                     ?>
+                     <div class="navbar">
+                      <div class="openbtn" id="openNav" onclick="openNav(this)"><p id="icon">&#9776; Menu</p></div>
+                      <!--<a class="aNavbar" href="">Acervo Digital</a>-->
+                      <a class="config" href="user_edit.php">&#9881;</a>
+                      <a class="aNavbar" href="horarioAluno.php">Horários</a>
+                      <a class="aNavbar" href="notas.php">Notas</a>
+                      <a class="aNavbar" href="verfreq.php">Frequências</a>
+                      <a class="aNavbar" href="">Acervo</a>
+                     </div>
+               </div>
+                <!-- sidebar lateral -->
+                <div id="mySidebar" class="sidebar">
+                    <img class="imgPerfil" src="Imagens/gustavo.jpg">
+                  <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
+                     <form class="formLogout" action='login.php' method='post'>
+                     <button class="logout" class="btn btn-outline-primary" type='submit' id='logout' name='logout'>Deseja sair?</button>
+                  </form>
+                </div>
+                     <?php
+                   }elseif($tipo == "professor"){
+                    ?>
+                    <div class="navbar">
+                     <div class="openbtn" id="openNav" onclick="openNav(this)"><p id="icon">&#9776; Menu</p></div>
+                     <!--<a class="aNavbar" href="">Acervo Digital</a>-->
+                     <a class="aNavbar" href=""> Tabela de Horários</a>
+                     <a class="aNavbar" href=""> Enviar Notas</a>
+                     <a class="aNavbar" href="freqselecprof.php">Enviar Frequências</a>
+                    </div>
+              </div>
+               
+               <!-- sidebar lateral -->
+               <div id="mySidebar" class="sidebar">
+                   <img class="imgPerfil" src="Imagens/livro2.jpg">
+                 <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
+                    <form class="formLogout" action='login.php' method='post'>
+                    <button class="logout" type='submit' id='logout' name='logout'>Deseja sair?</button>
+                 </form>
+               </div>
+               <?php }
+                ?>
 
             <script>
             
@@ -64,4 +108,9 @@
                
                 
             </script>
+            <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="Estilo/estilo.css">
+            </head>
 <?php
