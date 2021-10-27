@@ -48,7 +48,7 @@
 
 
                                 if($banco->query($q)){
-                                    echo "Usuário $nome cadastradado com sucesso!";
+                                    echo "Usuário $nome cadastrado com sucesso!";
                                 }else{
                                     echo "Não foi possivel cadastrar o usuário $nome";
                                 }

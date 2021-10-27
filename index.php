@@ -33,7 +33,7 @@
                     <div id="main">
                     <h1> Logado com sucesso aluno!</h1>
                     <div id="card1Aluno">
-                        <img src="Imagens/livro.jpg" alt="img01" style="width:35%">
+                        <img src="Imagens/livro.jpg" style="width:35%">
                        <div id="corpoCard1Aluno">
                              <h4><p>Horário</p></h4>
                              <a href="horarioAluno.php">
@@ -61,7 +61,7 @@
                     <p id="rodape">Desenvolvido por ...</p>
                 </div>
                     <?php
-                }  
+                }
             ?>
             <?php }    ?>
         </body>

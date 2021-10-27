@@ -72,6 +72,20 @@ CREATE TABLE responsaveis (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /* alterações feitas no banco dia 25/10 */
 
+/* alterações feitas no banco dia 26/10 */
+/*create table acervo(
+  codArquivo bigint(60) primary key NOT NULL auto_increment,
+  arquivo longblob NOT NULL,
+  codAluno int(11) NOT NULL,
+  senhaAluno varchar(60) NOT NULL,
+  senhaProf varchar(60) NOT NULL,
+  codProf int(11) NOT NULL,
+  foreign key (codAluno) references estudante(codAluno),
+  foreign key (senhaAluno) references estudante(senhaAluno),
+  foreign key (codProf) references professor(codProf),
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;*/
+/* alterações feitas no banco dia 26/10 */
+
 update estudante set imagemEstudante = 'Imagens/kevin.png' where codAluno = '4';
 
 insert into disciplina (codDisciplina, nomeDisciplina) values ('1', 'Matemática');
