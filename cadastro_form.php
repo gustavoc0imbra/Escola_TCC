@@ -1,8 +1,26 @@
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="Estilo/estilo.css">
 </head>
+
+<body>
+
+<style>
+    body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: lightcyan;
+            background: rgb(0,212,255);
+            background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(0,212,255,1) 35%, rgba(0,153,255,1) 100%);
+        }
+
+
+
+</style>
+
+
 <h1>Novo cadastro de usuário</h1>
+
 <form id="formsCadastro" action="Cadastro.php" method="post">
     <table>
         Tipo de Cadastro:<br><select class="caixa_texto" name="tipo" id="tipo" onchange="functionCadastro()">
@@ -13,6 +31,8 @@
                     <option value="admin">Admin</option>
                 </select><br>
         <p id="mudarusuario"></p>
+        
+        
         
         <script>
             // variaveis 
@@ -39,8 +59,8 @@
                 letras + "Nome:</a>" + nome +
                 letras + "Senha:</a>" + senha1 +
                 letras + "Confirme sua senha:</a>" + senha2 +
-                letras + "Rg:</a>" + rg +
-                letras + "Cpf</a>" + cpf +
+                letras + "RG:</a>" + rg +
+                letras + "CPF</a>" + cpf +
                 letras + "Data de Nascimento:</a>" + datanasc +
                 letras + "Telefone:</a>" + tel + 
                 letras + "Cidade:</a>" + cidade +
@@ -82,10 +102,14 @@
         } 
         </script>
        
-        <br><input class="botao" type="submit" value="Cadastrar">         
+        <br><input  type="submit" value="Cadastrar">         
 
     </table>
 </form>
+
+<body>
+
+</html>
 
 
         
