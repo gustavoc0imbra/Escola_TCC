@@ -26,7 +26,7 @@ $res = @mysqli_query($mysql->con, $sql) or die ("erro ao listar");
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="index2.php">Home</a>
+        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
       </div>
     </div>
   </div>

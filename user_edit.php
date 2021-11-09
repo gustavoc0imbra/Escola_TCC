@@ -2,13 +2,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="Estilo/estilo.css">
     </head>
     <?php 
         require_once "includes/config.php";
         require_once "includes/functions.php";
         $tipo = $_SESSION['tipo']?? null;
     ?>
-    <body>
+    <body id="bodyUserEdit">
     <?php 
         $edit = null;
         $delete = null;
