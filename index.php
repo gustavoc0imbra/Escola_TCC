@@ -5,6 +5,7 @@
          <meta description="...">
          <link rel="stylesheet" href="Estilo/estilo.css">
          <meta name="viewport" content="width=device-width, initial-scale=1">
+         <title>Bem vindo(a)!</title>
         </head>
         <?php
              include_once "includes/config.php";

@@ -11,7 +11,7 @@
                      <div class="navbar">
                       <div class="openbtn" id="openNav" onclick="openNav(this)"><p id="icon">&#9776; Menu</p></div>
                       <a class="config" href="user_edit.php">&#9881;</a>
-                      <a class="aNavbar" href="#">Acervo Digital</a> 
+                      <a class="aNavbar" href="acervo.php">Acervo Digital</a> 
                       <a class="aNavbar" href="#">Quem somos?</a>
                       <div class="dropdown">
                          <button class="dropbtn">Usuários  &#8744;</button>
@@ -28,12 +28,6 @@
                              <a href="#">Criar turma</a>
                          </div>
                      </div>
-                    <div class="pesquisa">
-                      <form class="barraPesquisa" action="index.php">
-                                <input type="text" class="buscar" placeholder="buscar" name="buscar" size="10" maxlength="40">
-                                <input type="submit" class="button" value="OK">
-                     </form>
-                    </div>
                </div>
                 <!-- sidebar lateral -->
                 <div id="mySidebar" class="sidebar">
@@ -49,12 +43,11 @@
                      ?>
                      <div class="navbar">
                       <div class="openbtn" id="openNav" onclick="openNav(this)"><p id="icon">&#9776; Menu</p></div>
-                      <!--<a class="aNavbar" href="">Acervo Digital</a>-->
                       <a class="config" href="user_edit.php">&#9881;</a>
                       <a class="aNavbar" href="horarioAluno.php">Horários</a>
                       <a class="aNavbar" href="notas.php">Notas</a>
                       <a class="aNavbar" href="verfreq.php">Frequências</a>
-                      <a class="aNavbar" href="">Acervo</a>
+                      <a class="aNavbar" href="acervo.php">Acervo</a>
                      </div>
                </div>
                 <!-- sidebar lateral -->

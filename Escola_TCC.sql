@@ -86,6 +86,25 @@ CREATE TABLE responsaveis (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;*/
 /* alterações feitas no banco dia 26/10 */
 
+/* alterações feitas no dia 03/11 */
+CREATE TABLE `acervo` (
+  `codArquivo` int(11) NOT NULL,
+  `arquivo` varchar(40) NOT NULL,
+  `dataUp` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+ALTER TABLE `acervo`
+  ADD PRIMARY KEY (`codArquivo`);
+  
+  ALTER TABLE `acervo`
+  MODIFY `codArquivo` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+/* alterações feitas no dia 03/11 */
+
+/* alterações feitas no dia 08/11 */
+alter table acervo add nome varchar(150);
+/* alterações feitas no dia 08/11 */
+
 update estudante set imagemEstudante = 'Imagens/kevin.png' where codAluno = '4';
 
 insert into disciplina (codDisciplina, nomeDisciplina) values ('1', 'Matemática');
