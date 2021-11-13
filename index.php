@@ -38,7 +38,9 @@
                        <div id="corpoCard1Aluno">
                              <h4><p>Horário</p></h4>
                              <a href="horarioAluno.php">
+                        
                                  <button>Horário</button>
+                      
                                 </a>
                              <p>Veja seus horários de aulas!</p>
                              

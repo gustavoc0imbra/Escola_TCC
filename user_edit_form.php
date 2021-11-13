@@ -22,7 +22,7 @@
         $reg=$busca->fetch_object();
         ?>
         
-        <form action="user_edit.php?c=aluno&cod=<?php echo $reg->codAluno?>" method="post">
+        <form id="forma"action="user_edit.php?c=aluno&cod=<?php echo $reg->codAluno?>" method="post">
             
             Nome:<br><input type="text" name="nome" value="<?php echo $reg->nomeAluno ?>"><br><br>
             Rm:<br><input type="number" readonly name="usuario" value="<?php echo $reg->codAluno ?>" ><Br><Br>
@@ -65,8 +65,8 @@
             <h2>Endereço</h2>
             Cidade:<br><input type="text" name="cidade" id="cidade" value="<?php echo $reg->cidadeProf ?>"><br><br>
             Bairro:<br><input type="text" name="bairro" id="bairro" value="<?php echo $reg->bairroProf ?>"><br><br>
-            Rua:<br><input type="text" name="rua" id="rua" value="<?php echo $reg->ruaProf ?>"><br><br>
-            <br><br><input class="botao" type="submit" value="Salvar">
+            Rua:<br><input type="text" name="rua" id="rua" value="<?php echo $reg->ruaProf ?>">
+           <input class="botao"  type="submit" value="Salvar">
             
         </form>
             
@@ -92,7 +92,7 @@
         </form>
         
         <a href="user_edit.php?delete=true&tipoUsuario=admin&cod=<?php echo $reg->codAdm?>">Deletar administrador</a><br><br>
-        <a href='index2.php'>voltar</a>
+        <a href='index.php'>voltar</a>
             
             
         <?php
@@ -120,6 +120,8 @@
             }
             
     }
+
 ?><head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="Estilo/estilo.css">
 </head>
