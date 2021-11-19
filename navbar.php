@@ -29,13 +29,13 @@
                          </div>
                      </div>
                </div>
-                <!-- sidebar lateral -->
+                <!-- sidebar lateral admin -->
                 <div id="mySidebar" class="sidebar">
                     <img class="imgPerfil" src="Imagens/paula.jpg">
                   <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
                      <a class="mudarSenha" href="you_edit.php">Mudar senha</a>
                      <form class="formLogout" action='login.php' method='post'>
-                    <input class="logout" type='submit' id='logout' value='Deseja Sair?' name='logout'> 
+                    <input class="logout" type='submit' id='logout' value='Deseja Sair?'> 
                   </form>
                 </div>
                      <?php
@@ -50,12 +50,12 @@
                       <a class="aNavbar" href="acervo.php">Acervo</a>
                      </div>
                </div>
-                <!-- sidebar lateral -->
-                <div id="mySidebar" class="sidebar">
+                <!-- sidebar lateral aluno -->
+                <div id="mySidebar" class="sidebar" stlye="height: 30px">
                     <img class="imgPerfil" src="Imagens/gustavo.jpg">
                   <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
                      <form class="formLogout" action='login.php' method='post'>
-                     <button class="logout" class="btn btn-outline-primary" type='submit' id='logout' name='logout'>Deseja sair?</button>
+                     <button class="logout" type='submit' id='logout'>Deseja sair?</button>
                   </form>
                 </div>
                      <?php
@@ -70,7 +70,7 @@
                     </div>
               </div>
                
-               <!-- sidebar lateral -->
+               <!-- sidebar lateral prof -->
                <div id="mySidebar" class="sidebar">
                    <img class="imgPerfil" src="Imagens/livro2.jpg">
                  <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>

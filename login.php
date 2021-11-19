@@ -5,14 +5,21 @@
             <meta charset="utf-8">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="Estilo/main5.css">
         </head>
+
         <body>
             <?php 
                 require_once "includes/config.php";
                 require_once "includes/functions.php";
                 
             ?>
-            <div id="corpo">
+   
+            
+              <div class="alert alert-primary rounded-end" role="alert">
+             <a href="login.php" class="alert-link">clique aqui para retornar</a>. 
+
+
                 <?php 
                 
                     if(!empty($_POST['logout'])){
@@ -33,7 +40,7 @@
                         $q = "select codAluno,senhaAluno,nomeAluno from estudante where codAluno = $u";
                         $busca=$banco->query($q);
                         if(!$busca){
-                            echo ("Falha ao acessar o banco de dados!");
+                            echo ("<h1>Falha ao acessar o banco de dados!</h1>");
                         }else{
                             if($busca->num_rows>0){
                                 $reg = $busca->fetch_object();
@@ -52,7 +59,7 @@
                                     echo "Senha inválida!";
                                 }
                             }else{
-                                echo ("Usuário inexistente!");
+                                echo ("<h1> Usuário inexistente! </h1>");
                             }
                         }
                             
@@ -62,7 +69,7 @@
                             $busca = $banco->query($q);
                                 
                             if(!$busca){
-                                echo ("Falha ao acessar o banco de dados!");
+                                echo ("<h1>Falha ao acessar o banco de dados!</h1>");
                             }else{
                                 if($busca->num_rows>0){
                                     $reg = $busca->fetch_object();
@@ -78,11 +85,11 @@
                                         
                                         
                                     }else{
-                                        echo "Senha inválida!";
+                                        echo "<h1>Senha inválida!</h1>";
                                     }
                                     
                                 }else{
-                                   echo ("Usuário inexistente!");
+                                   echo ("<h1>Usuário inexistente!</h1>");
                                 }
                             }
                             
@@ -92,7 +99,7 @@
                             $busca = $banco->query($q);
                             
                             if(!$busca){
-                                 echo ("Falha ao acessar o banco de dados!");
+                                 echo ("<h1>Falha ao acessar o banco de dados!</h1>");
                             }else{
                                 if($busca->num_rows>0){
                                     $reg = $busca->fetch_object();
@@ -108,11 +115,11 @@
                                         
                                         
                                     }else{
-                                        echo "Senha inválida!";
+                                        echo "<h1>Senha inválida!</h1>";
                                     }
                                     
                                 }else{
-                                    echo ("Usuário inexistente!");
+                                    echo ("<h1>Usuário inexistente!</h1>");
                                 }
                             }
                             
@@ -122,7 +129,7 @@
                             $busca = $banco->query($q);
                             
                             if(!$busca){
-                                 echo ("Falha ao acessar o banco de dados!");
+                                 echo ("<h1>Falha ao acessar o banco de dados!</h1>");
                             }else{
                                 if($busca->num_rows>0){
                                     $reg = $busca->fetch_object();
@@ -137,11 +144,11 @@
                                         
                                         
                                     }else{
-                                        echo "Senha inválida!";
+                                        echo "<h1>Senha inválida!</h1>";
                                     }
                                     
                                 }else{
-                                    echo ("Usuário inexistente!");
+                                    echo ("<h1>Usuário inexistente!</h1>");
                                 }
                             }
                             
@@ -150,5 +157,14 @@
                     }
                 ?>
             </div>
+               
         </body>
     </html>
+
+
+
+    
+
+
+
+   

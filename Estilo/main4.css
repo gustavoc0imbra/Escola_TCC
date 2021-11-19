@@ -21,24 +21,23 @@
             background-color: rgba(0, 0, 0, 0.9);
             padding: 10px;
             box-sizing: border-box;
-            
             font-size: 15px;
             border-radius: 16px;
         }
 
 
-        a{
-            background-color: cornflowerblue;
+        .tap{
+            background-color: blue;
             border: none;
             padding: 15px;
             width: 100%;
-            border-radius: 10px;
+            border-radius: 20px;
             color: white;
             font-size: 21px;
             text-decoration: none;
             
         }
-        a:hover{
+        .tap:hover{
             background-color: deepskyblue;
             color: white;
             cursor: pointer;

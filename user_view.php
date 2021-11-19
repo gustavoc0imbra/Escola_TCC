@@ -129,7 +129,7 @@
                             <center><a href='user_view.php?tipoSelect=responsavel'><button type="button" class="btn btn-outline-primary">Usuários responsavel</button></a></center><br><Br>
                             <table class="table table-dark table-hover table-sm">
                                 <tr>
-                                    <th>Rm</th>
+                                    <th>RM</th>
                                     <th>Nome</th>
                                     <th>Data de nasc</th>
                                     <th>Tel/Cel</th>
@@ -179,7 +179,7 @@
                              <a href='user_view.php?tipoSelect=professor'>Usuários professores </a><br><Br>
                              <table class="table table-dark table-hover table-sm">
                                  <tr>
-                                     <th>Rm</th> 
+                                     <th>RM</th> 
                                      <th>Nome</th>
                                      <th>CPF</th>
                                      <th>Rg</th>
