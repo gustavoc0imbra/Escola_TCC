@@ -31,51 +31,45 @@
         
          if($_SESSION['tipo'] == "admin"){
              
-             
              $delete = $_GET['delete']?? null;
              $disciplina = $_GET['disciplina']?? null;
              $add = $_GET['add']?? null;
              
 //             Deletar disciplinas
-             if($delete == "true"){
-                 
-                if($disciplina != "0"){
+            if($delete == "true"){
+                $q5 = "SELECT nomeProf,codProf FROM professor WHERE codDisciplina = $disciplina;";
+                $busca5 = $banco->query($q5);
                     
-                    $q5 = "SELECT nomeProf,codProf FROM professor WHERE codDisciplina = $disciplina;";
-                    $busca5 = $banco->query($q5);
-                    
+                if($disciplina != '0'){
                     if($banco->query($q5)){
                         
                         if($busca5->num_rows>0){
-                            
+                                
                             $q5 = "UPDATE professor SET codDisciplina = 0 WHERE codDisciplina = $disciplina;";
-                            
+                                
                             if($banco->query($q5)){
                                 echo "Professores dessa disciplina foram alterado para 'Sem disciplina'<br>";
-                                
+                                    
                             }else{
-                                echo "Erro ao mudar professores de tabela, por favor tente novamente mais tarde!";
+                                echo "Erro ao mudar professores de tabela, por favor tente novamente mais tarde!<br>";
                             }
-                            
+                                
                         }
                         $q5 = "DELETE FROM disciplina Where codDisciplina = $disciplina;";
-                            
+                                
                         if($banco->query($q5)){
-                            echo "Disciplina Deletada com sucesso!";  
-                            
+                            echo "Disciplina Deletada com sucesso!<br>";  
+                                
                         }else{
-                            echo "Erro ao apagar tabela, por favor tente novamente mais tarde!";
+                            echo "Erro ao apagar disciplina, por favor tente novamente mais tarde!<br>";
                         }
-                        
+                            
                     }else{
-                        echo "Erro ao apagar tabela, por favor tente novamente mais tarde!";
-                    }
-                    
+                        echo "Erro ao apagar tabela, por favor tente novamente mais tarde!<br>";
+                    } 
                 }else{
-                    echo "Não é possivel deletar essa tabela por favor consulte o suporte para mais informações<br>";
+                    echo "Não é possivel alterar ou editar essa tabela!<Br>";
                 }
-                 
-                 
              } 
                  
              $q = "SELECT min(codDisciplina) AS menorCodDisciplina, max(codDisciplina) AS maiorCodDisciplina FROM disciplina;";
@@ -99,7 +93,8 @@
                                 <th>Disciplina</th>
                                 <th>Professores disponiveis</th>
                                 <th>Código do(s) professor(es)</th>
-                                <th></th>
+                                <th>&#9998;Editar</th>
+                                <th>&#9940;Apagar disciplina</th>
                                 
                             </tr>
                         <?php
@@ -222,8 +217,13 @@
                                 }   
                                             
                                 echo   "</td>
-                                        <td><a href='disciplina.php?delete=true&disciplina=$reg->codDisciplina'>Apagar Disciplina</a></td>
-                                        </tr>";
+                                        <td><a href='edit_disciplina.php'>Editar</a></td>";
+                                        if($reg->codDisciplina == '0'){
+                                            echo "<td><a href=''></td>";
+                                        }else{
+                                            echo "<td><a href='disciplina.php?disciplina=$reg->codDisciplina&delete=true'>Apagar</a></td>";
+                                        }
+                                        echo "</tr>";
                                 $menorCodDisciplina++;
                                     
                                 }

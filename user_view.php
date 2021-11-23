@@ -36,7 +36,7 @@
                 if($n == "aluno"){           
                     $q = "SELECT MIN(codAluno) AS menorCod, MAX(codAluno) AS maiorCod FROM estudante;";
                     
-                }else if($n == "professor"){
+                }   else if($n == "professor"){
                     $q = "SELECT MIN(codProf) AS menorCod, MAX(codProf) AS maiorCod FROM professor;";
                 
                 }else{
@@ -89,10 +89,20 @@
                                         <td>$reg->nomeAluno</td>
                                         <td>$reg->imagemEstudante</td>
                                         <td>$reg->datanascAluno</td>
-                                        <td>$reg->CPF</td>
-                                        <td><a href='turma.php'>Ver turma</a></td>
-                                        <td><a href='user_frequencia.php'>Alterar frequencia</a></td>
-                                        <td><a href='user_nota.php?cod=$reg->codAluno&nome=$reg->nomeAluno'>Alterar Notas</a></td>
+                                        <td>$reg->CPF</td>";
+
+                                        $q1 = "SELECT codTurma,nomeTurma FROM turmas WHERE cod = '$reg->turma'";
+                                        if($banco->query($q1)){
+                                            $busca1 = $banco->query($q1);
+                                            $reg1 = $busca1->fetch_object();
+
+                                            echo "<td>$reg1->nomeTurma</td>";
+                                        }else{
+                                            echo "<td>Algo deu errado na busca da turma!</td>";
+                                        }
+                                        
+                                        echo "<td><a href='user_frequencia.php'>Alterar frequencia</a></td>
+                                        <td><a href='user_nota.php?cod=$reg->codAluno&nome=$reg->nomeAluno&turma=$reg1->codTurma'>Ver Notas</a></td>
                                         <td><a href='user_edit.php?tipoUsuario=aluno&nome=$reg->nomeAluno&cod=$reg->codAluno'>alterar dados</a></td>
                                     </tr>";
                                 $c ++;
@@ -180,7 +190,6 @@
                                     
                                     if($regEmpty == null){
                                         $c++;
-                                        echo "teste";
                                     }else{
 //                                      dados mostrados dentro da tabela 'usuarios responsaveis'
                                         echo "<tr>
@@ -191,7 +200,6 @@
                                                 <td>$reg->codAluno</td>
                                                 <td><a href='user_edit.php?tipoUsuario=responsavel&nome=$reg->nomeResponsavel&cod=$reg->codResponsavel'>alterar dados</a></td>
                                              </tr>";
-                                        echo "teste";
                                         $c++;
                                     }
                                     
