@@ -14,12 +14,9 @@
                 require_once "includes/functions.php";
                 
             ?>
-   
+
+            <div id="corpo">
             
-              <div class="alert alert-primary rounded-end" role="alert">
-             <a href="login.php" class="alert-link">clique aqui para retornar</a>. 
-
-
                 <?php 
                 
                     if(!empty($_POST['logout'])){
@@ -55,7 +52,7 @@
 
                                     echo $_SESSION['user'], $_SESSION['nomeAluno'];
                                     
-                                }else{
+                                }else{ 
                                     echo "Senha inválida!";
                                 }
                             }else{
