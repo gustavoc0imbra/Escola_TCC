@@ -14,10 +14,9 @@
              </select>
              <br><br>
                
-               <input class="btn btn-outline-info bg-light"  type="submit" value="Entrar" placeholder="Entrar">
-               <input class="btn btn-outline-info bg-light" type="reset" value="Cancelar">
-               <br><Br><a href="cadastro.php">Cadastrar-se</a>
-                   
+               <input class="tn btn-primary btn-lg" type="submit" value="Entrar" placeholder="Entrar">
+               <input class="tn btn-primary btn-lg" type="reset" value="Cancelar">
+             
              </div>
     
 </form>

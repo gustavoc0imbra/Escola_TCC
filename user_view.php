@@ -2,7 +2,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <style>
             table {
               font-family: arial, sans-serif;
@@ -28,31 +27,16 @@
         $tipo = $_SESSION['tipo']?? null;
     ?>
     <body>
-        <!--Nav horizontal -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-info">   
-             <div class="container-fluid">
-               <a class="navbar-brand" href="#">Escola_TCC</a>
-                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span>
-                </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                 <a class="nav-link active" aria-current="page" href="index2.php">Voltar</a>
-              </div>
-            </div>
-          </div>
-           </nav>
-           <!--Nav horizontal -->
         <h1>Usuários <?php echo "$n" ?></h1>
         <?php
             if($tipo == "admin"){
-                echo "<center><a href='cadastro.php'><button type='button' class='btn btn-outline-primary'>Novo usuário</button></a></center>";
+                echo "<a href='cadastro.php'>Novo usuário</a> ||";
                 
 //                    Obtendo menor e maior valor das tabelas de usuarios
                 if($n == "aluno"){           
                     $q = "SELECT MIN(codAluno) AS menorCod, MAX(codAluno) AS maiorCod FROM estudante;";
                     
-                }else if($n == "professor"){
+                }   else if($n == "professor"){
                     $q = "SELECT MIN(codProf) AS menorCod, MAX(codProf) AS maiorCod FROM professor;";
                 
                 }else{
@@ -69,22 +53,19 @@
                         
                         if($n == "aluno"){
                             ?>
-                            <div align="Center">
-                                <a href='user_view.php?tipoSelect=responsavel'><button type="button" class="btn btn-outline-primary">Usuários responsável</button></a>
-                                <a href='user_view.php?tipoSelect=professor'><button type="button" class="btn btn-outline-primary">Usuários professores</button></a><br><Br>
-                            </div>
-                            
-                            <table class="table table-dark table-hover table-sm align-middle">
+                            <a href='user_view.php?tipoSelect=responsavel'>Usuários responsavel  ||</a>
+                            <a href='user_view.php?tipoSelect=professor'>Usuários professores </a><br><Br>
+                            <table>
                                 <tr>
                                     <th>Rm</th>
                                     <th>Nome</th>
                                     <th>Foto</th>
                                     <th>Data de nasc</th>
                                     <th>CPF</th>
-                                    <th>RG</th>
-                                    <th>Telefone</th>
-                                    <th>Endereço</th>
-                                    <th></th>
+                                    <th>Turma</th>
+                                    <th>Frequência</th>
+                                    <th>Notas</th>
+                                    <th>Dados pessoais</th>
                                 </tr>
                         <?php
                          
@@ -108,10 +89,20 @@
                                         <td>$reg->nomeAluno</td>
                                         <td>$reg->imagemEstudante</td>
                                         <td>$reg->datanascAluno</td>
-                                        <td>$reg->CPF</td>
-                                        <td>$reg->RG</td>
-                                        <td>$reg->telefoneAluno</td>
-                                        <td>$reg->cidadeAluno,$reg->bairroAluno,<br>$reg->ruaAluno</td>
+                                        <td>$reg->CPF</td>";
+
+                                        $q1 = "SELECT codTurma,nomeTurma FROM turmas WHERE cod = '$reg->turma'";
+                                        if($banco->query($q1)){
+                                            $busca1 = $banco->query($q1);
+                                            $reg1 = $busca1->fetch_object();
+
+                                            echo "<td>$reg1->nomeTurma</td>";
+                                        }else{
+                                            echo "<td>Algo deu errado na busca da turma!</td>";
+                                        }
+                                        
+                                        echo "<td><a href='user_frequencia.php'>Alterar frequencia</a></td>
+                                        <td><a href='user_nota.php?cod=$reg->codAluno&nome=$reg->nomeAluno&turma=$reg1->codTurma'>Ver Notas</a></td>
                                         <td><a href='user_edit.php?tipoUsuario=aluno&nome=$reg->nomeAluno&cod=$reg->codAluno'>alterar dados</a></td>
                                     </tr>";
                                 $c ++;
@@ -125,9 +116,9 @@
 //                      tabela dos professores
                         }else if($n == "professor"){
                             ?> 
-                            <center><a href="user_view.php?tipoSelect=aluno"><button type="button" class="btn btn-outline-primary">Usuários alunos</button></a></center>
-                            <center><a href='user_view.php?tipoSelect=responsavel'><button type="button" class="btn btn-outline-primary">Usuários responsavel</button></a></center><br><Br>
-                            <table class="table table-dark table-hover table-sm">
+                            <a href="user_view.php?tipoSelect=aluno">Usuários alunos ||</a>
+                            <a href='user_view.php?tipoSelect=responsavel'>Usuários responsavel  ||</a><br><Br>
+                            <table>
                                 <tr>
                                     <th>Rm</th>
                                     <th>Nome</th>
@@ -177,7 +168,7 @@
                             ?>
                              <a href="user_view.php?tipoSelect=aluno">Usuários alunos ||</a>
                              <a href='user_view.php?tipoSelect=professor'>Usuários professores </a><br><Br>
-                             <table class="table table-dark table-hover table-sm">
+                             <table>
                                  <tr>
                                      <th>Rm</th> 
                                      <th>Nome</th>
@@ -199,7 +190,6 @@
                                     
                                     if($regEmpty == null){
                                         $c++;
-                                        echo "teste";
                                     }else{
 //                                      dados mostrados dentro da tabela 'usuarios responsaveis'
                                         echo "<tr>
@@ -210,7 +200,6 @@
                                                 <td>$reg->codAluno</td>
                                                 <td><a href='user_edit.php?tipoUsuario=responsavel&nome=$reg->nomeResponsavel&cod=$reg->codResponsavel'>alterar dados</a></td>
                                              </tr>";
-                                        echo "teste";
                                         $c++;
                                     }
                                     
@@ -235,13 +224,6 @@
             }
 
         ?>
-        <br><Br><center><a href="index.php">
-        <button type="button" class="btn btn-outline-primary">Voltar</button>
-        </a></center>
+        <br><Br><a href="index.php">Voltar</a>
     </body>
 </docytipe>
-<style>
-    h1{
-        text-align: center;
-    }
-</style>
