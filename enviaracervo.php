@@ -14,12 +14,11 @@
           if($tipo == 'admin'){
                
                if($extensao != "jpg" && $extensao != "png" && $extensao != "pdf" && $extensao != "docx" && $extensao != "pptx" && $extensao != "txt" && $extensao != "mp4" && $extensao != "mp3"){
-                    echo "<script>alert('Tipo de arquivo não aceito');</script>";
+                    die ("Tipo de arquivo não aceito"); 
                     logout();
-                    ?> <script>window.location.href='login.php'</script>;
+                    ?> <script>window.location.href='login.php';</script>
                     <?php
                }        
-          
 
           $path = $dir . $novoNomeArquivo . "." . $extensao;
             
