@@ -112,3 +112,95 @@ insert into disciplina (codDisciplina, nomeDisciplina) values ('1', 'Matemática
 insert into estudante (imagemEstudante) values ("c:/xampp/htdocs/Escola_TCC/Imagens/kevin.png");
 
 select * from armazinfo;
+
+/* tiaguin */ 
+
+insert into disciplina (nomeDisciplina) values ('Matematica'), ('Portugues'), ('Historia'), ('Geografia');
+
+
+create table turmas (
+	cod int(11) primary key not null auto_increment,
+    codTurma varchar(20),
+    nomeTurma varchar(60),
+    tempPorAula int(11),
+    intervalo int(11)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+select * from turmas;
+describe turmas;
+
+alter table estudante add column turma int(11);
+alter table estudante add foreign key (turma) references turmas(cod);
+
+/* comandos para teste */
+update estudante set turma = '1' where codAluno = ('2','3','4');
+
+insert into turmas (codTurma,nomeTurma,tempPorAula,intervalo) values ('A', 'Informática para internet', '50', '20');
+
+create table turmaaDisciplinas (
+	cod int(11) primary key not null auto_increment,
+	disciplinas int(11),
+    professores int(11),
+    extraProf int(11)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+insert into turmaadisciplinas (disciplinas, professores, extraProf) values ('2', '2' , '3');
+
+select * from turmaadisciplinas;
+drop table turmaadisciplinas;
+
+create table turmaaHorario (
+	cod int(11) primary key not null auto_increment,
+    seg int(11),
+    ter int(11),
+    quar int(11),
+    horario varchar(30) 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+drop table turmaaHorario;
+insert into turmaahorario (seg, ter, quar, horario) values ('2','2','3','7:30');
+
+
+
+select * from turmaahorario;
+drop table horarioturmaa;
+drop table disciplinasturmaa;
+
+SELECT MIN(cod) AS menorCod, MAX(cod) AS maiorCod FROM turmas;
+SELECT nomeTurma, codTurma FROM turmas WHERE cod = 31;
+
+SELECT MIN(codAluno) AS menorCodAluno, MAX(codAluno) AS maiorCodAluno FROM estudante WHERE turma = '33';
+UPDATE estudante SET turma = '32' WHERE codAluno = '8';
+
+/* Criar linha de alunos sem turma */
+insert into turmas (cod, codTurma, nomeTurma, tempPorAula, intervalo) values ('0','0', 'Sem Turma','00','00');
+describe turmas;
+describe estudante;
+select * from estudante where turma = '33';
+select * from turmas;
+UPDATE horarioturmaa SET seg = 7 WHERE cod = 1;
+
+ SELECT nomeDisciplina FROM disciplina WHERE codDisciplina = '2';
+ 
+ SELECT MIN(cod) AS minCodDisciplina, MAX(cod) AS maxCodDisciplina FROM disciplinasturmai;
+describe disciplina;
+SELECT * FROM disciplina;
+
+ALTER TABLE estudante add column turma int(11);
+alter table estudante add foreign key turma references turmas(codTurma);
+
+
+
+describe estudante;
+describe disciplina;
+
+create table notas (
+ cod int(11) not null primary key,
+ aluno int(11),
+ disciplina int(11),
+ n1 int(11),
+ n2 int(11),
+ n3 int(11),
+ n4 int(11),
+ final int(11)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
