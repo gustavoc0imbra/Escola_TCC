@@ -11,15 +11,9 @@ body{
 #bodyUserEdit{ 
   text-align: center;
   font-size: 20px;
-  background-color: turquoise;
-  
+  background-color: #0dcaf0;
 }
-#forma{ 
-  text-align: center;
-  font-size: 20px;
-  background-color: turquoise;
-  
-} 
+
 
 h1{
     text-align: center;
@@ -182,6 +176,7 @@ h1{
   color: #f1f1f1;
 }
 
+
 /* Botão de abrir o sidebar */
  .openbtn { 
   float: left;
@@ -231,23 +226,32 @@ h1{
 
 /* button logout */
 .formLogout{
-    padding-top: 15px;
+  padding-top: 20px;
+  position: relative;
+  
 }
 
 .logout{
-  padding: 2px;
-  margin-left:77px;
-  display: flex;
-  border-radius: 2%;
- 
+  background-color: #0aa3c2;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  color: white;
+  font-size: 21px;
+  text-decoration: none;
+  
+
 }
 
 .logout:hover{
-    cursor: pointer;
-    background-color:#0aa3c2;
-    border-color: black;
-    
+  background-color: deepskyblue;
+  color: white;
+  cursor: pointer;
+
+  
 }
+
+
 
 /*Estilo dos cards do Aluno no Index */
 #card1Aluno{
@@ -263,10 +267,38 @@ h1{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  width: 100%;
   position: relative;
   background-color: turquoise;
-  border-radius: 20px;
+  border-radius: 0;
 }
+
+/*botao horario do aluno e professor*/
+.botaozinho{
+  background-color: darkcyan;
+  border: none;
+  padding: 15px;
+  border-radius: 50px;
+  color: white;
+  font-size: 21px;
+  text-decoration: none;
+
+}
+
+.botaozinho:hover{
+
+  background-color: darkblue;
+  color: white;
+  cursor: pointer;
+
+}
+
+
+
+
+
+ 
+
 
 
 

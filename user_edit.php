@@ -2,7 +2,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="Estilo/estilo.css">
+        <link href="Estilo/main3.css" rel="stylesheet">
+     
+
     </head>
     <?php 
         require_once "includes/config.php";
@@ -226,7 +228,17 @@
         
         
     ?>
-    
-        <Br><br><a href="index.php">Menu</a>
-        
+
+        <a class="btn btn-primary" href="index.php" role="button">Menu</a>
+      
+
     </body>
+
+    <style>
+    a{
+        position: relative;
+        border: none;
+        top: -40px;
+    }
+</style>
+

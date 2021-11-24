@@ -6,6 +6,10 @@
          <link rel="stylesheet" href="Estilo/estilo.css">
          <meta name="viewport" content="width=device-width, initial-scale=1">
          <title>Bem vindo(a)!</title>
+         <style>
+        
+             
+             </style>
         </head>
         <?php
              include_once "includes/config.php";
@@ -32,17 +36,17 @@
                 }elseif($_SESSION['tipo'] == "aluno"){
                     ?>
                     <div id="main">
-                    <h1> Logado com sucesso aluno!</h1>
+                    <h1 style = "font-family:courier,arial,helvetica; font-size: 40px"> Logado com sucesso aluno!</h1>
                     <div id="card1Aluno">
                         <img src="Imagens/livro.jpg" style="width:35%">
                        <div id="corpoCard1Aluno">
-                             <h4><p>Horário</p></h4>
+                             <h1><p>Horário</p></h1>
                              <a href="horarioAluno.php">
                         
-                                 <button>Horário</button>
+                                 <button class=botaozinho>Horário</button>
                       
                                 </a>
-                             <p>Veja seus horários de aulas!</p>
+                             <p><h1><b>Veja seus horários de aulas!<b></h1></p>
                              
                        </div>
                     <p id="rodape">Desenvolvido por ...</p> 

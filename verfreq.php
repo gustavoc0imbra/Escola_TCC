@@ -22,6 +22,7 @@ $res = @mysqli_query($mysql->con, $sql) or die ("erro ao listar");
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Escola_TCC</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <a href="index.php">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -42,18 +43,20 @@ $res = @mysqli_query($mysql->con, $sql) or die ("erro ao listar");
         <br>
         <div class="container">
   <!-- Content here -->
-        <table class = "table table-bordered border border-info border border-3">
+        <table class = "table table-bordered border border-info border border-3 ">
+          
             <tr> 
                 <td> <center> Frequência </center> </td>
                 <td> <center> Disciplina </center> </td>
             </tr>
-
+            
             <?php while($dado = $res->fetch_array()){ ?>
             <tr> 
-                <td><?php echo $dado["frequenciaAluno"]; ?> </td>
-                <td><?php echo $dado["FKcodDisciplina"]; ?> </td>
+                <td><center><?php echo $dado["frequenciaAluno"]; ?> </center></td>
+                <td><center><?php echo $dado["FKcodDisciplina"]; ?> </center> </td>
             </tr>
             <?php } ?>
+            
         </table>
 
         </div>

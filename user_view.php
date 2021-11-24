@@ -31,13 +31,13 @@
         <!--Nav horizontal -->
         <nav class="navbar navbar-expand-lg navbar-light bg-info">   
              <div class="container-fluid">
-               <a class="navbar-brand" href="#">Escola_TCC</a>
+               <a class="navbar-brand" href="index.php">Escola_TCC</a>
                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span>
+                 <span class="navbar-toggler-icon"> </span>
                 </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                 <a class="nav-link active" aria-current="page" href="index2.php">Voltar</a>
+                 <a class="nav-link active" aria-current="page" href="index.php">Voltar</a>
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@
                             <center><a href='user_view.php?tipoSelect=responsavel'><button type="button" class="btn btn-outline-primary">Usuários responsavel</button></a></center><br><Br>
                             <table class="table table-dark table-hover table-sm">
                                 <tr>
-                                    <th>Rm</th>
+                                    <th>RM</th>
                                     <th>Nome</th>
                                     <th>Data de nasc</th>
                                     <th>Tel/Cel</th>
@@ -179,7 +179,7 @@
                              <a href='user_view.php?tipoSelect=professor'>Usuários professores </a><br><Br>
                              <table class="table table-dark table-hover table-sm">
                                  <tr>
-                                     <th>Rm</th> 
+                                     <th>RM</th> 
                                      <th>Nome</th>
                                      <th>CPF</th>
                                      <th>Rg</th>

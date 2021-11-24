@@ -31,6 +31,7 @@
     </div>
   </div>
 </nav>
+<br><br>
 <h1 align="center"><?php echo ("3º Ano E.M"); ?></h1>
 <!-- Tabela de horários -->
           <center>

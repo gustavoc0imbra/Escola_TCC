@@ -1,11 +1,13 @@
 <DOCYTIPE html>
     <html lang="pt-br">
         <head>
-            <titlle></titlle>
+            <title>cadastrar</title>
             <meta charset="utf-8">
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
             <link rel="stylesheet" href="Estilo/estilo.css">
         </head>
         <body>
+            <div>
             <?php 
                 require_once "includes/functions.php";
                 require_once "includes/config.php";
@@ -160,5 +162,15 @@
                 
 
             ?>
-            <br><br><a href="index.php">voltar</a>
+          </div>
         </body>
+
+        <style>
+            div{
+                 text-align: center;
+                 position: relative;
+                 font-size: 40px;
+                 
+                
+            }
+        </style>
