@@ -128,8 +128,8 @@
                     letras + "RG do responsável:</a>" + rg +
                     letras + "CPF do responsável:</a>" + cpf +
                     letras + "Data de nascimento do responsável:</a>" + datanasc +
-                    letras + "Código do aluno: </a><br><input required class='caixa_texto' type='text' name='codAluno' id='codAluno' size='20' maxlength='30'>" + 
-                    letras + "Senha do aluno: </a><br><input class='caixa_texto' type='password' name='senhaAluno' id='senha1' size='10' maxlength='10'>" ;
+                    letras + "Código do aluno: </a><br><input required type='text' name='codAluno' id='codAluno' size='20' maxlength='30'>" + 
+                    letras + "Senha do aluno: </a><br><input  type='password' name='senhaAluno' id='senha1' size='10' maxlength='10'>" ;
                     
                 }if(x == "admin"){
                     document.getElementById("mudarusuario").innerHTML =
@@ -143,7 +143,7 @@
 
        <div>
         <br><input class="cad" type="submit" value="Cadastrar">  
-        <br><br> <a class="voltar"href="login.php" role="button">Voltar</a>
+        <br><br> <a class="voltar"href="index.php" role="button">Voltar</a>
     </div>
        
 

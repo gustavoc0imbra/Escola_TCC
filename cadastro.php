@@ -50,7 +50,8 @@
 
 
                                 if($banco->query($q)){
-                                    echo "Usuário $nome cadastrado com sucesso!";
+                                    echo "<script>alert('Usuário $nome cadastradado com sucesso!');</script>";
+                                    echo "<script>window.location.href='index.php'</script>";
                                 }else{
                                     echo "Não foi possivel cadastrar o usuário $nome";
                                 }
@@ -77,7 +78,8 @@
                         $q = "INSERT INTO professor(codDisciplina,nomeProf,senhaProf,datanascProf,celProf,telProf,cidadeProf,bairroProf,ruaProf) VALUES ('$disciplina','$nome','$senha1','$datanasc','$cel','$tel','$cidade','$bairro','$rua')";
                         
                         if($banco->query($q)){
-                            echo "Usuário $nome cadastradado com sucesso!";
+                            echo "<script>alert('Usuário $nome cadastradado com sucesso!');</script>";
+                            echo "<script>window.location.href='index.php'</script>";
                         }else{
                             echo "Não foi possivel cadastrar o usuário $nome";
                             }
@@ -119,8 +121,8 @@
 
                                         if($banco->query($q)){
 
-                                            echo "Usuário $nome cadastradado com sucesso!";
-                                        }else{
+                                            echo "<script>alert('Usuário $nome cadastradado com sucesso!');</script>";
+                                            echo "<script>window.location.href='index.php'</script>";
 
                                             echo "Não foi possivel cadastrar o usuário $nome";
                                         }
@@ -153,7 +155,8 @@
                        $q = "INSERT INTO administrador(nomeAdm,senhaAdm) VALUES ('$nome','$senha1')";
                         
                        if($banco->query($q)){
-                            echo "Usuário $nome cadastradado com sucesso!";
+                            echo "<script>alert('Usuário $nome cadastradado com sucesso!');</script>";
+                            echo "<script>window.location.href='index.php'</script>";
                        }else{
                             echo "Não foi possivel cadastrar o usuário $nome";
                        }

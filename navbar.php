@@ -34,8 +34,11 @@
                     <img class="imgPerfil" src="Imagens/paula.jpg">
                   <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
                      <a class="mudarSenha" href="you_edit.php">Mudar senha</a>
+                     <a class="sair" href="login.php">Deseja Sair?</a>
+                     
+                     
                      <form class="formLogout" action='login.php' method='post'>
-                    <input class="logout" type='submit' id='logout' value='Deseja Sair?'> 
+                   
                   </form>
                 </div>
                      <?php
@@ -55,7 +58,7 @@
                     <img class="imgPerfil" src="Imagens/gustavo.jpg">
                   <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
                      <form class="formLogout" action='login.php' method='post'>
-                     <button class="logout" type='submit' id='logout'>Deseja sair?</button>
+                     <a class="sair" href="login.php">Deseja Sair?</a>
                   </form>
                 </div>
                      <?php
@@ -75,7 +78,7 @@
                    <img class="imgPerfil" src="Imagens/livro2.jpg">
                  <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
                     <form class="formLogout" action='login.php' method='post'>
-                    <button class="logout" type='submit' id='logout' name='logout'>Deseja sair?</button>
+                    <a class="sair" href="login.php">Deseja Sair?</a>
                  </form>
                </div>
                <?php }
@@ -105,5 +108,42 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="Estilo/estilo.css">
+            <style>
+            .mudarSenha{
+              position: relative;
+              top: -160px;
+              background-color:;
+              padding: 20px;
+              border-radius: 20%;
+              font-size: 20px;
+              width: 35%;
+              left: -30px;
+              color: white;
+              }
+
+
+
+              .sair{
+                background-color: gray;
+                padding: 10px;
+                position: relative;
+                top:-120px;
+                text-decoration: none;
+                color: white;
+              }
+
+              .sair:hover{
+                color: blue;
+                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
+
+              }
+              
+            
+
+            </style>
             </head>
+       
+
 <?php
+
+
