@@ -18,6 +18,8 @@
            
 
 
+            <div id="corpo">
+            
                 <?php 
                 
                     if(!empty($_POST['logout'])){
@@ -53,7 +55,7 @@
 
                                     echo $_SESSION['user'], $_SESSION['nomeAluno'];
                                     
-                                }else{
+                                }else{ 
                                     echo "Senha inválida!";
                                     echo "<br>";
                                     echo "<a href='login.php'><button class='btn btn-light'>Voltar</button></a>";
