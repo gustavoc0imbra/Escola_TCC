@@ -34,21 +34,16 @@
                     <br>
                     <div id="corpoCardAdmin1">
                              <h1><p>Veja as turmas!</p></h1>
-                             <a href=".php">
-                        
+                             <a href="view_turma.php">
                                  <button class="butao">Turmas</button>
                                 </a>
-                             
                        </div>
 
                        <div id="corpoCardAdmin2">
                              <h1><p>Criei sua turma!</p></h1>
-                             <a href=".php">
-                        
+                             <a href="new_form_turma.php">
                                  <button class="b2">Criar</button>
                                 </a>
-                    
-                             
                        </div>
 
                        <div id="corpoCardAdmin3">
@@ -56,9 +51,7 @@
                              <a href="user_view.php?tipoSelect=aluno">
                         
                                  <button class="b3">Alunos</button>
-                                </a>
-                    
-                             
+                                </a>      
                        </div>
 
                        <div id="corpoCardAdmin4">
@@ -67,8 +60,6 @@
                         
                                  <button class="b4">Veja</button>
                                 </a>
-                    
-                             
                        </div>
 
                        <div id="corpoCardAdmin5">
@@ -78,36 +69,43 @@
                             <button class="b5"> Profs </button>
                           </div>
 
-
                           <div id="corpoCardAdmin6">
                             <a href="acervo.php">
-
                             <button class="b6"> Acervo digital </button>
                           </div>
-
-
-
                 </div>
                 <?php
                 }elseif($_SESSION['tipo'] == "aluno"){
                     ?>
                     <div id="main">
                     <h1> Logado com sucesso aluno!</h1>
-                    <div id="card1Aluno">
-                        <img src="Imagens/livro.jpg" style="width:35%">
-                       <div id="corpoCard1Aluno">
-                             <h1><p>Veja seus horários de aulas!</p></h1>
-                             <a href="horarioAluno.php">
-                        
-                                 <button class="botaozinho">Horário</button>
-                      
-                                </a>
-                        
-                       </div>
-                    <p id="rodape">Desenvolvido por ...</p> 
-                    
-                        </div>
                      </div>
+                        <div id="corpoCardAluno1">
+                                <h1><p>Veja suas notas!</p></h1>
+                                <a href="user_nota.php">
+                                    <button class="butao">Notas</button>
+                                    </a>
+                        </div>
+                        <div id="corpoCardAluno2">
+                             <h1><p>Veja seu Horário de aula</p></h1>
+                             <a href="horarioAluno.php">
+                                 <button class="b2">Horário</button>
+                                </a>
+                       </div>
+
+                       <div id="corpoCardAluno3">
+                             <h1><p>Veja suas frequências</p></h1>
+                             <a href="user_freq.php">
+                                 <button class="b3">Frequências</button>
+                                </a>      
+                       </div>
+
+                       <div id="corpoCardAluno4">
+                            <h1><p>Acervo digital</p></h1>
+                            <a href="acervo.php">
+                            <button class="b5"> Acessar </button>
+                          </div>
+                        </div>
                     <?php
                 }elseif($_SESSION['tipo'] == "professor"){
                     ?>
@@ -326,7 +324,61 @@
     font-family: Arial, Helvetica, sans-serif;
     }
     
-  
+    #corpoCardAluno1{
+        text-align: center;
+        padding: 5px;
+        top: 50%;
+        left: 35%;
+        height:26%;
+        width: 35%;
+        transform: translate(-35%, -200%);
+        position: relative;
+        background-color: aquamarine;
+        border-radius: 25px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+        z-index: -10px;
+    }
 
+    #corpoCardAluno2{
+        text-align: center;
+        padding: 5px;
+        top: 50%;
+        left: 40%;
+        height:26%;
+        width: 35%;
+        transform: translate(-50%, -176%);
+        position: relative;
+        background-color: #76D7C4;
+        border-radius: 25px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+    }
+
+    #corpoCardAluno3{
+        text-align: center;
+        padding: 5px;
+        left: 78%;
+        height:26%;
+        width: 35%;
+        transform: translate(-44%, -218%);
+        position: relative;
+        background-color: #bfd4d8;
+        border-radius: 25px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+        z-index: -5px;
+    }
+
+    #corpoCardAluno4{
+        text-align: center;
+        padding: 5px;
+        left: 78%;
+        height:26%;
+        width: 35%;
+        transform: translate(-44%, -196%);
+        position: relative;
+        background-color: #C393FA;
+        border-radius: 25px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+
+    }
 
 </style>
