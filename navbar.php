@@ -55,7 +55,7 @@
                </div>
                 <!-- sidebar lateral aluno -->
                 <div id="mySidebar" class="sidebar" stlye="height: 30px">
-                    <img class="imgPerfil" src="Imagens/gustavo.jpg">
+                    <img class="imgPerfil" src="01.jpg">
                   <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
                      <form class="formLogout" action='login.php' method='post'>
                      <a class="sair" href="login.php">Deseja Sair?</a>

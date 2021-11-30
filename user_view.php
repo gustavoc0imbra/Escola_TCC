@@ -224,6 +224,10 @@
             }
 
         ?>
-        <br><Br><a href="index.php">Voltar</a>
+        <center>
+        <br><Br><a href="index.php">
+            <button id ="btn-2" class="btn btn-outline-primary mb-3">Voltar</button>
+        </a>
+        </center>
     </body>
 </docytipe>

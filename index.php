@@ -34,7 +34,7 @@
                     <br>
                     <div id="corpoCardAdmin1">
                              <h1><p>Veja as turmas!</p></h1>
-                             <a href=".php">
+                             <a href="view_turma.php">
                         
                                  <button class="butao">Turmas</button>
                                 </a>
@@ -43,7 +43,7 @@
 
                        <div id="corpoCardAdmin2">
                              <h1><p>Criei sua turma!</p></h1>
-                             <a href=".php">
+                             <a href="new_turma.php">
                         
                                  <button class="b2">Criar</button>
                                 </a>
