@@ -425,7 +425,7 @@
          <input type='hidden' id='totalAulas' name='totalAulas' value='<?php echo $cordenadaLinha?>'>
          <Br><br><button type='submit'>Confirmar mudanças</button>
          </form>   
-        <br><a href='view_turma.php'>Voltar</a> ||
+        <br><a href='view_turma.php'>Voltar</a>
         <a href='index.php'>Menu</a>
     </body>
 </html>

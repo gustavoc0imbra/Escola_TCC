@@ -14,6 +14,9 @@
                 require_once "includes/functions.php";
                 
             ?>
+   
+           
+
 
             <div id="corpo">
             
@@ -54,9 +57,13 @@
                                     
                                 }else{ 
                                     echo "Senha inválida!";
+                                    echo "<br>";
+                                    echo "<a href='login.php'><button class='btn btn-light'>Voltar</button></a>";
                                 }
                             }else{
                                 echo ("<h1> Usuário inexistente! </h1>");
+                                echo "<br>";
+                                echo "<a href='login.php'><button class='btn btn-light'>Voltar</button></a>";
                             }
                         }
                             
@@ -83,10 +90,13 @@
                                         
                                     }else{
                                         echo "<h1>Senha inválida!</h1>";
+                                        echo "<a href='login.php'><button class='btn btn-light'>Voltar</button></a>";
                                     }
                                     
                                 }else{
                                    echo ("<h1>Usuário inexistente!</h1>");
+                                   echo "<br>";
+                                   echo "<a href='login.php'><button class='btn btn-light'>Voltar</button></a>";
                                 }
                             }
                             
@@ -113,15 +123,18 @@
                                         
                                     }else{
                                         echo "<h1>Senha inválida!</h1>";
+                                        echo "<br>";
+                                        echo "<a href='login.php'><button class='btn btn-light'>Voltar</button></a>";
                                     }
                                     
                                 }else{
                                     echo ("<h1>Usuário inexistente!</h1>");
+                                    echo "<br>";
+                                    echo "<a href='login.php'><button class='btn btn-light'>Voltar</button></a>";
                                 }
                             }
                             
                         }elseif($tipo == "admin"){
-                            
                             $q = "select codAdm,senhaAdm,nomeAdm from administrador where codAdm = $u";
                             $busca = $banco->query($q);
                             
@@ -142,10 +155,14 @@
                                         
                                     }else{
                                         echo "<h1>Senha inválida!</h1>";
+                                        echo "<br>";
+                                        echo "<a href='login.php'><button class='btn btn-light'>Voltar</button></a>";
                                     }
                                     
                                 }else{
                                     echo ("<h1>Usuário inexistente!</h1>");
+                                    echo "<br>";
+                                    echo "<a href='login.php'><button class='btn btn-light'>Voltar</button></a>";
                                 }
                             }
                             

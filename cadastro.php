@@ -29,6 +29,14 @@
                 $bairro = $_POST['bairro']?? null;
                 $rua = $_POST['rua']?? null;
                 $disciplina = $_POST['disciplina']?? null;
+                $imagem = $_FILES['imagem']?? null;
+                $nomeimg = $imagem['name']?? null;
+                $novonomeimg = uniqid();
+                $extensao = strtolower(pathinfo($nomeimg, PATHINFO_EXTENSION));
+
+                //Falta fazer o cadastro de imagem para os outros usuários família 
+                
+                $dir = "UsersImage/";
                 
                 // USUARIO TIPO ALUNO
                 if($tipo == ("aluno")){
@@ -36,24 +44,27 @@
                     if($senha1 === $senha2){
                         
                         // VERIFICANDO SE EXISTE ALGUM VALOR NULL PARA TIPO ALUNO, PROFESSOR E ADMIN
-                        if((empty($nome)||empty($senha1)||empty($senha2)||empty($rg)||empty($cpf)||empty($datanasc)||empty($tel)||empty($cidade) ||empty($bairro)||empty($rua))){
+                        if((empty($nome)||empty($senha1)||empty($senha2)||empty($rg)||empty($cpf)||empty($datanasc)||empty($tel)||empty($cidade) ||empty($bairro)||empty($rua) ||empty($imagem))){
                         
                             echo "Todos os dados são obrigatórios!";
                         
                            
                         //APLICANDO VALORES PARA O TIPO ALUNO
                         }else{
-                            
+                                
                                 $senha1 = gerarhash($senha1);
-
-                                $q = "INSERT INTO  estudante(nomeAluno,senhaAluno,datanascAluno,rg,cpf,telefoneAluno,cidadeAluno,bairroAluno,ruaAluno) VALUES('$nome','$senha1','$datanasc','$rg','$cpf','$tel','$cidade','$bairro','$rua')";
-
-
+                                $path = $dir . $novonomeimg . "." . $extensao;
+                                $mover = move_uploaded_file($imagem['tmp_name'], $path);
+                                if ($mover){
+                                    $q = "INSERT INTO  estudante(nomeAluno,senhaAluno,datanascAluno,rg,cpf,telefoneAluno,cidadeAluno,bairroAluno,ruaAluno,imagemEstudante) VALUES('$nome','$senha1','$datanasc','$rg','$cpf','$tel','$cidade','$bairro','$rua','$path')";
                                 if($banco->query($q)){
                                     echo "Usuário $nome cadastrado com sucesso!";
                                 }else{
                                     echo "Não foi possivel cadastrar o usuário $nome";
                                 }
+                            }
+
+                                
                             }
                     
                     }else{

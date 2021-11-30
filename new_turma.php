@@ -2,13 +2,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="Estilo/main3.css">  
     </head>
     <?php 
         require_once "includes/config.php";
         require_once "includes/functions.php";
         $tipo = $_SESSION['tipo']?? null;
     ?>
-    <body>
+    <body id="bodyt">
     <?php 
     
         if($tipo == "admin"){

@@ -2,8 +2,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="Estilo/main3.css" rel="stylesheet">
-     
+        <link rel="stylesheet" href="Estilo/main5.css">    
 
     </head>
     <?php 
@@ -238,7 +237,7 @@
     a{
         position: relative;
         border: none;
-        top: -40px;
+        top: 20px;
     }
 </style>
 

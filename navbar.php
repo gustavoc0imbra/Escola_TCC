@@ -3,59 +3,38 @@
     $nome = $_SESSION['nome'];
     $tipo = $_SESSION['tipo'];
     $cod = $_SESSION['user'];
+
+    $buscaImagem = $banco->query("SELECT imagemEstudante FROM estudante WHERE codAluno = $cod");
 ?>
-<!-- navBar horizontal -->
                 <?php
                    if ($tipo =="admin"){
                      ?>
-                     <div class="navbar">
-                      <div class="openbtn" id="openNav" onclick="openNav(this)"><p id="icon">&#9776; Menu</p></div>
-                      <a class="config" href="user_edit.php">&#9881;</a>
-                      <a class="aNavbar" href="acervo.php">Acervo Digital</a> 
-                      <a class="aNavbar" href="#">Quem somos?</a>
-                      <div class="dropdown">
-                         <button class="dropbtn">Usuários  &#8744;</button>
-                         <div class="dropdown-content">
-                             <a href="user_view.php?tipoSelect=aluno">Alunos</a>
-                             <a href="user_view.php?tipoSelect=responsavel">Responsaveis</a>
-                             <a href="user_view.php?tipoSelect=professor">Professores</a>
-                         </div>
-                     </div>
-                     <div class="dropdown">
-                         <button class="dropbtn">Turmas  &#8744;</button>
-                         <div class="dropdown-content">
-                             <a href="#">Ver turmas</a>
-                             <a href="#">Criar turma</a>
-                         </div>
-                     </div>
-               </div>
                 <!-- sidebar lateral admin -->
                 <div id="mySidebar" class="sidebar">
+                  <div class="openbtn" id="openNav" onclick="openNav(this)"><p id="icon">&#9776; Menu</p></div>
+                      <a class="config" href="user_edit.php">&#9881;</a>
                     <img class="imgPerfil" src="Imagens/paula.jpg">
                   <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
                      <a class="mudarSenha" href="you_edit.php">Mudar senha</a>
+                     <a class="sair" href="login.php">Deseja Sair?</a>    
                      <form class="formLogout" action='login.php' method='post'>
-                    <input class="logout" type='submit' id='logout' value='Deseja Sair?'> 
                   </form>
                 </div>
                      <?php
                    }elseif($tipo == "aluno"){
                      ?>
-                     <div class="navbar">
-                      <div class="openbtn" id="openNav" onclick="openNav(this)"><p id="icon">&#9776; Menu</p></div>
-                      <a class="config" href="user_edit.php">&#9881;</a>
-                      <a class="aNavbar" href="horarioAluno.php">Horários</a>
-                      <a class="aNavbar" href="notas.php">Notas</a>
-                      <a class="aNavbar" href="verfreq.php">Frequências</a>
-                      <a class="aNavbar" href="acervo.php">Acervo</a>
-                     </div>
-               </div>
+                
+                <div class="openbtn" id="openNav" onclick="openNav(this)"><p id="icon">&#9776; Menu</p></div>
                 <!-- sidebar lateral aluno -->
                 <div id="mySidebar" class="sidebar" stlye="height: 30px">
-                    <img class="imgPerfil" src="Imagens/gustavo.jpg">
+
+                  <?php while ($imagem = $buscaImagem->fetch_assoc()){?>
+                    <img class="imgPerfil" src="<?php echo $imagem['imagemEstudante'];?>">
+                   <?php } ?>
+
                   <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
                      <form class="formLogout" action='login.php' method='post'>
-                     <button class="logout" type='submit' id='logout'>Deseja sair?</button>
+                     <a class="sair" href="login.php">Deseja Sair?</a>
                   </form>
                 </div>
                      <?php
@@ -75,7 +54,7 @@
                    <img class="imgPerfil" src="Imagens/livro2.jpg">
                  <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
                     <form class="formLogout" action='login.php' method='post'>
-                    <button class="logout" type='submit' id='logout' name='logout'>Deseja sair?</button>
+                    <a class="sair" href="login.php">Deseja Sair?</a>
                  </form>
                </div>
                <?php }
@@ -105,5 +84,42 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="Estilo/estilo.css">
+            <style>
+            .mudarSenha{
+              position: relative;
+              top: -160px;
+              background-color:;
+              padding: 20px;
+              border-radius: 20%;
+              font-size: 20px;
+              width: 35%;
+              left: -30px;
+              color: white;
+              }
+
+
+
+              .sair{
+                background-color: gray;
+                padding: 10px;
+                position: relative;
+                top:-120px;
+                text-decoration: none;
+                color: white;
+              }
+
+              .sair:hover{
+                color: blue;
+                box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
+
+              }
+              
+            
+
+            </style>
             </head>
+       
+
 <?php
+
+

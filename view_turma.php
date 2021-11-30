@@ -4,6 +4,7 @@
         <meta description="...">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="Estilo/main3.css">  
         <style>
             table {
               font-family: arial, sans-serif;
@@ -18,12 +19,16 @@
     include_once("includes/config.php");
     include_once("includes/functions.php");
     ?>
-    <body>
+    <body id="bodyvt" >
         
         <h3>
-        <a href='new_turma.php'>Nova Turma</a> ||
-        <a href='index.php'>Menu</a>
-        </h3>
+        <a href='new_turma.php'>
+        <button type="button" class="btn btn-primary">Nova Turma</button>
+        </a>
+        <a href='index.php'>
+        <button type="button" class="btn btn-primary ">Menu</button>
+        </a>                         
+        </h3> 
         <h1>Turmas</h1>
 
         <?php 
