@@ -40,7 +40,7 @@ if($tipousuario != 'professor'){
                   //}
           ?>
         </select>
-        <input type="submit" placeholder="Selecionar...">
+        <input type="submit" placeholder="Selecionar..." class="btn btn-outline-success">
         </form>
     </div>
     <?php
@@ -65,13 +65,13 @@ if($tipousuario != 'professor'){
 
 <style>
     input{
-        position: absolute;
-        left: 47%;
-        top: 50%;
+        position: fixed;
+        left: 47.4%;
+        top: 70%;
     }
     .rodape{
         position: absolute;
         top: 87.5%;
-        left: 47%;
+        left: 45%;
     }
 </style>

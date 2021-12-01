@@ -3,7 +3,6 @@
         <head>
          <meta charset="UTF-8">
          <meta description="...">
-         <link rel="stylesheet" href="Estilo/estilo.css">
          <link rel="stylesheet" href="Estilo/main6.css">
          <meta name="viewport" content="width=device-width, initial-scale=1">
          
@@ -29,12 +28,11 @@
                      <div id="main">
                     <h1> Logado com sucesso admin!</h1>
               
-                    </div>
-                    <p> Desenvolvido por ...</p>
+                    
                     <br>
                     <div id="corpoCardAdmin1">
                              <h1><p>Veja as turmas!</p></h1>
-                             <a href=".php">
+                             <a href="view_turma.php">
                         
                                  <button class="butao">Turmas</button>
                                 </a>
@@ -42,8 +40,8 @@
                        </div>
 
                        <div id="corpoCardAdmin2">
-                             <h1><p>Criei sua turma!</p></h1>
-                             <a href=".php">
+                             <h1><p>Criei a turma!</p></h1>
+                             <a href="new_turma.php">
                         
                                  <button class="b2">Criar</button>
                                 </a>
@@ -71,31 +69,29 @@
                              
                        </div>
 
-                       <div id="corpoCardAdmin5">
-                            <h1><p>Veja os professores</p></h1>
-                            <a href="user_view.php?tipoSelect=professores">
-
-                            <button class="b5"> Profs </button>
-                          </div>
+                    
+                            <a href="user_view.php?tipoSelect=professor">
+                            <button class="b5" style="font-size: 20px"> Professores </button>
+                          
 
 
                           <div id="corpoCardAdmin6">
                             <a href="acervo.php">
 
-                            <button class="b6"> Acervo digital </button>
+                            <button class="b6" style="font-size: 9px"> <h1>Acervo digital</h1> </button>
                           </div>
 
 
 
                 </div>
+
+             </div>
                 <?php
                 }elseif($_SESSION['tipo'] == "aluno"){
                     ?>
                     <div id="main">
                     <h1> Logado com sucesso aluno!</h1>
-                    <div id="card1Aluno">
-                        <img src="Imagens/livro.jpg" style="width:35%">
-                       <div id="corpoCard1Aluno">
+                       <div id="corpoAluno1">
                              <h1><p>Veja seus horários de aulas!</p></h1>
                              <a href="horarioAluno.php">
                         
@@ -106,14 +102,37 @@
                        </div>
                     <p id="rodape">Desenvolvido por ...</p> 
                     
-                        </div>
-                     </div>
+                  </div>
                     <?php
                 }elseif($_SESSION['tipo'] == "professor"){
                     ?>
                     <div id="main">
                     <h1> Logado com sucesso Professor<br><?php echo $nome; ?>!</h1>
-                    <p id="rodape">Desenvolvido por ...</p>
+                    <div id="corpoProf1">
+                             <h1><p>Envie Frequências!</p></h1>
+                             <a href="freqselecprof.php">
+                                 <button class="p1">enviar</button>
+                                </a>
+                    </div>            
+
+                    <div id="corpoProf2">
+                             <h1><p>Envie Notas!</p></h1>
+                             <a href=".php">
+                                 <button class="p2">enviar</button>
+                                </a>
+                   
+                   
+                    </div>
+
+                    <div id="corpoProf3">
+                             <h1><p>Tabela de horários!</p></h1>
+                             <a href=".php">
+                                 <button class="p3">Veja</button>
+                                </a>
+                   
+                   
+                    </div>
+                
                 </div>
                     <?php
                 }elseif($_SESSION['tipo'] == "responsavel"){
@@ -130,19 +149,20 @@
 </html>
 
 <style>
+
+
 #corpoCardAdmin1{
         text-align: center;
         padding: 5px;
         top: 50%;
-        left: 35%;
+        left: 30%;
         height:26%;
         width: 35%;
-        transform: translate(-35%, -200%);
+        transform: translate(-50%, 150%);
         position: relative;
-        background-color: aquamarine;
+        background-color: #76D7C4;
         border-radius: 25px;
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-        z-index: -10px;
         
     }
 
@@ -170,10 +190,10 @@
         text-align: center;
         padding: 5px;
         top: 50%;
-        left: 40%;
+        left: 30%;
         height:26%;
         width: 35%;
-        transform: translate(-50%, -176%);
+        transform: translate(-50%, -70%);
         position: relative;
         background-color: #76D7C4;
         border-radius: 25px;
@@ -205,15 +225,17 @@
     {
         text-align: center;
         padding: 5px;
-        left: 78%;
+        top: 50%;
+        left: 75%;
         height:26%;
         width: 35%;
-        transform: translate(-44%, -218%);
+        transform: translate(-50%, -170.8%);
         position: relative;
-        background-color: #bfd4d8;
+        background-color: aquamarine;
         border-radius: 25px;
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-        z-index: -5px;
+        z-index: -10px;
+        
     }
 
     .b3{
@@ -238,14 +260,16 @@
     {
         text-align: center;
         padding: 5px;
-        left: 78%;
+        top: 50%;
+        left: 75%;
         height:26%;
         width: 35%;
-        transform: translate(-44%, -196%);
+        transform: translate(-50%, -150%);
         position: relative;
-        background-color: #C393FA;
+        background-color: aquamarine;
         border-radius: 25px;
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+        z-index: -10px;
     }
 
     .b4{
@@ -266,51 +290,42 @@
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
     }
 
-    #corpoCardAdmin5
-    {
-        text-align: center;
-        padding: 5px;
-        left: 60%;
-        height:26%;
-        width: 35%;
-        transform: translate(-44%, -170%);
-        position: relative;
-        background-color: #C0ECB1;
-        border-radius: 25px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-    }
+    
 
     .b5{
-        padding: 13px;
-        top: -20px;
-        position: relative;
-        border-radius: 20px;
-        background-color: #3498DB;
+        
+        width: 15%;
+        height: 10%;
+        font-size
+        left: 100%;
+        top: -790px;
+        transform: translate(530%, 60%);
+        border-radius: 5%;
+        background-color: #212132;
         color: white;
-        font-size: 40px;
         border: none;
+        position: relative;
     }
 
     .b5:hover{
         cursor:pointer;
-        background-color:#85C1E9;
+        background-color:#63636F;
         border: none;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
 
   
-
     .b6{
-        padding: 2px;
-        width:15%;
+        
+        
+        width: 15%;
         height: 10%;
         left: 60%;
-        top: -955px;
+        top: -790px;
         transform: translate(130%, -150%);
-        border-radius: 20px;
+        border-radius: 5%;
         background-color: #212132;
         color: white;
-        font-size: 32px;
         border: none;
         position: relative;
     }
@@ -322,9 +337,116 @@
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
 
-    body{
-    font-family: Arial, Helvetica, sans-serif;
+
+    #corpoProf1{
+        text-align: center;
+        padding: 5px;
+        top: 50%;
+        left: 30%;
+        height:26%;
+        width: 35%;
+        transform: translate(-70%, 40%);
+        position: relative;
+        background-color: #76D7C4;
+        border-radius: 25px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+    
+
     }
+
+    .p1{
+        padding: 13px;
+        border-radius: 20px;
+        top: -20px;
+        background-color: #3498DB;
+        position: relative;
+        color: white;
+        font-size: 40px;
+        border: none;
+
+    }
+
+    .p1:hover{
+        cursor:pointer;
+        background-color:blue;
+        border: none;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
+    }
+
+
+    #corpoProf2{
+        text-align: center;
+        padding: 5px;
+        top: 50%;
+        left: 30%;
+        height:26%;
+        width: 35%;
+        transform: translate(80%, -61%);
+        position: relative;
+        background-color: #76D7C4;
+        border-radius: 25px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+
+    }
+
+    .p2{
+        padding: 13px;
+        border-radius: 20px;
+        top: -20px;
+        background-color: #3498DB;
+        position: relative;
+        color: white;
+        font-size: 40px;
+        border: none;
+
+    }
+
+    .p2:hover{
+        cursor:pointer;
+        background-color:blue;
+        border: none;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
+    }
+
+
+    #corpoProf3{
+        text-align: center;
+        padding: 5px;
+        top: 50%;
+        left: 30%;
+        height:26%;
+        width: 35%;
+        transform: translate(7%, -45%);
+        position: relative;
+        background-color: #76D7C4;
+        border-radius: 25px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+
+    }
+
+    .p3{
+        padding: 13px;
+        border-radius: 20px;
+        top: -20px;
+        background-color: #3498DB;
+        position: relative;
+        color: white;
+        font-size: 35px;
+        border: none;
+
+    }
+
+    .p3:hover{
+        cursor:pointer;
+        background-color:blue;
+        border: none;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
+    }
+
+    
+    
+
+
     
   
 

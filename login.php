@@ -5,8 +5,46 @@
             <meta charset="utf-8">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="Estilo/main5.css">
-        </head>
+            <style>
+
+
+                #bodyUserEdit{ 
+                    text-align: center;
+                    font-size: 20px;
+                    background-color: #0dcaf0;
+                    position: relative;
+                    top: 40px;
+                }
+
+                .botaog{
+                    background-color: white;
+                    position: relative;
+                    border: none;
+                    padding: 15px;
+                    padding-left: 60px;
+                    padding-right: 60px;
+                    border-radius: 70px;
+
+                }
+
+                .botaog:hover{
+                    background-color: darkcyan;
+                    color: white;
+                    cursor: pointer;
+                }
+
+                body{
+                    background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(0,212,255,1) 35%, rgba(0,153,255,1) 100%);;
+                    text-align: center;
+                    position: absolute;
+                    top: 55%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                    
+                }
+
+</style>
+    </head>
 
         <body>
             <?php 
@@ -15,8 +53,6 @@
                 
             ?>
    
-           
-
 
             <div id="corpo">
             
@@ -56,7 +92,7 @@
                                     echo $_SESSION['user'], $_SESSION['nomeAluno'];
                                     
                                 }else{ 
-                                    echo "Senha inválida!";
+                                    echo "<h1>Senha inválida!</h1>";
                                     echo "<br>";
                                     echo "<a href='login.php'><button class='btn btn-light'>Voltar</button></a>";
                                 }

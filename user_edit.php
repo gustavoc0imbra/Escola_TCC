@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="Estilo/main5.css">    
+      
 
     </head>
     <?php 
@@ -10,7 +10,7 @@
         require_once "includes/functions.php";
         $tipo = $_SESSION['tipo']?? null;
     ?>
-    <body id="bodyUserEdit">
+    <body>
     <?php 
         $edit = null;
         $delete = null;
@@ -23,7 +23,7 @@
             $nome = $_GET['nome']?? null;
             $delete = $_GET['delete']?? null;
 
-            echo "<h1>Alterar dados do $c </h1>";
+            echo "<center><h1 >Alterar dados do $c </h1></center>";
         }
         
             
@@ -228,16 +228,12 @@
         
     ?>
 
-        <a class="btn btn-primary" href="index.php" role="button">Menu</a>
+       
       
 
     </body>
 
     <style>
-    a{
-        position: relative;
-        border: none;
-        top: -40px;
-    }
-</style>
+ 
+    </style>
 

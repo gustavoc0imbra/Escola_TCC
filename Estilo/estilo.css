@@ -149,14 +149,15 @@ h1{
   top: 59;
   left: 0;
   background-color: #111; 
-  overflow-x: hidden; 
   padding-top: 50px; 
   transition: 0.5s; 
   margin: 0px;
   padding-top: 20px;
   padding-left: 0px;
   box-shadow:0px 5px 20px grey;
- 
+  overflow: hidden;
+
+
 }
 
 /* Letras de dentro da sidebar */
@@ -171,6 +172,13 @@ h1{
   display: block;
   transition: .5s;
   white-space: nowrap;
+  
+  
+}
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+  
   
 }
 .sidebar a:hover {
@@ -231,44 +239,6 @@ h1{
 
 
 
-
-/*Estilo dos cards do Aluno no Index */
-
-#corpoCard1Aluno{
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-}
-#corpoCard1Aluno{
-  text-align: center;
-  padding: 5px;
-  top: 50%;
-  left: 15%;
-  height:29%;
-  width: 35%;
-  transform: translate(-35%, -50%);
-  position: relative;
-  background-color: #678DCE;
-  border-radius: 25px;
-}
-
-
-/*botao horario do aluno e professor*/
-.botaozinho{
-  background-color: darkcyan;
-  border: none;
-  padding: 17px;
-  border-radius: 15%;
-  color: white;
-  font-size: 17px;
-  text-decoration: none;
-
-}
-
-.botaozinho:hover{
-  background-color: cyan;
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
 
 
 

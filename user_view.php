@@ -1,23 +1,25 @@
 <docytipe !html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-            table {
-              font-family: arial, sans-serif;
-              border-collapse: collapse;
-              width: 100%;
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: lightcyan;
+                background: rgb(0,212,255); 
+                background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(0,212,255,1) 35%, rgba(0,153,255,1) 100%);
             }
 
-            td, th {
-              border: 1px solid grey;
-              text-align: left;
-              padding: 5px;
+            a{
+                text-decoration: none;
+                color: black;
+                font-size: 25px
+    
             }
 
-            tr:nth-child(even) {
-              background-color: #dddddd;
-            }
+           
+
         </style>
     </head>
     <?php 
@@ -55,7 +57,7 @@
                             ?>
                             <a href='user_view.php?tipoSelect=responsavel'>Usuários responsavel  ||</a>
                             <a href='user_view.php?tipoSelect=professor'>Usuários professores </a><br><Br>
-                            <table>
+                            <table class="table table-success table-striped">
                                 <tr>
                                     <th>Rm</th>
                                     <th>Nome</th>
@@ -118,7 +120,7 @@
                             ?> 
                             <a href="user_view.php?tipoSelect=aluno">Usuários alunos ||</a>
                             <a href='user_view.php?tipoSelect=responsavel'>Usuários responsavel  ||</a><br><Br>
-                            <table>
+                            <table class="table table-success table-striped">
                                 <tr>
                                     <th>Rm</th>
                                     <th>Nome</th>
@@ -168,7 +170,7 @@
                             ?>
                              <a href="user_view.php?tipoSelect=aluno">Usuários alunos ||</a>
                              <a href='user_view.php?tipoSelect=professor'>Usuários professores </a><br><Br>
-                             <table>
+                             <table class="table table-success table-striped">
                                  <tr>
                                      <th>Rm</th> 
                                      <th>Nome</th>

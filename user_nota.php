@@ -12,7 +12,7 @@
             }
 
             td, th {
-              border: 1px solid grey;
+              border: 3px solid grey;
               text-align: left;
               padding: 5px;
             }
@@ -20,6 +20,33 @@
             tr:nth-child(even) {
               background-color: #dddddd;
             }
+
+            button{
+                padding: 15px;
+                font-size: 30px;
+                background-color: #111;
+                position: relative;
+                left: 40%;
+                color: white;
+                border: none;
+
+            }
+
+            button:hover{
+                cursor: pointer;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+            }
+
+            .bolinha{
+                padding: 15px;
+                font-size: 30px;
+                background-color: #111;
+                position: relative;
+                left: 40%;
+                color: white;
+                border: none;
+            }
+            
         </style>
     </head>
     <?php 
@@ -37,9 +64,10 @@
                         $codTurma = $_GET['turma'];
                     
     
-                        echo "<h2>Notas do aluno: $nome (Rm:$cod)</h2>";
+                        echo "<h1>Notas do aluno: $nome (Rm:$cod)</h2>";
 
                         echo "<a href='edit_nota.php?nome=$nome&turma=$codTurma&cod=$cod'><button>Aplicar ou alterar nota</button></a><br><br>";
+                        echo "<a href='index.php><button class='bolinha>Voltar</button></a>";
     
                     }else if($tipo == "aluno"){
     

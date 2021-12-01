@@ -128,16 +128,16 @@
                                         }
 
                                     }else{
-                                        echo "Senha inválida, tente novamente!";
+                                        echo "<h1>Senha inválida, tente novamente!</h1>";
                                     }
 
                                 }else{
-                                    echo "Aluno ainda não cadastrado tente novamente mais tarde!";
+                                    echo "<h1>Aluno ainda não cadastrado tente novamente mais tarde!</h1>";
                                 }
                             }
                             
                         }else{
-                           echo "Senha não conferem, tente novamente!";
+                           echo "<h1>Senha não conferem, tente novamente</h1>!";
                         }
                     }
                     

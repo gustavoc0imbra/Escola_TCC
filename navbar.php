@@ -31,9 +31,9 @@
                </div>
                 <!-- sidebar lateral admin -->
                 <div id="mySidebar" class="sidebar">
-                    <img class="imgPerfil" src="Imagens/paula.jpg">
+                    <img class="imgPerfil" src="">
                   <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
-                     <a class="mudarSenha" href="you_edit.php">Mudar senha</a>
+                     <a class="mudarSenha" href="user_edit.php">Mudar senha</a>
                      <a class="sair" href="login.php">Deseja Sair?</a>
                      
                      
@@ -75,7 +75,7 @@
                
                <!-- sidebar lateral prof -->
                <div id="mySidebar" class="sidebar">
-                   <img class="imgPerfil" src="Imagens/livro2.jpg">
+               <img class="imgPerfil" src="">
                  <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
                     <form class="formLogout" action='login.php' method='post'>
                     <a class="sair" href="login.php">Deseja Sair?</a>
@@ -112,36 +112,43 @@
             .mudarSenha{
               position: relative;
               top: -160px;
-              background-color:;
               padding: 20px;
-              border-radius: 20%;
               font-size: 20px;
               width: 35%;
               left: -30px;
               color: white;
+              text-decoration: none;
               }
+
+              
 
 
 
               .sair{
                 background-color: gray;
                 padding: 10px;
-                position: relative;
                 top:-120px;
+                font-size: 20px;
                 text-decoration: none;
                 color: white;
+                position: relative;
+                display: inline-block;
               }
 
               .sair:hover{
-                color: blue;
                 box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
 
               }
+
+        
+
+ 
+
               
             
 
-            </style>
-            </head>
+    </style>
+    </head>
        
 
 <?php
