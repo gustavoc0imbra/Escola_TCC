@@ -127,7 +127,7 @@
             RM Aluno:<br><input readonly type="text" name="rmAluno" id="rmAluno" value="<?php echo $reg->codAluno ?>">
             <br><br><input id="" type="submit" value="Salvar">
         </form>
-            
+        
         <?php
             
          if($a == 1){

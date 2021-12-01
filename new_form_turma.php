@@ -11,7 +11,8 @@ include_once("includes/functions.php");
         $invalidDia = $_GET['invalidDia']?? null;
         $invalidTime = $_GET['invalidTime']?? null;
 
-        echo "<h1>Criar Turma</h1>";
+        echo "<h1><center>Criar Turma</center>
+        </h1>";
         ?>
         <form align="center" action='new_form2_turma.php' method='post' >
             Turma:<br><input class="form-label" type='text' required name='nomeTurma' maxlength="30" id='nomeTurma' placeholder='Exemplo Turma A' ><Br><Br>
@@ -36,7 +37,7 @@ include_once("includes/functions.php");
                 echo "Algo deu errado na busca do código, tente novamente mais tarde!";
             }
             ?>
-            Código da turma:<br><input readonly type='text' name='codTurma' id='codTurma' size='1' value='<?php echo $codTurmaBD ?>' ><br><Br>
+            Código da turma:<br><input readonly style="text-align:center" type='text' name='codTurma' id='codTurma' size='1' value='<?php echo $codTurmaBD ?>' ><br><Br>
             
             <?php
             if($invalidDia == "true"){
@@ -54,7 +55,7 @@ include_once("includes/functions.php");
             <br><input type="checkbox" name="dias[]" value="sab"> Sábado
             <br><br>
             
-            Quantidade de aulas por dia:<br><input type='number' name='qntAula' id='qntAula' min='1' max='10' value='5'><br><br>
+            Quantidade de aulas por dia:<br><input  type='number' name='qntAula' id='qntAula' min='1' max='10' value='5' ><br><br>
             Inicio das Aulas:<br>
             <select id='horas' name='horas'>
                 <?php 
@@ -131,8 +132,12 @@ include_once("includes/functions.php");
 
              <button type='submit'> Próximo &#8631;</button>
         </form>
-        <a href='view_turma.php'>Ver turmas ||</a>
-        <a href='index.php'>Menu</a>
+        <a href='view_turma.php'>
+        <button id ="btn-2" class="btn btn-primary mb-3">Ver Turmas</button>
+        </a>
+        <a href='index.php'>
+        <button id ="btn-2" class="btn btn-primary mb-3">Menu</button>
+        </a>
         <?php
     }else{
         echo "Somente administradores tem acesso a essa página!";

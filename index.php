@@ -36,7 +36,6 @@
                         
                                  <button class="butao">Turmas</button>
                                 </a>
-                             
                        </div>
 
                        <div id="corpoCardAdmin2">
@@ -45,8 +44,6 @@
                         
                                  <button class="b2">Criar</button>
                                 </a>
-                    
-                             
                        </div>
 
                        <div id="corpoCardAdmin3">
@@ -54,9 +51,7 @@
                              <a href="user_view.php?tipoSelect=aluno">
                         
                                  <button class="b3">Alunos</button>
-                                </a>
-                    
-                             
+                                </a>      
                        </div>
 
                        <div id="corpoCardAdmin4">
@@ -65,8 +60,6 @@
                         
                                  <button class="b4">Veja</button>
                                 </a>
-                    
-                             
                        </div>
 
                     
@@ -74,15 +67,11 @@
                             <button class="b5" style="font-size: 20px"> Professores </button>
                           
 
-
                           <div id="corpoCardAdmin6">
                             <a href="acervo.php">
 
                             <button class="b6" style="font-size: 9px"> <h1>Acervo digital</h1> </button>
                           </div>
-
-
-
                 </div>
 
              </div>
@@ -94,11 +83,8 @@
                        <div id="corpoAluno1">
                              <h1><p>Veja seus horários de aulas!</p></h1>
                              <a href="horarioAluno.php">
-                        
-                                 <button class="botaozinho">Horário</button>
-                      
+                                 <button class="b2">Horário</button>
                                 </a>
-                        
                        </div>
                     <p id="rodape">Desenvolvido por ...</p> 
                     
@@ -448,7 +434,61 @@
 
 
     
-  
+    #corpoCardAluno1{
+        text-align: center;
+        padding: 5px;
+        top: 50%;
+        left: 35%;
+        height:26%;
+        width: 35%;
+        transform: translate(-35%, -200%);
+        position: relative;
+        background-color: aquamarine;
+        border-radius: 25px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+        z-index: -10px;
+    }
 
+    #corpoCardAluno2{
+        text-align: center;
+        padding: 5px;
+        top: 50%;
+        left: 40%;
+        height:26%;
+        width: 35%;
+        transform: translate(-50%, -176%);
+        position: relative;
+        background-color: #76D7C4;
+        border-radius: 25px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+    }
+
+    #corpoCardAluno3{
+        text-align: center;
+        padding: 5px;
+        left: 78%;
+        height:26%;
+        width: 35%;
+        transform: translate(-44%, -218%);
+        position: relative;
+        background-color: #bfd4d8;
+        border-radius: 25px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+        z-index: -5px;
+    }
+
+    #corpoCardAluno4{
+        text-align: center;
+        padding: 5px;
+        left: 78%;
+        height:26%;
+        width: 35%;
+        transform: translate(-44%, -196%);
+        position: relative;
+        background-color: #C393FA;
+        border-radius: 25px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+
+    }
 
 </style>
