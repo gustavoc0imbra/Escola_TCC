@@ -3,8 +3,12 @@
         <meta charset="UTF-8">
         <meta description="...">
         <link rel="stylesheet" href="#">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+            body{
+                margin: 10px;
+            }
             table {
               font-family: arial, sans-serif;
               border-collapse: collapse;
@@ -17,8 +21,19 @@
               padding: 5px;
             }
 
-            tr:nth-child(even) {
+            tr{
               background-color: #dddddd;
+            }
+            body{
+                background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(0,212,255,1) 35%, rgba(0,153,255,1) 100%);;
+            }
+
+            .prox {
+                float:right;
+            }
+
+            .volt{
+                float:left;
             }
         </style>
      </head>
@@ -69,22 +84,26 @@
         </script>
         <?php
         }
-        echo "<h1>Criar Turma</h1>";
+        echo "<center><h1>Criar Turma</h1></center>";
         ?>
         <form action='new_form3_turma.php' method='post'>
-            <h2>Horário das aulas</h2><br>
-
-            <table>
+            <center><h2>Horário das aulas</h2><br></center>
+            <center>
+            <div class='tableDiv'>
+            <table class="table table-striped table-bordered"> 
+                                
                 <tr>
+                <thead class="table table-dark">
                     <?php 
                         $c = count($dias);
                         $b = 0;
                         while($b != $c){
-                            echo "<th>$dias[$b]</th>";
+                            echo "<th style='text-align:center'>$dias[$b]</th>";
                             $b++;
                         }
                     ?>
-                    <th>Horário</th>
+                    <th style="text-align:center">Horário</th>
+                    </thead>
                 </tr>
                 
                 <?php 
@@ -102,7 +121,7 @@
                             $linha1[] = $cordenadaLinha;
                           
                         ?>
-                        <select id='<?php print_r($linha1[$cordenadaLinha])?>' name='<?php print_r($linha1[$cordenadaLinha])?>'>
+                        <select class='form-select' style='width:100%;text-align:center;' id='<?php print_r($linha1[$cordenadaLinha])?>' name='<?php print_r($linha1[$cordenadaLinha])?>'>
                         <?php
                           $buscaCod = $banco->query($q);
                           $reg = $buscaCod->fetch_object();
@@ -149,9 +168,9 @@
                         $horarioFinal[] = "$horaInicio:$minInicio";
 
                         if($minInicio < 10){
-                            echo "<td>$horaInicio:0$minInicio</td>";
+                            echo "<td style='text-align:center'>$horaInicio:0$minInicio</td>";
                         }else{
-                            echo "<td>$horaInicio:$minInicio</td>";
+                            echo "<td style='text-align:center'>$horaInicio:$minInicio</td>";
                         }
                         
 
@@ -171,10 +190,10 @@
                         }
                         
                         if($minutos < 10){
-                            echo "<td>$horas:0$minutos</td>";
+                            echo "<td style='text-align:center'>$horas:0$minutos</td>";
                             $horarioFinal[] = "$horas:0$minutos";
                         }else{
-                            echo "<td>$horas:$minutos</td>";
+                            echo "<td style='text-align:center'>$horas:$minutos</td>";
                             $horarioFinal[] = "$horas:$minutos";
                         }
 
@@ -203,7 +222,7 @@
                         if($intervalo != "00"){
                             echo"<tr>";
                             for($g = 0; $g < $b; $g++){
-                                echo "<td>intervalo</td>";
+                                echo "<td style='text-align:center'>intervalo</td>";
 
                                 if($cordenadaIntervalo == null){
                                     $cordenadaIntervalo = $cordenadaLinha;
@@ -223,10 +242,10 @@
                             }
 
                             if($minutos < 10){
-                                echo "<td>$horas:0$minutos</td>";
+                                echo "<td style='text-align:center'>$horas:0$minutos</td>";
                                 $horarioFinal[] = "$horas:0$minutos";
                             }else{
-                                echo "<td>$horas:$minutos</td>";
+                                echo "<td style='text-align:center'>$horas:$minutos</td>";
                                 $horarioFinal[] = "$horas:$minutos";    
                             }
                             
@@ -244,6 +263,8 @@
                 
                 ?> 
             </table>
+            
+        </center>
             <?php
             // enviando valores de array(s)
              foreach($horarioFinal as $valuehorarioFinal)
@@ -270,9 +291,9 @@
 
             
                 
-           <br><Br> <button type='submit'> Próximo &#8631;</button>
+           <br><Br><button type='submit' class="btn btn-primary prox"> Próximo &#8631;</button>
         </form>
-        <a href='new_form_turma.php'><button>&#8630; Voltar</button></a>
+        <center><a href='new_form_turma.php'><button class="btn btn-primary volt">&#8630; Voltar</button></a></center>
         <?php
     }else{
         echo "Somente administradores tem acesso a essa página!";

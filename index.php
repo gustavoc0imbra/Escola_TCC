@@ -4,11 +4,14 @@
          <meta charset="UTF-8">
          <meta description="...">
          <link rel="stylesheet" href="Estilo/estilo.css">
-         <link rel="stylesheet" href="Estilo/main6.css">
+        
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
          <meta name="viewport" content="width=device-width, initial-scale=1">
          
          <title>Bem vindo(a)!</title>
         </head>
+        <body>
+            <header class='titulo'>Sistema de gerenciamento escolar (SGC)</header>
         <?php
              include_once "includes/config.php";
              include_once "includes/functions.php";
@@ -21,366 +24,162 @@
                 
                 require_once("navbar.php");
                 
-                if($_SESSION['tipo'] == "admin"){
+                if(($_SESSION['tipo'] == "admin") || ($_SESSION['tipo'] == "professor")){
                     
                      $nome = $_SESSION['nome'];
                      $cod = $_SESSION['user'];
                      ?> 
-                     <div id="main">
-                    <h1> Logado com sucesso admin!</h1>
-              
+                   <Br><Br>
+                 
+                <center>
+                <div class='border-gradient'>
+                    <div class="card" style="width: 18rem;">
+                       <img src="Imagens\mesa.jpg" height='284px' class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Turmas</h5>
+                            <p class="card-text">Veja, Altere, edite ou exclue uma turma</p>
+                            <a class='linkTurmas' href='view_turma.php'>Ver turmas</a>
+                            <bsckp>
+                            <?php 
+                                if($tipo != "professor"){
+                                 echo "<a class='linkTurmas' href='new_turma.php'>Criar turmas</a>";
+                                }                                
+    
+                            ?>
+                           
+                        </div>
                     </div>
-                    <p> Desenvolvido por ...</p>
-                    <br>
-                    <div id="corpoCardAdmin1">
-                             <h1><p>Veja as turmas!</p></h1>
-                             <a href="view_turma.php">
-
-                                 <button class="butao">Turmas</button>
-                                </a>
-                       </div>
-
-                       <div id="corpoCardAdmin2">
-                             <h1><p>Criei sua turma!</p></h1>
-
-                             <a href="new_form_turma.php">
-                                 <button class="b2">Criar</button>
-                                </a>
-                       </div>
-
-                       <div id="corpoCardAdmin3">
-                             <h1><p>Veja os alunos</p></h1>
-                             <a href="user_view.php?tipoSelect=aluno">
+                </div>
+                </center>
+                <center>
+                <div class='border-gradient2'>
+                       
+                       <div class="card" style="width: 18rem;">
+                       
+                           <img src="Imagens\wow-users-thumn.jpg" height='284px' class="card-img-top" alt="USERS">
+                           <div class="card-body">
+                               <h5 class="card-title">Usuarios</h5>
+                               <p class="card-text">Veja, altere, delete os usuários desse sistema</p>
+                          
+                                   <a class='linkUsers' href='user_view.php?tipoSelect=aluno'>Alunos</a>
+                                   <?php 
+                                    if($tipo == "admin"){
+                                        echo " <a class='linkUsers' href='user_view.php?tipoSelect=professores'>Professores</a>
+                                        <a class='linkUsers' href='user_view.php?tipoSelect=responsavel'>Responsaveis</a>";
+                                    }
+                                   ?>
+                           </div>
+                        </div>
+                </div>
+                </center>
+                <center>
+                <div class='border-gradient3'>
+                       
+                       <div class="card" style="width: 18rem;">
+                       
+                           <img src="Imagens\caderno.png" height='284px' class="card-img-top" alt="Disciplinas">
+                           <div class="card-body">
+                               <h5 class="card-title">Disciplinas</h5>
+                               <p class="card-text">Veja, altere ou delete as disciplinas do sistema</p>
+                                    <?php 
+                                        if($tipo == "professor"){
+                                            echo "<a class='linkDisciplinas' href='#'>Ver disciplinas</a><a class='linkDisciplinas' href='#'>Nova disciplina</a>";
+                                        }else{
+                                            echo " <a class='linkDisciplinas' href='disciplina.php'>Ver disciplinas</a>
+                                   <a class='linkDisciplinas' href='new_disciplina.php'>Nova disciplina</a>";
+                                        }
+                                    ?>
+                                  
+                           </div>
+                        </div>
+                </div>
+                </center>
+                <center>
+                <div class='border-gradient4'>
+                       
+                       <div class="card" style="width: 18rem;">
+                       
+                           <img src="Imagens\acervo.png" height='284px' class="card-img-top" alt="Acervo">
+                           <div class="card-body">
+                               <h5 class="card-title">Acervo</h5>
+                               <p class="card-text">Veja o acervou ou Adicione conteúdos ao acervo</p>
+                          
+                                   <a class='linkAcervo' href='arqProfMostrar.php'>Ver Acervo</a>
+                                   <a class='linkAcervo' href='acervo.php'>Novo conteúdo</a>
+                           </div>
+                        </div>
+                </div>
+                </center>
+               
+                <?php
+                }elseif(($_SESSION['tipo'] == "aluno") || ($_SESSION['tipo'] == "responsavel")){
+                    ?>
+                    
+                    <div class='teste' style="padding-top: 3%">
+                    <center>
+                    <div class='border-gradient '>
+                        <div class="card" style="width: 18rem; ">
+                        <img src="Imagens\mesa.jpg" height='284px' class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Horário</h5>
+                                <p class="card-text">Veja seu horário de aula de acordo com sua turma</p>
+                                <a class='linkTurmas' href='view_horario.php'>Ver horário</a>
+                            </div>
+                        </div>
+                    </div>
+                    </center>
+                    <center>
+                    <div class='border-gradient2'>
                         
-                                 <button class="b3">Alunos</button>
-                                </a>      
-                       </div>
-
-                       <div id="corpoCardAdmin4">
-                             <h1><p>Veja os reponsáveis</p></h1>
-                             <a href="user_view.php?tipoSelect=responsavel">
+                        <div class="card" style="width: 18rem;">
                         
-                                 <button class="b4">Veja</button>
-                                </a>
-                       </div>
-
-                       <div id="corpoCardAdmin5">
-                            <h1><p>Veja os professores</p></h1>
-                            <a href="user_view.php?tipoSelect=professores">
-
-                            <button class="b5"> Profs </button>
-                          </div>
-
-                          <div id="corpoCardAdmin6">
-                            <a href="acervo.php">
-                            <button class="b6"> Acervo digital </button>
-                          </div>
+                            <img src="Imagens\wow-users-thumn.jpg" height='284px' class="card-img-top" alt="USERS">
+                            <div class="card-body">
+                                <h5 class="card-title">Frequência</h5>
+                                <p class="card-text">Veja sua frequência de acordo com sua turma e suas faltas</p>
+                            
+                                    <a class='linkUsers' href='user_frequencia.php'>Ver frequência</a>
+                    
+                            </div>
+                            </div>
+                    </div>
+                    </center>
+                    <center>
+                    <div class='border-gradient3'>
+                        
+                        <div class="card" style="width: 18rem;">
+                        
+                            <img src="Imagens\caderno.png" height='284px' class="card-img-top" alt="Disciplinas">
+                            <div class="card-body">
+                                <h5 class="card-title">Notas</h5>
+                                <p class="card-text">Veja suas notas em cada disciplina e sua situação</p>
+                            
+                                    <a class='linkDisciplinas' href='user_nota.php'>Ver Notas</a>
+                            </div>
+                            </div>
+                    </div>
+                    </center>
+                    <center>
+                    <div class='border-gradient4'>
+                        
+                        <div class="card" style="width: 18rem;">
+                        
+                            <img src="Imagens\acervo.png" height='284px' class="card-img-top" alt="Acervo">
+                            <div class="card-body">
+                                <h5 class="card-title">Acervo</h5>
+                                <p class="card-text">Veja o acervo de acordo com sua turma</p>
+                            
+                                    <a class='linkAcervo' href='arqProfMostrar.php'>Ver Acervo</a>
+                                    
+                            </div>
+                            </div>
+                    </div>
+                    </center>
                 </div>
                 <?php
-                }elseif($_SESSION['tipo'] == "aluno"){
-                    ?>
-                    <div id="main">
-                    <h1> Logado com sucesso aluno!</h1>
-                     </div>
-                        <div id="corpoCardAluno1">
-                                <h1><p>Veja suas notas!</p></h1>
-                                <a href="user_nota.php">
-                                    <button class="butao">Notas</button>
-                                    </a>
-                        </div>
-                        <div id="corpoCardAluno2">
-                             <h1><p>Veja seu Horário de aula</p></h1>
-                             <a href="horarioAluno.php">
-                                 <button class="b2">Horário</button>
-                                </a>
-                       </div>
-
-                       <div id="corpoCardAluno3">
-                             <h1><p>Veja suas frequências</p></h1>
-                             <a href="user_freq.php">
-                                 <button class="b3">Frequências</button>
-                                </a>      
-                       </div>
-
-                       <div id="corpoCardAluno4">
-                            <h1><p>Acervo digital</p></h1>
-                            <a href="acervo.php">
-                            <button class="b5"> Acessar </button>
-                          </div>
-                        </div>
-                    <?php
-                }elseif($_SESSION['tipo'] == "professor"){
-                    ?>
-                    <div id="main">
-                    <h1> Logado com sucesso Professor<br><?php echo $nome; ?>!</h1>
-                    <p id="rodape">Desenvolvido por ...</p>
-                </div>
-                    <?php
-                }elseif($_SESSION['tipo'] == "responsavel"){
-                    ?>
-                    <div id="main">
-                    <h1> Logado com sucesso Responsável<br><?php echo $nome; ?>!</h1>
-                    <p id="rodape">Desenvolvido por ...</p>
-                </div>
-                    <?php
                 }
             ?>
             <?php }    ?>
+        <a class='edit' href='user_edit.php'>  Quem somos? <button type="button" class="btn btn-outline-dark">Configurações de usuário</button></a>
         </body>
 </html>
-
-<style>
-#corpoCardAdmin1{
-        text-align: center;
-        padding: 5px;
-        top: 50%;
-        left: 35%;
-        height:26%;
-        width: 35%;
-        transform: translate(-35%, -200%);
-        position: relative;
-        background-color: aquamarine;
-        border-radius: 25px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-        z-index: -10px;
-        
-    }
-
-    .butao{
-        padding: 13px;
-        border-radius: 20px;
-        top: -20px;
-        background-color: #3498DB;
-        position: relative;
-        color: white;
-        font-size: 40px;
-        border: none;
-    }
-
-    .butao:hover{
-        cursor:pointer;
-        background-color:#85C1E9;
-        border: none;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
-
-
-    }
-
-    #corpoCardAdmin2{
-        text-align: center;
-        padding: 5px;
-        top: 50%;
-        left: 40%;
-        height:26%;
-        width: 35%;
-        transform: translate(-50%, -176%);
-        position: relative;
-        background-color: #76D7C4;
-        border-radius: 25px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-    }
-
-    .b2{
-        padding: 13px;
-        top: -20px;
-        position: relative;
-        border-radius: 20px;
-        background-color: #3498DB;
-        color: white;
-        font-size: 40px;
-        border: none;
-    }
-
-    .b2:hover{
-        cursor:pointer;
-        background-color:#85C1E9;
-        border: none;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
-    }
-
-   
-
-
-    #corpoCardAdmin3
-    {
-        text-align: center;
-        padding: 5px;
-        left: 78%;
-        height:26%;
-        width: 35%;
-        transform: translate(-44%, -218%);
-        position: relative;
-        background-color: #bfd4d8;
-        border-radius: 25px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-        z-index: -5px;
-    }
-
-    .b3{
-        padding: 13px;
-        top: -20px;
-        position: relative;
-        border-radius: 20px;
-        background-color: #3498DB;
-        color: white;
-        font-size: 40px;
-        border: none;
-    }
-
-    .b3:hover{
-        cursor:pointer;
-        background-color:#85C1E9;
-        border: none;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
-    }
-
-    #corpoCardAdmin4
-    {
-        text-align: center;
-        padding: 5px;
-        left: 78%;
-        height:26%;
-        width: 35%;
-        transform: translate(-44%, -196%);
-        position: relative;
-        background-color: #C393FA;
-        border-radius: 25px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-    }
-
-    .b4{
-        padding: 13px;
-        top: -20px;
-        position: relative;
-        border-radius: 20px;
-        background-color: #3498DB;
-        color: white;
-        font-size: 40px;
-        border: none;
-    }
-
-    .b4:hover{
-        cursor:pointer;
-        background-color:#85C1E9;
-        border: none;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
-    }
-
-    #corpoCardAdmin5
-    {
-        text-align: center;
-        padding: 5px;
-        left: 60%;
-        height:26%;
-        width: 35%;
-        transform: translate(-44%, -170%);
-        position: relative;
-        background-color: #C0ECB1;
-        border-radius: 25px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-    }
-
-    .b5{
-        padding: 13px;
-        top: -20px;
-        position: relative;
-        border-radius: 20px;
-        background-color: #3498DB;
-        color: white;
-        font-size: 40px;
-        border: none;
-    }
-
-    .b5:hover{
-        cursor:pointer;
-        background-color:#85C1E9;
-        border: none;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1);
-    }
-
-  
-
-    .b6{
-        padding: 2px;
-        width:15%;
-        height: 10%;
-        left: 60%;
-        top: -955px;
-        transform: translate(130%, -150%);
-        border-radius: 20px;
-        background-color: #212132;
-        color: white;
-        font-size: 32px;
-        border: none;
-        position: relative;
-    }
-
-    .b6:hover{
-        cursor:pointer;
-        background-color:#63636F;
-        border: none;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    }
-
-    body{
-    font-family: Arial, Helvetica, sans-serif;
-    }
-    
-    #corpoCardAluno1{
-        text-align: center;
-        padding: 5px;
-        top: 50%;
-        left: 35%;
-        height:26%;
-        width: 35%;
-        transform: translate(-35%, -200%);
-        position: relative;
-        background-color: aquamarine;
-        border-radius: 25px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-        z-index: -10px;
-    }
-
-    #corpoCardAluno2{
-        text-align: center;
-        padding: 5px;
-        top: 50%;
-        left: 40%;
-        height:26%;
-        width: 35%;
-        transform: translate(-50%, -176%);
-        position: relative;
-        background-color: #76D7C4;
-        border-radius: 25px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-    }
-
-    #corpoCardAluno3{
-        text-align: center;
-        padding: 5px;
-        left: 78%;
-        height:26%;
-        width: 35%;
-        transform: translate(-44%, -218%);
-        position: relative;
-        background-color: #bfd4d8;
-        border-radius: 25px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-        z-index: -5px;
-    }
-
-    #corpoCardAluno4{
-        text-align: center;
-        padding: 5px;
-        left: 78%;
-        height:26%;
-        width: 35%;
-        transform: translate(-44%, -196%);
-        position: relative;
-        background-color: #C393FA;
-        border-radius: 25px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
-
-    }
-
-</style>

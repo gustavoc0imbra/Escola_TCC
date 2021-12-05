@@ -11,7 +11,7 @@
           $nome = $_SESSION['nome'];
           $tipo = $_SESSION['tipo'];
 
-          if($tipo == 'admin'){
+          if(($tipo == 'professor')||($tipo == 'admin')){
                
                if($extensao != "jpg" && $extensao != "png" && $extensao != "pdf" && $extensao != "docx" && $extensao != "pptx" && $extensao != "txt" && $extensao != "mp4" && $extensao != "mp3"){
                     die ("Tipo de arquivo não aceito"); 
@@ -27,7 +27,9 @@
           if($deu_certo){
               echo "<p align='center'>Arquivo Enviado com sucesso!</p>";
               $banco->query("INSERT INTO acervo (path, nome) VALUES ('$path','$nomearquivo')") or die($banco->error);
-              echo "<a href='acervo.php'><button class='btn btn-outline-secondary'>Voltar</button></a>";
+              ?>
+               <script>window.location.href='arqProfMostrar.php?new=true'</script>
+              <?php
           }
           else{
                echo "<p>Arquivo não foi enviado</p>";

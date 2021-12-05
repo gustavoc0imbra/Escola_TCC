@@ -7,8 +7,8 @@
         $tipo = $_SESSION['tipo'];
         $codArq = $_GET['codArquivo'];
 
-        
-        $deletaArq = $banco->query("DELETE FROM acervo WHERE codArquivo=$codArq") or die("<script>alert('Erro ao remover! Tente novamente!'); window.location.href='index.php'</script>");
+        if(($tipo == 'professor') || ($tipo == 'admin')){
+                $deletaArq = $banco->query("DELETE FROM acervo WHERE codArquivo=$codArq") or die("<script>alert('Erro ao remover! Tente novamente!'); window.location.href='index.php'</script>");
 
         if($deletaArq){
                 echo ("<script>alert('Arquivo deletado com sucesso =D!');</script>");
@@ -16,5 +16,10 @@
         }else{
                 echo ("<script>alert('Falha ao deletar arquivo :C !');</script>");
                 echo ("<script>window.location.href='index.php';</script>");
+        }
+        }else{
+                echo ("<script>alert('Você não tem acesso a esta página');</script>");
+                logout();
+                ?><script>window.location.href='login.php';</script><?php
         }
 ?>

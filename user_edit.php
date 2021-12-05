@@ -1,8 +1,6 @@
 <docytipe !html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="Estilo/main5.css">    
+      
 
     </head>
     <?php 
@@ -10,7 +8,7 @@
         require_once "includes/functions.php";
         $tipo = $_SESSION['tipo']?? null;
     ?>
-    <body id="bodyUserEdit">
+    <body>
     <?php 
         $edit = null;
         $delete = null;
@@ -18,12 +16,13 @@
             
 //          variaveis do user_view
             $edit = "true";
+            $user = $_SESSION['nome']?? null;
             $c = $_GET['tipoUsuario']?? null;
             $cod = $_GET['cod']?? null;
             $nome = $_GET['nome']?? null;
             $delete = $_GET['delete']?? null;
 
-            echo "<h1>Alterar dados do $c </h1>";
+            echo "<h1>Alterar dados</h1>";
         }
         
             
@@ -41,13 +40,13 @@
                         
                             $q = "DELETE FROM estudante WHERE codAluno=$cod";
                             if($banco->query($q)){
-                                echo "Usuário deletado com sucesso!";
+                                echo "<script>alert('Usuário deletado com sucesso!');</script>";
+                                echo "<script>window.location.href='user_view.php?tipoSelect=aluno'</script>";
 
                             }else{
                                 echo "Erro ao deletar aluno, Tente novamente mais tarde!";
                             }
 
-                            echo"<br><br><a href='user_view.php?tipoSelect=aluno'>voltar</a>";
                         }else{
                             $q = "DELETE FROM responsaveis where codAluno = $cod";
                             
@@ -232,12 +231,4 @@
       
 
     </body>
-
-    <style>
-    a{
-        position: relative;
-        border: none;
-        top: 20px;
-    }
-</style>
 

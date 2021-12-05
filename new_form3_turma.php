@@ -3,12 +3,17 @@
         <meta charset="UTF-8">
         <meta description="...">
         <link rel="stylesheet" href="#">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
+            body{
+                margin: 10px;
+            }
             table {
+              
               font-family: arial, sans-serif;
               border-collapse: collapse;
-              width: 100%;
+              
             }
 
             td, th {
@@ -17,8 +22,21 @@
               padding: 5px;
             }
 
-            tr:nth-child(even) {
+            tr{
               background-color: #dddddd;
+            }
+            
+
+            .prox{
+                float:right;
+            }
+            .volt{
+                float:left;
+            }
+
+            .divCheck{
+                padding: 0px;
+                margin: 0px;
             }
         </style>
     </head>
@@ -48,26 +66,23 @@
     $qntAluno = $_POST['qntAluno']?? null;
     $horarioFinalDisciplina = array();
 
-
-         
-    
-    
-    
-    
-   
-
     ?>
     <body>
-        <h1>Criar turma</h1>
-        <h2>Adicionando usuários</h2>
+        <center><h1>Criar turma</h1></center>
+        <center><h2>Adicionando usuários</h2></center>
         <form action='new_form4_turma.php' method='post'>
+            <center>
             <h3>Professores</h3>
+        </center>
             <!-- Tabela professores -->
-            <table>
-                <tr>
-                    <th>Materia</th>
-                    <th>Professor</th>
-                    <th>Professor Extra</th>
+            
+            <table class="table table-striped table-bordered"> 
+                    <tr>
+                    <thead class="table table-dark">
+                    <th style='text-align:center'>Materia</th>
+                    <th style='text-align:center'>Professor</th>
+                    <th style='text-align:center'>Professor Extra</th>
+                    </thead>
                 </tr>
                 <?php 
             
@@ -108,7 +123,7 @@
                                                 
                                     $menorCod = $reg1->minCod?? null;
                                     $maiorCod = $reg1->maxCod;
-                                    echo"<td><select id='professor[]' name='professor[]'>";
+                                    echo"<td><select class='form-select' style='width:50%;text-align:center;' id='professor[]' name='professor[]'>";
 
                                     if($menorCod != null){
 
@@ -143,7 +158,7 @@
                                         echo "<option value='0'>Nenhum</option></select>";
                                         
                                     }
-                                    echo "<td><select id='extraProf[]' name='extraProf[]'><option value='0'>Nenhum</option>";
+                                    echo "<td><select class='form-select' style='width:50%;text-align:center;' id='extraProf[]' name='extraProf[]'><option value='0'>Nenhum</option>";
                                     if($menorCod != null){
                                          // PROFESSOR EXTRA
                                          
@@ -192,6 +207,7 @@
                 
                 ?>
             </table>
+        
             <?php 
 
             $q3 = "SELECT MIN(codAluno) AS menorCod, MAX(codAluno) AS maiorCod FROM estudante;";
@@ -204,13 +220,18 @@
                     
             if($banco->query($q3)){
             ?>
+            <center>
                 <h3>Alunos</h3>
+            </center>
                 <!-- Tabela alunos -->
-                <table>
-                    <tr>
-                        <th>Add</th>
-                        <th>Aluno</th>
-                        <th>Rm</th>
+                <center>
+                <table class="table table-striped table-bordered"> 
+                        <tr>
+                        <thead class="table table-dark">
+                        <th style="text-align:center">Add</th>
+                        <th style="text-align:center">Aluno</th>
+                        <th style="text-align:center">Rm</th>
+                        </thead>
                     </tr>
                         <?php 
                         
@@ -229,9 +250,11 @@
                                 //dados mostrados dentro da tabela 'usuarios aluno'
                                 ?>
                                 <tr>
-                                    <td><input type='checkbox' name='alunos[]' id='alunos[]' value='<?php echo $reg->codAluno?>'></td>
-                                    <td><?php echo $reg->nomeAluno ?></td>
-                                    <td><?php echo $reg->codAluno ?></td>
+                                
+                                    <td style="text-align:center"><input  class="form-check-input" type='checkbox' name='alunos[]' id='alunos[]' value='<?php echo $reg->codAluno?>'></td>
+                                    <td style="text-align:center"><?php echo $reg->nomeAluno ?></td>
+                                    <td style="text-align:center"><?php echo $reg->codAluno ?></td>
+                                
                                 </tr>
                                 <?php
                                 
@@ -245,6 +268,7 @@
                         ?>
                   
                 </table>
+            </center>
             <?php
             }else{
                 echo "Erro na busca dos alunos por favor tente novamente mais tarde!";
@@ -282,9 +306,9 @@
             <input type='hidden' id='intervalo' name='intervalo' value='<?php echo $intervalo?>'>
 
 
-            <br><Br><button type='submit'> Próximo &#8631;</button>
+            <br><Br><center><button type='submit' class="btn btn-primary prox"> Próximo &#8631;</button></center>
         </form>
-        <a href='new_form_turma.php'><button>&#8630; Voltar</button></a>
+        <center><a href='new_form_turma.php'><button class="btn btn-primary volt">&#8630; Voltar</button></a></center>
         <script>
 
 

@@ -5,59 +5,80 @@
     $cod = $_SESSION['user'];
 
     $buscaImagem = $banco->query("SELECT imagemEstudante FROM estudante WHERE codAluno = $cod");
+    //$buscaImagemAdmin = 
+    $banco->query("SELECT imagemAdmin FROM administrador WHERE codAdm = $cod");
 ?>
                 <?php
-                   if ($tipo =="admin"){
+                $hoje = date('d/m/Y');
+                   if (($tipo =="admin") || ($tipo == "professor")){
                      ?>
                 <!-- sidebar lateral admin -->
-                <div id="mySidebar" class="sidebar">
-                  <div class="openbtn" id="openNav" onclick="openNav(this)"><p id="icon">&#9776; Menu</p></div>
-                      <a class="config" href="user_edit.php">&#9881;</a>
-                    <img class="imgPerfil" src="Imagens/paula.jpg">
-                  <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
-                     <a class="mudarSenha" href="you_edit.php">Mudar senha</a>
-                     <a class="sair" href="login.php">Deseja Sair?</a>    
+               
+                <div id="mySidebar" class="sidebar ">
+                      <?php  //while ($imagem = $buscaImagemAdmin->fetch_assoc()){?>
+                    <img class="imgPerfil"  src='Imagens\a.jpg'>
+                   <?php //} ?>
+                 
+                        <a class="aSidebar">
+                 <center> Bem vindo! <?php echo" $nome" ?></center></a> 
+                  <a class="aSidebar" href="user_edit.php"><center><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
+                  <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                  <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                </svg> Alterar dados</center></a>
+                <a class="aSidebar">
+                       <center><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-calendar-date-fill" viewBox="0 0 16 16">
+                        <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zm5.402 9.746c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z"/>
+                        <path d="M16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-6.664-1.21c-1.11 0-1.656-.767-1.703-1.407h.683c.043.37.387.82 1.051.82.844 0 1.301-.848 1.305-2.164h-.027c-.153.414-.637.79-1.383.79-.852 0-1.676-.61-1.676-1.77 0-1.137.871-1.809 1.797-1.809 1.172 0 1.953.734 1.953 2.668 0 1.805-.742 2.871-2 2.871zm-2.89-5.435v5.332H5.77V8.079h-.012c-.29.156-.883.52-1.258.777V8.16a12.6 12.6 0 0 1 1.313-.805h.632z"/>
+                      </svg> <?php echo $hoje ?><Br></center></a>
+                
+                     <center><a class='logout' href="login.php"><button type="button" class="btn btn-light mt-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16">
+                      <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                    </svg>Deseja Sair?</button></center></a>
+                  
                      <form class="formLogout" action='login.php' method='post'>
                   </form>
                 </div>
                      <?php
-                   }elseif($tipo == "aluno"){
+                   }elseif(($tipo == "aluno") || ($tipo == "responsavel")){
                      ?>
                 
-                <div class="openbtn" id="openNav" onclick="openNav(this)"><p id="icon">&#9776; Menu</p></div>
+               
                 <!-- sidebar lateral aluno -->
-                <div id="mySidebar" class="sidebar" stlye="height: 30px">
+                <div id="mySidebar" class="sidebar">
+                  <?php
 
-                  <?php while ($imagem = $buscaImagem->fetch_assoc()){?>
+                  $imagem = $buscaImagem->fetch_assoc()?? null;
+
+                  if($imagem == null){
+                    echo "<img class='imgPerfil'  src='Imagens/a.jpg'>";
+                  }else{
+                    ?>
                     <img class="imgPerfil" src="<?php echo $imagem['imagemEstudante'];?>">
-                   <?php } ?>
 
-                  <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
-                     <form class="formLogout" action='login.php' method='post'>
-                     <a class="sair" href="login.php">Deseja Sair?</a>
+                    <?php
+                  }
+                  ?>
+                   
+                  
+                   <a class="aSidebar">
+                 <center> Bem vindo! <?php echo" $nome" ?></center></a> 
+                  <a class="aSidebar" href="user_edit.php"><center><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
+                  <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                  <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                </svg> Alterar dados</center></a>
+                <a class="aSidebar">
+                       <center><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-calendar-date-fill" viewBox="0 0 16 16">
+                        <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zm5.402 9.746c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z"/>
+                        <path d="M16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-6.664-1.21c-1.11 0-1.656-.767-1.703-1.407h.683c.043.37.387.82 1.051.82.844 0 1.301-.848 1.305-2.164h-.027c-.153.414-.637.79-1.383.79-.852 0-1.676-.61-1.676-1.77 0-1.137.871-1.809 1.797-1.809 1.172 0 1.953.734 1.953 2.668 0 1.805-.742 2.871-2 2.871zm-2.89-5.435v5.332H5.77V8.079h-.012c-.29.156-.883.52-1.258.777V8.16a12.6 12.6 0 0 1 1.313-.805h.632z"/>
+                      </svg> <?php echo $hoje ?><Br></center></a>
+                
+                     <center><a class='logout' href="login.php"><button type="button" class="btn btn-light mt-4"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open-fill" viewBox="0 0 16 16">
+                      <path d="M1.5 15a.5.5 0 0 0 0 1h13a.5.5 0 0 0 0-1H13V2.5A1.5 1.5 0 0 0 11.5 1H11V.5a.5.5 0 0 0-.57-.495l-7 1A.5.5 0 0 0 3 1.5V15H1.5zM11 2h.5a.5.5 0 0 1 .5.5V15h-1V2zm-2.5 8c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+                    </svg>Deseja Sair?</button></center></a>
                   </form>
                 </div>
                      <?php
-                   }elseif($tipo == "professor"){
-                    ?>
-                    <div class="navbar">
-                     <div class="openbtn" id="openNav" onclick="openNav(this)"><p id="icon">&#9776; Menu</p></div>
-                     <!--<a class="aNavbar" href="">Acervo Digital</a>-->
-                     <a class="aNavbar" href=""> Tabela de Horários</a>
-                     <a class="aNavbar" href=""> Enviar Notas</a>
-                     <a class="aNavbar" href="freqselecprof.php">Enviar Frequências</a>
-                    </div>
-              </div>
-               
-               <!-- sidebar lateral prof -->
-               <div id="mySidebar" class="sidebar">
-                   <img class="imgPerfil" src="Imagens/livro2.jpg">
-                 <a class="aSidebar"><p align="center">Bem vindo!</p> <?php echo"<center>$nome</center>" ?></a>
-                    <form class="formLogout" action='login.php' method='post'>
-                    <a class="sair" href="login.php">Deseja Sair?</a>
-                 </form>
-               </div>
-               <?php }
+                   }
                 ?>
 
             <script>
@@ -87,7 +108,7 @@
             <style>
             .mudarSenha{
               position: relative;
-              top: -160px;
+              top: -250px;
               background-color:;
               padding: 20px;
               border-radius: 20%;
@@ -103,7 +124,7 @@
                 background-color: gray;
                 padding: 10px;
                 position: relative;
-                top:-120px;
+                top:-200px;
                 text-decoration: none;
                 color: white;
               }

@@ -2,35 +2,59 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            table {
-              font-family: arial, sans-serif;
-              border-collapse: collapse;
-              width: 100%;
-            }
-
-            td, th {
-              border: 1px solid grey;
-              text-align: left;
-              padding: 5px;
-            }
-
-            tr:nth-child(even) {
-              background-color: #dddddd;
-            }
-        </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <title>Usuários do osistema</title>
     </head>
+    <style>
+        a{
+            text-decoration: none;
+        }
+        table{
+            text-align: center;
+        }
+        #voltar{
+            padding: 10px;
+        }
+        #btn02{
+            position: relative;
+        }
+
+        .button{
+            margin: 0;
+            float: left;
+            margin-left: 10px;
+        }
+    </style>
     <?php 
         require_once "includes/config.php";
         require_once "includes/functions.php";
         $n = $_GET['tipoSelect']?? null;
+        $altNota = $_GET['altNota']?? null;
+        $clear = $_GET['clear']?? null;
+        $newuser = $_GET['newuser']?? null;
         $tipo = $_SESSION['tipo']?? null;
+
+        if($newuser == 'true'){
+            ?>
+                <script>window.alert('Usuário cadastrado com sucesso!, redirecionando...')</script>
+            <?php
+        }
     ?>
     <body>
         <h1>Usuários <?php echo "$n" ?></h1>
         <?php
-            if($tipo == "admin"){
-                echo "<a href='cadastro.php'>Novo usuário</a> ||";
+            if($tipo == "admin" || $tipo == "professor"){
+
+                if($tipo == "professor"){
+                    echo "<center><a href='cadastro.php'><button class='btn btn-secondary button' disabled><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-bookmark-plus-fill' viewBox='0 0 16 16'>
+                <path fill-rule='evenodd' d='M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm6.5-11a.5.5 0 0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z'/>
+              </svg> Novo usuário</button></a></center>";
+                }else{
+                    echo "<center><a href='cadastro.php'><button class='btn btn-secondary button'><svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='currentColor' class='bi bi-bookmark-plus-fill' viewBox='0 0 16 16'>
+                    <path fill-rule='evenodd' d='M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm6.5-11a.5.5 0 0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z'/>
+                  </svg> Novo usuário</button></a></center>";
+                }
+                
                 
 //                    Obtendo menor e maior valor das tabelas de usuarios
                 if($n == "aluno"){           
@@ -52,20 +76,45 @@
                     if(!$reg->menorCod == null){
                         
                         if($n == "aluno"){
+                            // alerts 
+                            if($altNota == 'true'){
+                                ?>
+                                <script>window.alert('Nota alterada/aplicada com sucesso!')</script>
+                                <?php
+                            }else if($clear == 'true'){
+                                ?>
+                                <script>window.alert('Notas do aluno zerada com sucesso!')</script>
+                                <?php
+                            }
                             ?>
-                            <a href='user_view.php?tipoSelect=responsavel'>Usuários responsavel  ||</a>
-                            <a href='user_view.php?tipoSelect=professor'>Usuários professores </a><br><Br>
-                            <table>
-                                <tr>
-                                    <th>Rm</th>
-                                    <th>Nome</th>
-                                    <th>Foto</th>
-                                    <th>Data de nasc</th>
-                                    <th>CPF</th>
-                                    <th>Turma</th>
-                                    <th>Frequência</th>
-                                    <th>Notas</th>
-                                    <th>Dados pessoais</th>
+                            <center>
+                                <?php 
+                                    if($tipo == "professor"){
+                                       echo "<a id='btn02' href='user_view.php?tipoSelect=responsavel'><button class='btn btn-secondary button' disabled>Usuários responsavel</button></a>
+                                        <a id='btn02' href='user_view.php?tipoSelect=professor'><button class='btn btn-secondary button' disabled>Usuários professores</button></a>";
+                                    }else{
+                                        echo "<a id='btn02' href='user_view.php?tipoSelect=responsavel'><button class='btn btn-secondary button'>Usuários responsavel</button></a>
+                                        <a id='btn02' href='user_view.php?tipoSelect=professor'><button class='btn btn-secondary button'>Usuários professores</button></a>";
+                                    }
+                                ?>
+              
+                                
+                                <br><Br>
+                            </center>
+                            
+                            <table class="table table-striped table-bordered"> 
+                            <tr>
+                                 <thead class="table table-dark">
+                                        <th>Rm</th>
+                                        <th>Nome</th>
+                                        <th>Foto</th>
+                                        <th>Data de nasc</th>
+                                        <th>R.G</th>
+                                        <th>Turma</th>
+                                        <th>Frequência</th>
+                                        <th>Notas</th>
+                                        <th>Dados pessoais</th>
+                                    </thead>
                                 </tr>
                         <?php
                          
@@ -95,14 +144,19 @@
                                         if($banco->query($q1)){
                                             $busca1 = $banco->query($q1);
                                             $reg1 = $busca1->fetch_object();
+                                            $codTurma = $reg1->codTurma?? null;
 
                                             echo "<td>$reg1->nomeTurma</td>";
                                         }else{
                                             echo "<td>Algo deu errado na busca da turma!</td>";
                                         }
-                                        
-                                        echo "<td><a href='user_frequencia.php'>Alterar frequencia</a></td>
-                                        <td><a href='user_nota.php?cod=$reg->codAluno&nome=$reg->nomeAluno&turma=$reg1->codTurma'>Ver Notas</a></td>
+                                        if($codTurma == '0' || $codTurma == null){
+                                            echo "<td>(Associe a uma turma)</td><td>(Associe a uma Turma)</td>";
+                                        }else{
+                                            echo "<td><a href='user_frequencia.php?cod=$reg->codAluno&nome=$reg->nomeAluno&turma=$reg1->codTurma'>Ver frequencia</a></td>
+                                        <td><a href='user_nota.php?cod=$reg->codAluno&nome=$reg->nomeAluno&turma=$reg1->codTurma'>Ver Notas</a></td>";
+                                        }
+                                        echo "
                                         <td><a href='user_edit.php?tipoUsuario=aluno&nome=$reg->nomeAluno&cod=$reg->codAluno'>alterar dados</a></td>
                                     </tr>";
                                 $c ++;
@@ -115,10 +169,12 @@
                             
 //                      tabela dos professores
                         }else if($n == "professor"){
-                            ?> 
-                            <a href="user_view.php?tipoSelect=aluno">Usuários alunos ||</a>
-                            <a href='user_view.php?tipoSelect=responsavel'>Usuários responsavel  ||</a><br><Br>
-                            <table>
+                            ?>
+                            <center>
+                                <a href="user_view.php?tipoSelect=aluno"><button class="btn btn-secondary">Usuários alunos</button></a>
+                                <a href='user_view.php?tipoSelect=responsavel'><button class="btn btn-secondary">Usuários responsavel</button></a><br><Br>
+                            </center> 
+                            <table class="table table-dark table-striped">
                                 <tr>
                                     <th>Rm</th>
                                     <th>Nome</th>
@@ -166,9 +222,11 @@
 //                      tabela dos responsaveis
                         }else{
                             ?>
-                             <a href="user_view.php?tipoSelect=aluno">Usuários alunos ||</a>
-                             <a href='user_view.php?tipoSelect=professor'>Usuários professores </a><br><Br>
-                             <table>
+                            <center>
+                                <a href="user_view.php?tipoSelect=aluno"><button class="btn btn-secondary">Usuários alunos</button></a>
+                                <a href='user_view.php?tipoSelect=professor'><button class="btn btn-secondary">Usuários professores</button></a><br><Br>
+                            </center>
+                             <table class="table table-dark table-striped">
                                  <tr>
                                      <th>Rm</th> 
                                      <th>Nome</th>
@@ -210,10 +268,10 @@
                             }echo "</table>";
                         }
                     }else{
-                        echo "<a href='user_view.php?tipoSelect=aluno'>Usuários alunos ||</a>
-                             <a href='user_view.php?tipoSelect=professor'>Usuários professores ||</a>
-                             <a href='user_view.php?tipoSelect=responsavel'>Usuários responsavel </a>
-                             <br><br>Nenhum usuário cadastrado no momento; ";
+                        echo "<center><a href='user_view.php?tipoSelect=aluno'><button class='btn btn-secondary'>Usuários alunos</button></a>
+                             <a href='user_view.php?tipoSelect=professor'><button class='btn btn-secondary'>Usuários professores</button></a>
+                             <center><a href='user_view.php?tipoSelect=responsavel'><button class='btn btn-secondary'>Usuários responsavel</button></a>
+                             <br><br><center><h1>Nenhum usuário cadastrado no momento;</h1></center> ";
                     }
                 }else{
                     echo "erro no banco de dados! tente novamente mais tarde :/";
@@ -224,10 +282,6 @@
             }
 
         ?>
-        <center>
-        <br><Br><a href="index.php">
-            <button id ="btn-2" class="btn btn-outline-primary mb-3">Voltar</button>
-        </a>
-        </center>
+        <br><Br><a id="voltar" href="index.php"><button class="btn btn-primary">Voltar</button></a>
     </body>
 </docytipe>

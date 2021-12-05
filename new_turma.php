@@ -9,7 +9,7 @@
         require_once "includes/functions.php";
         $tipo = $_SESSION['tipo']?? null;
     ?>
-    <body id="bodyt">
+    <body>
     <?php 
     
         if($tipo == "admin"){

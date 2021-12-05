@@ -3,6 +3,7 @@
 /* tirar bordas do site */
 body{
     margin:0px;
+    padding: 0px;
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden; 
@@ -40,58 +41,10 @@ h1{
  width: 20px;
 }
 
-/*Navbar no geral*/
-.navbar {
-  background-color: #0dcaf0;
-  box-shadow:0px 2px 7px #0aa3c2;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 50px;
-  z-index: 5px;
-  
- 
-}
-
-/* barra de pesquisa*/
-.pesquisa{ 
-  float:right;
-  padding: 18px 15px;
-  padding-bottom: 0px;
-  margin-bottom: 2.5px;
-  position: inline-block;
-}
-
-.navbar a{
-    
-  float:right;
-  color: rgb(0, 0, 0);
-  font-size: 16px;
-  text-align: center;
-  padding: 18px 13px;
-  text-decoration: none;
-  background-color: #0dcaf0;
-}
-.aNavbar{
-  position: relative;
-}
-
 .dropdown {
   float: right;
   overflow: hidden;
 }
-
-.dropdown .dropbtn {
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: black;
-  padding: 18px 18px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0px;
-}
-
 
 .dropdown-content {
   display: none;
@@ -138,36 +91,170 @@ h1{
 }
 
 
+.titulo{
+  border-left: 4px solid black;
+  border-radius: 2px solid black;
+  font-size: 22px;
+  text-decoration: none;
+  float: left;
+  padding-left: 1%;
+  margin-top: 2%;
+  margin-left: 20%;
+}
+
+.edit{
+  text-decoration: none;
+  float: left;
+  position: fixed;
+  color: black;
+  margin-top: 42%;
+}
+
+.mainAluno{
+  margin-top: 30%;
+}
 /* Sidebar */
 
 .sidebar {
   text-align: center;
   height: 100%;
-  width: 250px;
+  width: 19%;
   position: fixed; 
   z-index: 1; 
-  top: 59;
-  left: 0;
-  background-color: #111; 
+  background-color: #1a1a1a;
   overflow-x: hidden; 
-  padding-top: 50px; 
   transition: 0.5s; 
   margin: 0px;
-  padding-top: 20px;
+  padding-top: 80px;
+  overflow: hidden;
   padding-left: 0px;
   box-shadow:0px 5px 20px grey;
  
 }
 
+.linkTurmas{
+  
+  padding: 15px;
+  text-decoration: none;
+  color: orangered;
+  color: radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,63,38,1) 84%, rgba(253,126,55,1) 94%, rgba(253,143,60,1) 97%, rgba(252,176,69,1) 100%);
+
+}
+
+.linkTurmas:hover{
+  color: orangered;
+  color: radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,63,38,1) 84%, rgba(253,126,55,1) 94%, rgba(253,143,60,1) 97%, rgba(252,176,69,1) 100%);
+  font-weight: bold;
+}
+
+.linkUsers{
+  
+  padding: 1px;
+  font-size: 15px;
+  text-decoration: none;
+  color: rgb(158, 196, 5);
+  color: radial-gradient(circle, rgba(206,255,0,1) 0%, rgba(188,248,9,1) 44%, rgba(147,232,29,1) 63%, rgba(146,232,30,1) 64%, rgba(122,222,42,1) 86%, rgba(94,211,55,1) 94%, rgba(45,192,79,1) 100%, rgba(18,100,39,1) 100%);
+
+}
+
+.linkUsers:hover{
+  color: green;
+  font-weight: bold;
+}
+
+.linkDisciplinas{
+  
+  padding: 7px;
+  font-size: 15px;
+  text-decoration: none;
+  color: blue;
+  color: radial-gradient(circle, rgba(206,255,0,1) 0%, rgba(188,248,9,1) 44%, rgba(147,232,29,1) 63%, rgba(146,232,30,1) 64%, rgba(122,222,42,1) 86%, rgba(94,211,55,1) 94%, rgba(45,192,79,1) 100%, rgba(18,100,39,1) 100%);
+
+}
+
+.linkDisciplinas:hover{
+  color: blue;
+  font-weight: bold;
+}
+
+.linkAcervo{
+  
+  padding: 1px;
+  font-size: 15px;
+  text-decoration: none;
+  color: royalblue;
+
+}
+
+.linkAcervo:hover{
+  color: royalblue;
+  font-weight: bold;
+}
+
+.border-gradient {
+  box-shadow: 4px 9px 7px rgb(206, 206, 206);
+  margin-top: 3%;
+  margin-left: 290px;
+  position: fixed;
+  float: left;
+  border-radius: 10px;
+  padding-top: 5px;
+  width: 293px;
+  height: 449px;
+  background: rgb(131,58,180);
+  background: radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,63,38,1) 84%, rgba(253,126,55,1) 94%, rgba(253,143,60,1) 97%, rgba(252,176,69,1) 100%);
+}
+
+
+.border-gradient2 {
+  box-shadow: 4px 9px 7px rgb(206, 206, 206);
+  margin-top: 3%;
+  margin-left: 593px;
+  position: fixed;
+  border-radius: 10px;
+  padding-top: 5px;
+  width: 293px;
+  height: 449px;
+  background: rgb(206,255,0);
+  background: radial-gradient(circle, rgba(206,255,0,1) 0%, rgba(188,248,9,1) 44%, rgba(147,232,29,1) 63%, rgba(146,232,30,1) 64%, rgba(122,222,42,1) 86%, rgba(94,211,55,1) 94%, rgba(45,192,79,1) 100%, rgba(18,100,39,1) 100%);
+}
+
+.border-gradient3 {
+  box-shadow: 4px 9px 7px rgb(206, 206, 206);
+  margin-top: 3%;
+  margin-left: 893px;
+  position: fixed;
+  border-radius: 10px;
+  padding-top: 5px;
+  width: 293px;
+  height: 449px;
+  background: rgb(9,231,240);
+  background: radial-gradient(circle, rgba(9,231,240,1) 0%, rgba(0,179,255,1) 60%, rgba(0,124,255,1) 80%, rgba(0,118,255,1) 85%, rgba(0,113,255,1) 91%, rgba(0,99,255,1) 97%, rgba(0,82,255,1) 99%, rgba(0,65,255,1) 100%);
+}
+
+.border-gradient4 {
+  box-shadow: 4px 9px 7px rgb(206, 206, 206);
+  margin-top: 3%;
+  margin-left: 1197px;
+  position: fixed;
+  float: left;
+  border-radius: 10px;
+  padding-top: 5px;
+  width: 293px;
+  height: 449px;
+  background: rgb(83,9,240);
+background: radial-gradient(circle, rgba(83,9,240,1) 67%, rgba(99,6,245,1) 82%, rgba(108,4,248,1) 92%, rgba(114,3,250,1) 96%, rgba(121,2,253,1) 99%, rgba(128,0,255,1) 100%);
+}
+
+
 /* Letras de dentro da sidebar */
 .aSidebar {
   text-align: left;
-  margin-left: 20px;
+  padding-top: 20px;
   top: 0;
-  padding-bottom: 250px;
   text-decoration: none;
   font-size: 20px;
-  color: #818181;
+  color: rgb(192, 189, 189);
   display: block;
   transition: .5s;
   white-space: nowrap;
@@ -178,38 +265,22 @@ h1{
 }
 
 
-/* Botão de abrir o sidebar */
- .openbtn { 
-  float: left;
-  margin: 0;
-  cursor: pointer;
-  background-color:#0dcaf0 ;
-  padding: 0px 77px;
-  position: fixed;
-   
-}
+
 
 .openbtn:hover, #icon:hover{
     background-color: #0aa3c2;
 }
 
-/* empurrar conteudo da página */
-#main {
-  transition: margin-left .5s; /* efeito de transição*/
-  padding: 10px;
-  margin-top: 60px;
-}
-
 /* Diminuir fonte da side bar dependente da altura */
 @media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
+ 
   .sidebar a {font-size: 18px;}
 }  
 
 /* foto sidebar */
 
 .imgPerfil{
- 
+ padding-top: 10px;
  align-content: center;
  width: 180px;
  height: 220px;
@@ -218,17 +289,24 @@ h1{
 }
 
 .mudarSenha{
- 
-  color: grey;
-  display: flex;
-  margin-left:  75px;
-    white-space: nowrap;
+ text-decoration: none;
+  color: blue;
+  float: left;
+  text-align: center;
+  margin-left: 30%;
+  position: fixed;
+  margin-top: 250px;
+  white-space: nowrap;
+  
 }
 
 /* button logout */
 
-
-
+.logout{
+  text-decoration: none;
+  padding: 10px;
+  
+}
 
 
 

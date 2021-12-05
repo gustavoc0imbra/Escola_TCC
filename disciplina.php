@@ -3,6 +3,8 @@
         <meta charset="UTF-8">
         <meta description="...">
         <link rel="stylesheet" href="#">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
             table {
@@ -20,6 +22,31 @@
             tr:nth-child(even) {
               background-color: #dddddd;
             }
+
+            .newDisciplina{
+                margin: 20px;
+                margin-top: 40px;
+                float: right;
+                position: relative;
+            }
+
+            .voltar{
+                margin-top:0px;
+                margin-left: 10px;
+            }
+
+            .apagar{
+                margin: 0px;
+                text-decoration: none;
+                width: 80%;
+               
+            }
+
+            .editar{
+                margin: 0px;
+                text-decoration: none;
+                width: 80%;
+            }
         </style>
      </head>
      <?php 
@@ -32,46 +59,136 @@
          if($_SESSION['tipo'] == "admin"){
              
              $delete = $_GET['delete']?? null;
+             $alt = $_GET['alt']?? null;
+             $add = $_GET['add']?? null;
              $disciplina = $_GET['disciplina']?? null;
              $add = $_GET['add']?? null;
              
 //             Deletar disciplinas
+            $disciplinaAssociada = '0';
             if($delete == "true"){
                 $q5 = "SELECT nomeProf,codProf FROM professor WHERE codDisciplina = $disciplina;";
                 $busca5 = $banco->query($q5);
                     
                 if($disciplina != '0'){
-                    if($banco->query($q5)){
+
+                    // verificando se existe essa disciplina em alguma turma
+                    $q6 = "SELECT MIN(cod) AS menorTurma, MAX(cod) AS maiorTurma FROM turmas;";
+                    $busca6 = $banco->query($q6);
+                    $reg6 = $busca6->fetch_object();
+                    $menorTurma = $reg6->menorTurma?? null;
+                    $maiorTurma = $reg6->maiorTurma?? null;
+
+                    while($menorTurma <= $maiorTurma){
+
+                        $q6 = "SELECT codTurma FROM turmas WHERE cod = $menorTurma";
+
+                        if($banco->query($q6)){
+                            $busca6 = $banco->query($q6);
+                            $reg6 = $busca6->fetch_object();
+                            $codTurma = $reg6->codTurma?? null;
+
+                            if($codTurma != null){
+
+                                if($codTurma != '0'){
+                                    
+                                    $q7 = "SELECT MIN(cod) AS minDisciplina, MAX(cod) AS maxDisciplina FROM disciplinasturma$codTurma";
+                                    
+                                    if($banco->query($q7)){
+                                        $busca7 = $banco->query($q7);
+                                        $reg7 = $busca7->fetch_object();
+                                        $minDisciplina = $reg7->minDisciplina?? null;
+                                        $maxDisciplina = $reg7->maxDisciplina?? null;
+
+                                        while($minDisciplina <= $maxDisciplina){
+
+                                            $q7 = "SELECT disciplinas FROM disciplinasturma$codTurma WHERE cod = $minDisciplina";
+                                            
+                                            if($banco->query($q7)){
+                                                $busca7 = $banco->query($q7);
+                                                $reg7 = $busca7->fetch_object();
+                                                $disciplinaMomentanea = $reg7->disciplinas?? null;
+
+                                                if($disciplinaMomentanea == $disciplina){
+                                                   
+                                                    $disciplinaAssociada = 'true';
+
+                                                }else{
+                                                    if($disciplinaAssociada != 'true'){
+                                                        $disciplinaAssociada = 'false';
+                                                    }
+                                                    
+                                                }
+
+                                            }else{
+                                                echo "Algo deu errado ao selecionar disciplinas da turma $codTurma, por favor tente novamente mais tarde!<Br><Br>";
+                                            }
+
+                                            $minDisciplina++;
+                                        }
+                                    }else{
+                                        echo "Algo deu errado ao selecionar disciplinas da turma, por favor tente novamente mais tarde!";
+                                    }
+                                }
+
+                            }
+                           
+                        }else{
+                            echo "Algo deu errado ao selecionar turmas, tente novamente mais tarde!";
+                        }
+
+                        $menorTurma++;
+                    }
+                    
+                    if($disciplinaAssociada == 'true'){
+                    
+                        echo "Não é possivel apagar essa disciplina, pois esta associada a uma turma, por favor primeiro altere essa disciplina na turma: $codTurma";
+                   
+                    }else{
+
+                        if($banco->query($q5)){
                         
-                        if($busca5->num_rows>0){
-                                
-                            $q5 = "UPDATE professor SET codDisciplina = 0 WHERE codDisciplina = $disciplina;";
-                                
+                            if($busca5->num_rows>0){
+                                    
+                                $q5 = "UPDATE professor SET codDisciplina = 0 WHERE codDisciplina = $disciplina;";
+                                    
+                                if($banco->query($q5)){
+                                    echo "Professores dessa disciplina foram alterado para 'Sem disciplina'<br>";
+                                        
+                                }else{
+                                    echo "Erro ao mudar professores de tabela, por favor tente novamente mais tarde!<br>";
+                                }
+                                    
+                            }
+                            $q5 = "DELETE FROM disciplina Where codDisciplina = $disciplina;";
+                                    
                             if($banco->query($q5)){
-                                echo "Professores dessa disciplina foram alterado para 'Sem disciplina'<br>";
+                                echo "Disciplina Deletada com sucesso!<br>";  
                                     
                             }else{
-                                echo "Erro ao mudar professores de tabela, por favor tente novamente mais tarde!<br>";
+                                echo "Erro ao apagar disciplina, por favor tente novamente mais tarde!<br>";
                             }
                                 
-                        }
-                        $q5 = "DELETE FROM disciplina Where codDisciplina = $disciplina;";
-                                
-                        if($banco->query($q5)){
-                            echo "Disciplina Deletada com sucesso!<br>";  
-                                
                         }else{
-                            echo "Erro ao apagar disciplina, por favor tente novamente mais tarde!<br>";
-                        }
-                            
-                    }else{
-                        echo "Erro ao apagar tabela, por favor tente novamente mais tarde!<br>";
-                    } 
+                            echo "Erro ao apagar tabela, por favor tente novamente mais tarde!<br>";
+                        } 
+
+                    }
+                    
                 }else{
                     echo "Não é possivel alterar ou editar essa tabela!<Br>";
                 }
-             } 
-                 
+             }
+
+             // MSG sucesso alteração de disciplina
+             if($alt == 'true'){
+                 echo "<br>Disciplina alterada com sucesso!</br>";
+             }
+            
+            // MSG Criação de disciplina
+            if($add == 'true'){
+                echo "<br>Disciplina Criada com sucesso!</br>";
+            }
              $q = "SELECT min(codDisciplina) AS menorCodDisciplina, max(codDisciplina) AS maiorCodDisciplina FROM disciplina;";
                  
              if($banco->query($q)){
@@ -81,7 +198,11 @@
                  $menorCodDisciplina = $reg->menorCodDisciplina;
                  $maiorCodDisciplina = $reg->maiorCodDisciplina;
                      
-                 echo "<a href='new_disciplina.php'>Nova Disciplina</a><br>";
+                 echo "<a class='newDisciplina' href='new_disciplina.php'><button type='button' class='btn btn-success'>
+                 <svg xmlns='http://www.w3.org/2000/svg' width='17' height='17' fill='currentColor' class='bi bi-box-seam' viewBox='0 0 16 16'>
+                <path d='M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z'/>
+                </svg>
+                 Nova Disciplina</button></a><br>";
                      
                  if($menorCodDisciplina != null){
                          
@@ -103,10 +224,13 @@
                             
                          $q = "SELECT codDisciplina,nomeDisciplina FROM disciplina WHERE codDisciplina = $menorCodDisciplina ";
                          $busca = $banco->query($q);
+                         
                             
                          if($banco->query($q)){
                              $reg = $busca->fetch_object();
                              $regEmpty = $reg->codDisciplina?? null;
+                             $cacheDisciplina = $reg->codDisciplina?? null;
+                             $nomeDisciplina = $reg->nomeDisciplina?? null;
                                    
                             if($regEmpty == null){
                                 $menorCodDisciplina++;
@@ -216,12 +340,17 @@
                                     echo "Erro na procura do codigo de  professores";
                                 }   
                                             
-                                echo   "</td>
-                                        <td><a href='edit_disciplina.php'>Editar</a></td>";
+                              
                                         if($reg->codDisciplina == '0'){
-                                            echo "<td><a href=''></td>";
+                                            echo "<td>Indisponivel</td><td>Indisponivel</td>";
                                         }else{
-                                            echo "<td><a href='disciplina.php?disciplina=$reg->codDisciplina&delete=true'>Apagar</a></td>";
+                                            echo   "</td>
+                                            <td><center><a  href='edit_disciplina.php?disciplina=$cacheDisciplina&nomeDisciplina=$nomeDisciplina'>
+                                            <button type='button' class='btn btn-warning editar'>Editar</button>
+                                           
+                                            </a></td></center>";
+                                            echo "<td><center><a href='disciplina.php?disciplina=$reg->codDisciplina&delete=true'>
+                                            <button type='button' class='btn btn-danger apagar'>Apagar</button></a></center></td>";
                                         }
                                         echo "</tr>";
                                 $menorCodDisciplina++;
@@ -249,7 +378,8 @@
              echo "Somente administradores tem acesso a essa página!";
          }
          
-         echo "<br><br><a href='index.php'>voltar</a>";
+         echo "<br><br><a class='voltar' href='index.php'>
+         <button  type='button' class='btn btn-primary'>Voltar</button></a>";
          
      ?>
      </body>

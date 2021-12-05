@@ -19,46 +19,60 @@
             }else{
                 $nomeDisciplina = $_POST['nomeDisciplina']?? null;
                 $codDisciplina = $_POST['codDisciplina']?? null;
-                $profAdd1 = $_POST['addProf1']?? null;
-                $profAdd2 = $_POST['addProf2']?? null;
-                $profAdd3 = $_POST['addProf3']?? null;
+                $professoresAdd = $_POST['professoresAdd']?? null;
+                
+                $q = "INSERT INTO disciplina (nomeDisciplina) values ('$nomeDisciplina');";
+                if($banco->query($q)){
+                    $q = "SELECT MAX(codDisciplina) AS maxCodDisciplina FROM disciplina";
+                    if($banco->query($q)){
+                        $busca = $banco->query($q);
+                        $reg = $busca->fetch_object();
+                        $maxCodDisciplina = $reg->maxCodDisciplina;
 
-                if((empty($nomeDisciplina)||empty($codDisciplina))){
-                    
-                    echo "O nome da discplina e seu codigo são obrigatórios, por favor tente novamente!";
+                        if($professoresAdd != null){
 
-                }else{
-                    
-                    $q1 = "INSERT INTO disciplina (codDisciplina, nomeDisciplina) values('$codDisciplina','$nomeDisciplina');";
-
-                    if($banco->query($q1)){
-                        
-                        echo "Disciplina $nomeDisciplina criada com sucesso!<br>";
-
-                        if(($profAdd1 || $profAdd2 || $profAdd3) != null){
-
-                            $q2 = "UPDATE professor SET codDisciplina = $codDisciplina WHERE codProf IN ('$profAdd1','$profAdd2','$profAdd3');";
-
-                            if($banco->query($q2)){
-                                echo "Professores adicionado com sucesso a nova disciplina!<br>";
+                            $qntProf = count($professoresAdd);
+                            $c = 0;
+        
+                            while($c < $qntProf){
+                                $prof = $professoresAdd[$c];
+                                echo "Codigo da disciplina $maxCodDisciplina";
     
-                            }else{
-                                echo "Algo deu errado :/ Professores não foram adicionados a essa nova matéria";
+                                $q1 = "UPDATE professor SET codDisciplina = $maxCodDisciplina WHERE codProf = $prof";
+    
+                                if($banco->query($q1)){
+                                    ?>
+                                        <script>window.location.href='disciplina.php?add=true'</script>
+                                    <?php
+                                }else{
+                                    echo "Algo deu errado na mudança de disciplina dos professore(s), por favor tente novamente mais tarde!";
+                                    echo $q1;
+                                }
+    
+                                $c++;
                             }
+    
+                        }else{
+                            ?>
+                                <script>window.location.href='disciplina.php?add=true'</script>
+                            <?php
                         }
 
                     }else{
-                        echo "Erro ao criar disciplina, por favor tente novamente mais tarde!";
+                        echo "Algo deu errado ao selecionar as disciplinas anteriores, por favor tente novamente mais tarde!";
                     }
-
+                    
+                }else{
+                    echo "Algo deu errado ao criar disciplina, tente novamente mais tarde!";
                 }
+               
 
             }
             
         }else{
             echo "Somente administradores tem acesso a essa página :/";
         }
-        echo "<a href='index.php'>Menu</a>";
+     
     ?>
     </body>
 </DOCYTIPE>

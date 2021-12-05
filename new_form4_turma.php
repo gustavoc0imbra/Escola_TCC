@@ -3,6 +3,7 @@
         <meta charset="UTF-8">
         <meta description="...">
         <link rel="stylesheet" href="#">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
             table {
@@ -19,6 +20,17 @@
 
             tr:nth-child(even) {
               background-color: #dddddd;
+            }
+
+            .conf{
+                margin-right: 150px;
+                margin-bottom: 20px;
+                float:right;
+            }
+            .volt{
+                margin-left: 150px;
+                margin-bottom: 20px;
+                float:left;
             }
         </style>
     </head>
@@ -44,13 +56,14 @@ $qntdeAulas = count($horarioFinalDisciplina);
 
 
 ?>
-<h1>Confirmar criação</h1>
+<center><h1>Confirmar criação</h1></center>
 <?php
-echo "nome Turma: $nomeTurma,<br> codigo da turma: $codTurma,<Br> Tempo por aula: $tempPorAula,<br> tempo de intervalo: $intervalo";
+echo "<center>Nome Turma: $nomeTurma,<br> Código da turma: $codTurma,<Br> Tempo por aula: $tempPorAula,<br> Tempo de intervalo: $intervalo</center>";
 ?>
-<Br><br><h2>Professores:</h2>
+<Br><br><center><h2>Professores:</h2></center>
 <!-- Tabela dos professores -->
-<table>
+<center>
+<table class='table table-bordered table-striped table-dark' style="width:80%">
     <tr>
         <th>Rm Prof</th>
         <th>Professor</th>
@@ -133,14 +146,15 @@ echo "nome Turma: $nomeTurma,<br> codigo da turma: $codTurma,<Br> Tempo por aula
     ?>
 
 </table>
+</center>
 <?php 
     if($alunos == null){
-        echo "<h3 style='color:red'>Atenção! nenhum aluno está sendo cadastrado nessa turma</h3>";
+        echo "<center><h3 style='color:red'>Atenção! nenhum aluno está sendo cadastrado nessa turma</h3></center>";
     }else{
         ?>
-        <h2> Alunos:</h2>
+        <center><h2> Alunos:</h2>
         <!-- tabela Alunos -->
-        <table>
+        <table class='table table-bordered table-striped table-dark' style="width:80%">
             <tr>
                 <th>Nome</th>    
                 <th>Rm</th>  
@@ -165,13 +179,15 @@ echo "nome Turma: $nomeTurma,<br> codigo da turma: $codTurma,<Br> Tempo por aula
             ?>
             
         </table>
+            </center>
         <?php
     }
 ?>
 
-<h2>Horario das aulas</h2>
+<center><h2>Horario das aulas</h2></center>
 <!-- tabela do Horario das aulas -->
-<table>
+<center>
+<table class='table table-bordered table-striped table-dark' style="width:80%">
     <tr>
         <?php
         foreach($dias as $valueDias){
@@ -227,7 +243,7 @@ echo "nome Turma: $nomeTurma,<br> codigo da turma: $codTurma,<Br> Tempo por aula
    
     ?>
 </table>
-
+</center>
 <!-- Enviando valores -->
 <form action='new_turma.php' method='post'>
     
@@ -265,7 +281,11 @@ echo "nome Turma: $nomeTurma,<br> codigo da turma: $codTurma,<Br> Tempo por aula
             
 
         ?>
-        <br><Br>
-        <button type='submit' value='enviar'>Confirmar</button>
+        <br>
+        <button class="btn btn-primary conf" type='submit' value='enviar'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+  <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+  <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+</svg> Confirmar</button>
+        <a href='new_form_turma.php'><button class="btn btn-primary volt">&#8630; Voltar</button></a>
 </form>
-<br><br><a href='new_form_turma.php'><button>&#8630; Voltar</button></a>

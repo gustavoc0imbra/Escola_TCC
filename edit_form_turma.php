@@ -5,7 +5,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
-            /*table {
+            table {
               font-family: arial, sans-serif;
               width: 100%;
             }
@@ -18,7 +18,7 @@
 
             tr:nth-child(even) {
               background-color: #dddddd;
-            }*/
+            }
         </style>
     </head>
     <?php 
@@ -34,7 +34,7 @@
         ?>
 
         <h3>Horario</h3>
-         <form action='edit_turma.php' method='post'>
+         <form action='edit_form2_turma.php' method='post'>
          <table class="table table-dark table-striped">
             <tr>
                 <?php 
@@ -181,251 +181,23 @@
                   $minCod++;
                   
               }
+              
             ?>
          </table>
-         <h3>Professores</h3>
-         <!-- Tabela professores -->
-         <table class="table table-dark">
-            <tr>
-                <th>Materia</th>
-                <th>Professor</th>
-                <th>Professor Extra</th>
-            </tr>
-            <?php 
-
-                $q = "SELECT min(cod) AS minCod, max(cod) AS maxCod FROM disciplinasturma$codTurma";
-
-                if($banco->query($q)){
-                    $busca = $banco->query($q);
-                    $reg = $busca->fetch_object();
-                    $minCod = $reg->minCod;
-                    $maxCod = $reg->maxCod;
-                    
-                    while($minCod <= $maxCod){
-                        $q = "SELECT * FROM disciplinasturma$codTurma WHERE cod = $minCod;";
-
-                        if($banco->query($q)){
-                            $busca = $banco->query($q);
-                            $reg = $busca->fetch_object();
-
-                            // linhas da tabela professor
-                            echo "<tr class='table'>";
-
-                            // disciplinas
-                            $q1 = "SELECT nomeDisciplina FROM disciplina WHERE codDisciplina = '$reg->disciplinas'";
-                            $banco->query($q1);
-                            $busca1 = $banco->query($q1);
-                            $reg1 = $busca1->fetch_object();
-
-                            echo "<td>$reg1->nomeDisciplina</td>";
-
-                           // professores 
-
-                           echo "<td><select id='professor[]' name='professor[]'>";
-
-                           $q1 = "SELECT MIN(codProf) AS menorCodProf, MAX(codProf) AS maiorCodProf FROM professor where codDisciplina = $reg->disciplinas";
-                           $banco->query($q1);
-                           $busca1 = $banco->query($q1);
-                           $reg1 = $busca1->fetch_object();
-                           $menorCodProf = $reg1->menorCodProf?? null;
-                           $maiorCodProf = $reg1->maiorCodProf;
-
-                            
-                           if($menorCodProf != null){
-                                while($menorCodProf <= $maiorCodProf){
-                                    $q1 = "SELECT codProf, nomeProf FROM professor WHERE codProf = $menorCodProf";
-                                    $banco->query($q1);
-                                    $busca1 = $banco->query($q1);
-                                    $reg1 = $busca1->fetch_object();
-
-                                    echo "<option value='$reg1->codProf'>$reg1->nomeProf</option>";
-                                    $menorCodProf++;
-
-                            }
-                           }else{
-                               echo "<option value='0'>Nenhum Professor</option>";
-                             
-                           }
-                           
-                           
-                         echo "</select>";
-
-                         echo "<td><select id='extraProf[]' name='extraProf[]'>";
-
-                           $q1 = "SELECT MIN(codProf) AS menorCodProf, MAX(codProf) AS maiorCodProf FROM professor where codDisciplina = $reg->disciplinas";
-                           $banco->query($q1);
-                           $busca1 = $banco->query($q1);
-                           $reg1 = $busca1->fetch_object();
-                           $menorCodProf = $reg1->menorCodProf?? null;
-                           $maiorCodProf = $reg1->maiorCodProf;
-
-                           echo "<option value='0'>Nenhum professor</option>";
-                           if($menorCodProf != null){
-                                while($menorCodProf <= $maiorCodProf){
-                                    $q1 = "SELECT codProf, nomeProf FROM professor WHERE codProf = $menorCodProf";
-                                    $banco->query($q1);
-                                    $busca1 = $banco->query($q1);
-                                    $reg1 = $busca1->fetch_object();
-
-                                    echo "<option value='$reg1->codProf'>$reg1->nomeProf</option>";
-                                    $menorCodProf++;
-
-                            }
-                           }else{
-                               echo "<option value='0'>Nenhum Professor</option>";
-                             
-                           }
-                           
-                           
-                         echo "</select>";
-
-                         // professores Extra
-                         // 0=--
-
-
-                        // -- 
-                            $minCod++;
-                        }else{
-                            echo "Erro na busca das disciplinas, por favor tente novamente mais tarde!";
-                        }
-                    }
-                }else{
-                    echo "Erro na busca de professores dessa turma, por favor tente novamente mais tarde!";
-                }
-                
-            ?>
-         </table>
-       
-        
-               <?php 
-                $q = "SELECT cod FROM turmas where codTurma = '$codTurma'";
-                $banco->query($q);
-                $busca = $banco->query($q);
-                $reg = $busca->fetch_object();
-
-                $cod = $reg->cod;
-                
-                $q = "SELECT MIN(codAluno) AS menorCodAluno, MAX(codAluno) AS maiorCodAluno FROM estudante WHERE turma = '$cod'";
-                $banco->query($q);
-                $busca = $banco->query($q);
-                $reg = $busca->fetch_object();
-
-                $menorCodAluno = $reg->menorCodAluno?? null;
-                $maiorCodAluno = $reg->maiorCodAluno?? null;
-                
-                if($menorCodAluno == null){
-                    echo "<h3 style='color:red'>Atenção! nenhum aluno está cadastrado nessa turma</h3>";
-                }else{
-                 
-                    ?>
-                    <!-- Tabela Alunos -->
-                    <h3>Alunos da Turma</h3>
-                    <table>
-                        <tr class="table table-dark">
-                            <th>Nome</th>
-                            <th>Rm</th>
-                            <th>Retirar</th>
-                        </tr>
-
-                        <?php 
-                            while($menorCodAluno <= $maiorCodAluno){
-                                $q = "SELECT nomeAluno, codAluno FROM estudante WHERE codAluno = $menorCodAluno and turma = $cod";
-                                
-                                if($banco->query($q)){
-                                    $busca = $banco->query($q);
-                                    $reg = $busca->fetch_object();
-                                    $codAluno = $reg->codAluno?? null;
-
-                                    if($codAluno == null){
-                                        $menorCodAluno++;
-                                    }else{
-                                        echo "<td>$reg->nomeAluno</td><td>$reg->codAluno</td><td>";
-                                        echo "<input type='checkbox' name='alunos[]' id='alunos[]' value='$reg->codAluno'></tr>";
-                                        $menorCodAluno++;
-                                    }
-
-                                   
-                                }else{
-                                    echo "Erro na busca de alunos, por favor tente novamente mais tarde!";
-                                }
-                            }
-                        ?>
-                        <tr>
-                        </tr>
-                    </table>
-                    <?php
-                }
-               ?>
-               <!-- Tabela Add alunos -->
-               <h3>Adicionar Alunos</h3>
-               <table class="table table-dark">
-                   <tr>
-                       <th>Nome</th>
-                       <th>Rm</th>
-                       <th>Add</th>
-                   </tr>
-                   <?php
-                   $q = "SELECT MIN(codAluno) AS minCodAluno, MAX(codAluno) AS maxCodAluno FROM estudante WHERE turma is null or turma = '0'";
-                   $busca = $banco->query($q);
-                   $reg = $busca->fetch_object();
-                   $minCodAluno = $reg->minCodAluno?? null;
-                   $maxCodAluno = $reg->maxCodAluno?? null;
-
-                   if($minCodAluno == null){
-                       echo "todos os alunos já estão cadastrado!";
-                   }else{
-                       
-                       while($minCodAluno <= $maxCodAluno){
-                           $q = "SELECT codAluno, nomeAluno FROM estudante WHERE codAluno = $minCodAluno and turma ='0'";
-
-                           if($banco->query($q)){
-                                $busca = $banco->query($q);
-                                $reg = $busca->fetch_object();
-                                $codAluno = $reg->codAluno?? null;
-
-
-                                if($codAluno != null){
-                                    echo "<td>$reg->nomeAluno</td><td>$reg->codAluno</td><td>";
-                                    echo "<input type='checkbox' name='alunosAdd[]' id='alunosAdd[]' value='$reg->codAluno'></tr>";
-
-                                }
-                                $minCodAluno++;
-
-                           }else{
-                               echo "Erro na busca dos alunos não cadastrado em nenhuma turma, por favor tente novamente mais tarde!";
-                           }
-                       }
-                       $minCodAluno = 0;
-                       while($minCodAluno <= $maxCodAluno){
-                        $q = "SELECT codAluno, nomeAluno FROM estudante WHERE codAluno = $minCodAluno and turma is null";
-
-                        if($banco->query($q)){
-                             $busca = $banco->query($q);
-                             $reg = $busca->fetch_object();
-                             $codAluno = $reg->codAluno?? null;
-
-
-                             if($codAluno != null){
-                                 echo "<td>$reg->nomeAluno</td><td>$reg->codAluno</td><td>";
-                                 echo "<input type='checkbox' name='alunosAdd[]' id='alunosAdd[]' value='$reg->codAluno'></tr>";
-
-                             }
-                             $minCodAluno++;
-
-                        }else{
-                            echo "Erro na busca dos alunos não cadastrado em nenhuma turma, por favor tente novamente mais tarde!";
-                        }
-                    }
-                   }
-
-                   ?>
-         </table>
+              
          <!-- Enviando valores de array(s) -->
+         <?php 
+             foreach($dias as $valueDias)
+             {
+                 echo '<input type="hidden" name="dias[]" value="'. $valueDias. '">';
+             }
+         ?>
          <input type='hidden' id='codTurma' name='codTurma' value='<?php echo $codTurma?>'>
          <input type='hidden' id='totalAulas' name='totalAulas' value='<?php echo $cordenadaLinha?>'>
-         <Br><br><button type='submit'>Confirmar mudanças</button>
+         <input type='hidden' id='nomeTurma' name='nomeTurma' value='<?php echo $nomeTurma?>'>
+         <Br><br><button type='submit'>Próximo</button>
          </form>   
-        <br><a href='view_turma.php'>Voltar</a>
+        <br><a href='view_turma.php'>Voltar</a> ||
         <a href='index.php'>Menu</a>
     </body>
 </html>

@@ -1,11 +1,5 @@
 <DOCYTIPE html>
     <html lang="pt-br">
-        <head>
-            <title>cadastrar</title>
-            <meta charset="utf-8">
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-            <link rel="stylesheet" href="Estilo/estilo.css">
-        </head>
         <body>
             <div>
             <?php 
@@ -28,7 +22,6 @@
                 $cidade = $_POST['cidade']?? null;
                 $bairro = $_POST['bairro']?? null;
                 $rua = $_POST['rua']?? null;
-                $disciplina = $_POST['disciplina']?? null;
                 $imagem = $_FILES['imagem']?? null;
                 $nomeimg = $imagem['name']?? null;
                 $novonomeimg = uniqid();
@@ -42,31 +35,39 @@
                 if($tipo == ("aluno")){
 
                     if($senha1 === $senha2){
-                        
                         // VERIFICANDO SE EXISTE ALGUM VALOR NULL PARA TIPO ALUNO, PROFESSOR E ADMIN
-                        if((empty($nome)||empty($senha1)||empty($senha2)||empty($rg)||empty($cpf)||empty($datanasc)||empty($tel)||empty($cidade) ||empty($bairro)||empty($rua) ||empty($imagem))){
+                        if((empty($nome)||empty($senha1)||empty($senha2)||empty($rg)||empty($cpf)||empty($datanasc)||empty($tel)||empty($cidade) ||empty($bairro)||empty($rua))){
                         
                             echo "Todos os dados são obrigatórios!";
                         
                            
                         //APLICANDO VALORES PARA O TIPO ALUNO
-                        }else{
-                                
+                        }else{    
                                 $senha1 = gerarhash($senha1);
                                 $path = $dir . $novonomeimg . "." . $extensao;
                                 $mover = move_uploaded_file($imagem['tmp_name'], $path);
-                                if ($mover){
-                                    $q = "INSERT INTO  estudante(nomeAluno,senhaAluno,datanascAluno,rg,cpf,telefoneAluno,cidadeAluno,bairroAluno,ruaAluno,imagemEstudante) VALUES('$nome','$senha1','$datanasc','$rg','$cpf','$tel','$cidade','$bairro','$rua','$path')";
-                                if($banco->query($q)){
-                                    echo "Usuário $nome cadastrado com sucesso!";
+                                
+                                if($mover != null){
+                                    $q = "INSERT INTO  estudante(nomeAluno,senhaAluno,datanascAluno,rg,cpf,telefoneAluno,cidadeAluno,bairroAluno,ruaAluno,imagemEstudante,turma) VALUES('$nome','$senha1','$datanasc','$rg','$cpf','$tel','$cidade','$bairro','$rua','$path','')";
+                                    if($banco->query($q)){
+                                        ?>
+                                    <script>window.location.href='user_view.php?tipoSelect=aluno&newuser=true'</script>
+                                <?php
+                                    }else{
+                                        echo "Não foi possivel cadastrar o usuário $nome";
+                                    }
                                 }else{
-                                    echo "Não foi possivel cadastrar o usuário $nome";
+                                    $q = "INSERT INTO  estudante(nomeAluno,senhaAluno,datanascAluno,rg,cpf,telefoneAluno,cidadeAluno,bairroAluno,ruaAluno,turma) VALUES('$nome','$senha1','$datanasc','$rg','$cpf','$tel','$cidade','$bairro','$rua','')";
+                                    if($banco->query($q)){
+                                        ?>
+                                        <script>window.location.href='user_view.php?tipoSelect=aluno&newuser=true'</script>
+                                    <?php
+                                    }else{
+                                        echo "Não foi possivel cadastrar o usuário $nome";
+                                    }
                                 }
-                            }
-
                                 
                             }
-                    
                     }else{
                         echo "Senhas não conferem! tente novamente";
                     }
@@ -77,7 +78,7 @@
                    
                     $disciplina = $_POST['disciplina']?? null;
                     
-                    if(empty($nome)||empty($disciplina)||empty($senha1)||empty($senha2)||empty($datanasc)||empty($tel)||empty($cidade)||empty($bairro)||empty($rua)){
+                    if(empty($nome)||empty($senha1)||empty($senha2)||empty($datanasc)||empty($tel)||empty($cidade)||empty($bairro)||empty($rua)){
                         
                         echo "Todos os dados são obrigatórios!";
                     
@@ -85,13 +86,34 @@
                         
                         $senha1 = gerarhash($senha1);
                         
-                        $q = "INSERT INTO professor(codDisciplina,nomeProf,senhaProf,datanascProf,celProf,telProf,cidadeProf,bairroProf,ruaProf) VALUES ('$disciplina','$nome','$senha1','$datanasc','$cel','$tel','$cidade','$bairro','$rua')";
+                        $path = $dir . $novonomeimg . "." . $extensao;
+                        $mover = move_uploaded_file($imagem['tmp_name'], $path);
+                        if($mover == null){
+                            $q = "INSERT INTO professor(nomeProf,senhaProf,datanascProf,celProf,telProf,cidadeProf,bairroProf,ruaProf) VALUES ('$nome','$senha1','$datanasc','$cel','$tel','$cidade','$bairro','$rua')";
                         
-                        if($banco->query($q)){
-                            echo "Usuário $nome cadastradado com sucesso!";
+                            if($banco->query($q)){
+                                ?>
+                                <script>window.location.href='user_view.php?tipoSelect=aluno&newuser=true'</script>
+                            <?php
                         }else{
                             echo "Não foi possivel cadastrar o usuário $nome";
                             }
+                        }else{
+                            if($mover){
+                                $q = "INSERT INTO professor(nomeProf,senhaProf,datanascProf,celProf,telProf,cidadeProf,bairroProf,ruaProf,imagemProfessor) VALUES ('$nome','$senha1','$datanasc','$cel','$tel','$cidade','$bairro','$rua','$path')";
+    
+                                if($banco->query($q)){
+                                    ?>
+                                    <script>window.location.href='user_view.php?tipoSelect=aluno&newuser=true'</script>
+                                <?php
+                            }else{
+                                echo "Não foi possivel cadastrar o usuário $nome";
+                                }
+                            }
+    
+                        }
+                       
+                      
                         }
                     
                 // USUARIO TIPO RESPONSAVEL
@@ -160,12 +182,12 @@
                     }else{
                         
                        $senha1 = gerarhash($senha1);
-                        
-                       $q = "INSERT INTO administrador(nomeAdm,senhaAdm) VALUES ('$nome','$senha1')";
-                        
-                       if($banco->query($q)){
-                            echo "Usuário $nome cadastradado com sucesso!";
-                       }else{
+
+                            $q = "INSERT INTO administrador(nomeAdm,senhaAdm) VALUES ('$nome','$senha1')";
+                                if($banco->query($q)){
+                                        echo "Usuário $nome cadastradado com sucesso!";
+                                }
+                       else{
                             echo "Não foi possivel cadastrar o usuário $nome";
                        }
                     }
@@ -177,11 +199,5 @@
         </body>
 
         <style>
-            div{
-                 text-align: center;
-                 position: relative;
-                 font-size: 40px;
-                 
-                
-            }
+            
         </style>
