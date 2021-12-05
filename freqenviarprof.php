@@ -33,7 +33,7 @@
                     <?php
                     }?>
                     </table>
-                        <p align="center"><input type="submit" value="Enviar"></p>
+                        <p align="center"><input class="btn btn-success" type="submit" value="Enviar"></p>
                     </form>
             <?php
         }
@@ -48,8 +48,7 @@
     </head>
     <body>
         <center>
-            <a href="index.php">Menu</a><br>
-            <a href="freqselecprof.php">Voltar</a>
+            <a class="btn btn-primary" href="freqselecprof.php">voltar</a><br>
         </center>
         
     </body>

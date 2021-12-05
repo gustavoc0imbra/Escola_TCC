@@ -23,6 +23,33 @@
                 left: 16px;
                 font-size: 26px;
             }
+
+            button{
+                padding: 15px;
+                font-size: 30px;
+                background-color: #111;
+                position: relative;
+                left: 40%;
+                color: white;
+                border: none;
+
+            }
+
+            button:hover{
+                cursor: pointer;
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.8);
+            }
+
+            .bolinha{
+                padding: 15px;
+                font-size: 30px;
+                background-color: #111;
+                position: relative;
+                left: 40%;
+                color: white;
+                border: none;
+            }
+            
         </style>
     </head>
     <?php 

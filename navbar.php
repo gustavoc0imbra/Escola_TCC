@@ -111,12 +111,14 @@
               top: -250px;
               background-color:;
               padding: 20px;
-              border-radius: 20%;
               font-size: 20px;
               width: 35%;
               left: -30px;
               color: white;
+              text-decoration: none;
               }
+
+              
 
 
 
@@ -127,18 +129,24 @@
                 top:-200px;
                 text-decoration: none;
                 color: white;
+                position: relative;
+                display: inline-block;
               }
 
               .sair:hover{
-                color: blue;
                 box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
 
               }
+
+        
+
+ 
+
               
             
 
-            </style>
-            </head>
+    </style>
+    </head>
        
 
 <?php

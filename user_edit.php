@@ -227,7 +227,7 @@
         
     ?>
 
-        <a class="btn btn-primary" href="index.php" role="button">Menu</a>
+       
       
 
     </body>
